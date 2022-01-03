@@ -138,3 +138,22 @@ exports.signin = (req, res) => {
       });
     });
 };
+
+exports.verifyUSer = (req, res, next) => {
+  User.findOne({ confirmationCode: req.params.confirmationCode })
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send({ message: "Utilisateur non trouvé." });
+      }
+      user.status = "Active";
+      user.save((err) => {
+        if (err) {
+          res.status(500).send({ message: err });
+          return;
+        }
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
