@@ -14,16 +14,16 @@ const transport = nodemailer.createTransport({
 });
 
 module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
-  console.log("Check");
+  console.log("Check mail");
   transport
     .sendMail({
       from: user,
       to: email,
-      subject: "Please confirm your account",
-      html: `<h1>Email Confirmation</h1>
-        <h2>Hello ${name}</h2>
-        <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
-        <a href=http://localhost:3000/api/auth/confirm/${confirmationCode}> Click here</a>
+      subject: "Confirmation Du mail ✉",
+      html: `<div>
+        <h1>❄ Bonjour ${name} et bienvenue sur Staycold ! ❄</h1>
+        <p>Merci de bien vouloir finaliser l'inscription en cliquant sur le lien ci-dessous</p>
+        <a href=http://localhost:3000/api/auth/confirm/${confirmationCode}>➡ Finaliser l'inscription ⬅</a>
         </div>`,
     })
     .catch((err) => console.log(err));
