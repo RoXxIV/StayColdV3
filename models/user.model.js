@@ -8,6 +8,15 @@ const User = mongoose.model(
       username: String,
       email: String,
       password: String,
+      status: {
+        type: String,
+        enum: ["Pending", "Active"],
+        default: "Pending",
+      },
+      comfirmationCode: {
+        type: String,
+        unique: true,
+      },
       roles: [
         {
           type: mongoose.Schema.Types.ObjectId,
