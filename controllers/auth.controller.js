@@ -10,10 +10,13 @@ const Role = db.role;
 dotenv.config();
 
 exports.signup = (req, res) => {
+  const token = jwt.sign({ email: req.body.email }, process.env.SECRET);
+
   const user = new User({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
+    comfirmationCode: token,
   });
 
   user.save((err, user) => {
@@ -41,7 +44,8 @@ exports.signup = (req, res) => {
             }
 
             res.send({
-              message: "L'utilisateur a été enregistré avec succès!",
+              message:
+                "L'utilisateur a été enregistré avec succès! merci de vérifier votre email",
             });
           });
         }
@@ -60,7 +64,10 @@ exports.signup = (req, res) => {
             return;
           }
 
-          res.send({ message: "L'utilisateur a été enregistré avec succès!" });
+          res.send({
+            message:
+              "L'utilisateur a été enregistré avec succès! merci de vérifier votre email",
+          });
         });
       });
     }
