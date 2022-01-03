@@ -6,6 +6,7 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
 const db = require("./models");
+const Role = db.role;
 
 dotenv.config();
 
@@ -33,6 +34,9 @@ db.mongoose
 app.get("/", (req, res) => {
   res.json({ message: "Bienvenue sur StayCold API" });
 });
+
+require("./routes/auth.routes")(app);
+require("./routes/user.routes")(app);
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}.`);
