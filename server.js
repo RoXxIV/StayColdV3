@@ -6,7 +6,6 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
 const db = require("./models");
-const Role = db.role;
 
 dotenv.config();
 
@@ -24,7 +23,7 @@ db.mongoose
   })
   .then((response) => {
     console.log("Connexion à MongoDB réussie !");
-    // initial();
+    require("./plugin/init-roles")();
   })
   .catch((err) => {
     console.log("Connexion à MongoDB échouée !");
