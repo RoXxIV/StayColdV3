@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const db = require("../models");
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+const nodemailer = require("../plugin/nodemailer.config");
 
 const User = db.user;
 const Role = db.role;
@@ -10,13 +11,14 @@ const Role = db.role;
 dotenv.config();
 
 exports.signup = (req, res) => {
+  // création du token unique { comfirmationCode }
   const token = jwt.sign({ email: req.body.email }, process.env.SECRET);
 
   const user = new User({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
-    comfirmationCode: token,
+    confirmationCode: token,
   });
 
   user.save((err, user) => {
@@ -47,6 +49,11 @@ exports.signup = (req, res) => {
               message:
                 "L'utilisateur a été enregistré avec succès! merci de vérifier votre email",
             });
+            nodemailer.sendConfirmationEmail(
+              user.username,
+              user.email,
+              user.confirmationCode
+            );
           });
         }
       );
@@ -68,6 +75,11 @@ exports.signup = (req, res) => {
             message:
               "L'utilisateur a été enregistré avec succès! merci de vérifier votre email",
           });
+          nodemailer.sendConfirmationEmail(
+            user.username,
+            user.email,
+            user.confirmationCode
+          );
         });
       });
     }

@@ -13,7 +13,7 @@ const User = mongoose.model(
         enum: ["Pending", "Active"],
         default: "Pending",
       },
-      comfirmationCode: {
+      confirmationCode: {
         type: String,
         unique: true,
       },
