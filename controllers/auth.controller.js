@@ -11,7 +11,7 @@ const Role = db.role;
 dotenv.config();
 
 exports.signup = (req, res) => {
-  // création du token unique { comfirmationCode }
+  // création du token unique { comfirmationCode } pour la vérification d'email
   const token = jwt.sign({ email: req.body.email }, process.env.SECRET);
 
   const user = new User({
@@ -156,4 +156,5 @@ exports.verifyUSer = (req, res, next) => {
     .catch((err) => {
       console.log(err);
     });
+  res.json({ message: "Le compte à bien été activé!" });
 };
