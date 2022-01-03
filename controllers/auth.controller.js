@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const db = require("../models");
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+const nodemailer = require("../plugin/nodemailer.config");
 
 const User = db.user;
 const Role = db.role;
@@ -10,10 +11,14 @@ const Role = db.role;
 dotenv.config();
 
 exports.signup = (req, res) => {
+  // création du token unique { comfirmationCode } pour la vérification d'email
+  const token = jwt.sign({ email: req.body.email }, process.env.SECRET);
+
   const user = new User({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
+    confirmationCode: token,
   });
 
   user.save((err, user) => {
@@ -41,8 +46,14 @@ exports.signup = (req, res) => {
             }
 
             res.send({
-              message: "L'utilisateur a été enregistré avec succès!",
+              message:
+                "L'utilisateur a été enregistré avec succès! merci de vérifier votre email",
             });
+            nodemailer.sendConfirmationEmail(
+              user.username,
+              user.email,
+              user.confirmationCode
+            );
           });
         }
       );
@@ -60,7 +71,15 @@ exports.signup = (req, res) => {
             return;
           }
 
-          res.send({ message: "L'utilisateur a été enregistré avec succès!" });
+          res.send({
+            message:
+              "L'utilisateur a été enregistré avec succès! merci de vérifier votre email",
+          });
+          nodemailer.sendConfirmationEmail(
+            user.username,
+            user.email,
+            user.confirmationCode
+          );
         });
       });
     }
@@ -94,6 +113,13 @@ exports.signin = (req, res) => {
         });
       }
 
+      if (user.status != "Active") {
+        return res.status(401).send({
+          message:
+            "Compte en attente de validation, merci de verifier votre email",
+        });
+      }
+
       var token = jwt.sign({ id: user.id }, process.env.SECRET, {
         expiresIn: 86400, // 24 hours
       });
@@ -111,4 +137,24 @@ exports.signin = (req, res) => {
         accessToken: token,
       });
     });
+};
+
+exports.verifyUSer = (req, res, next) => {
+  User.findOne({ confirmationCode: req.params.confirmationCode })
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send({ message: "Utilisateur non trouvé." });
+      }
+      user.status = "Active";
+      user.save((err) => {
+        if (err) {
+          res.status(500).send({ message: err });
+          return;
+        }
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  res.json({ message: "Le compte à bien été activé!" });
 };
