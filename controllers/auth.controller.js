@@ -94,6 +94,13 @@ exports.signin = (req, res) => {
         });
       }
 
+      if (user.status != "Active") {
+        return res.status(401).send({
+          message:
+            "Compte en attente de validation, merci de verifier votre email",
+        });
+      }
+
       var token = jwt.sign({ id: user.id }, process.env.SECRET, {
         expiresIn: 86400, // 24 hours
       });
