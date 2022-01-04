@@ -12,7 +12,8 @@ module.exports = function (app) {
   app.post("/api/bath", controller.createBath);
   app.put("/api/bath/:id", controller.modifyBath);
   app.delete("/api/bath/:id", controller.deleteBath);
-  app.get("/api/bath", controller.getAllBath);
+  app.get("/api/bath", controller.getAllBaths);
   app.get("/api/bath/:id", controller.getOneBath);
-  app.get("/api/bath/recent/:limit", controller.getRecentBath);
+  app.get("/api/bath/recent/:limit", controller.getRecentBaths);
+  app.get("/api/bath/user/:username", controller.getUserBaths);
 };

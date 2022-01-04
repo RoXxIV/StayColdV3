@@ -28,7 +28,7 @@ exports.deleteBath = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
-exports.getAllBath = (req, res, next) => {
+exports.getAllBaths = (req, res, next) => {
   Bath.find()
     .sort(sortOptions)
     .populate("author", "username -_id")
@@ -43,10 +43,19 @@ exports.getOneBath = (req, res, next) => {
     .catch((error) => res.status(404).json({ error }));
 };
 
-exports.getRecentBath = (req, res, next) => {
+exports.getRecentBaths = (req, res, next) => {
   const limit = req.params.limit;
   Bath.find()
     .limit(Number(limit))
+    .sort(sortOptions)
+    .populate("author", "username -_id")
+    .then((baths) => res.status(200).json(baths))
+    .catch((error) => res.status(400).json({ error }));
+};
+
+exports.getUserBaths = (req, res, next) => {
+  const username = req.params.username;
+  Bath.find({ username: username })
     .sort(sortOptions)
     .populate("author", "username -_id")
     .then((baths) => res.status(200).json(baths))
