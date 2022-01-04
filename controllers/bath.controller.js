@@ -14,3 +14,9 @@ exports.createBath = (req, res, next) => {
     .then(() => res.status(201).json({ message: "Baignade enregistré !" }))
     .catch((error) => res.status(400).json({ error }));
 };
+
+exports.modifyBath = (req, res, next) => {
+  Bath.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    .then(() => res.status(200).json({ message: "Baignade edité !" }))
+    .catch((error) => res.status(400).json({ error }));
+};

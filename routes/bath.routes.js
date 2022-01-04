@@ -8,5 +8,7 @@ module.exports = function (app) {
     );
     next();
   });
+
   app.post("/api/bath", controller.createBath);
+  app.put("/api/bath/:id", controller.modifyBath);
 };
