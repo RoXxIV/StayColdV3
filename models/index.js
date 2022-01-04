@@ -12,4 +12,6 @@ db.role = require("./role.model");
 
 db.ROLES = ["user", "admin", "moderator"];
 
+db.bath = require("./bath.model");
+
 module.exports = db;
