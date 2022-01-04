@@ -15,5 +15,5 @@ module.exports = function (app) {
   app.get("/api/bath", controller.getAllBaths);
   app.get("/api/bath/:id", controller.getOneBath);
   app.get("/api/bath/recent/:limit", controller.getRecentBaths);
-  app.get("/api/bath/user/:username", controller.getUserBaths);
+  app.get("/api/bath/user/:userId", controller.getUserBaths);
 };

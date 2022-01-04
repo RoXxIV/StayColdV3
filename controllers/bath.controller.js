@@ -54,8 +54,8 @@ exports.getRecentBaths = (req, res, next) => {
 };
 
 exports.getUserBaths = (req, res, next) => {
-  const username = req.params.username;
-  Bath.find({ username: username })
+  const username = req.params.userId;
+  Bath.find({ author: username })
     .sort(sortOptions)
     .populate("author", "username -_id")
     .then((baths) => res.status(200).json(baths))
