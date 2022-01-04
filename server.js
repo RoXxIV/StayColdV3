@@ -16,6 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// connexion à la BDD
 db.mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Bienvenue sur StayCold API" });
 });
 
+// Routes
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/bath.routes")(app);
