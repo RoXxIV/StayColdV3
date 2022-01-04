@@ -42,3 +42,13 @@ exports.getOneBath = (req, res, next) => {
     .then((bath) => res.status(200).json(bath))
     .catch((error) => res.status(404).json({ error }));
 };
+
+exports.getRecentBath = (req, res, next) => {
+  const limit = req.params.limit;
+  Bath.find()
+    .limit(Number(limit))
+    .sort(sortOptions)
+    .populate("author", "username -_id")
+    .then((baths) => res.status(200).json(baths))
+    .catch((error) => res.status(400).json({ error }));
+};

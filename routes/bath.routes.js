@@ -14,4 +14,5 @@ module.exports = function (app) {
   app.delete("/api/bath/:id", controller.deleteBath);
   app.get("/api/bath", controller.getAllBath);
   app.get("/api/bath/:id", controller.getOneBath);
+  app.get("/api/bath/recent/:limit", controller.getRecentBath);
 };
