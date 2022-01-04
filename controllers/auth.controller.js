@@ -116,7 +116,7 @@ exports.signin = (req, res) => {
       if (user.status != "Active") {
         return res.status(401).send({
           message:
-            "Compte en attente de validation, merci de verifier votre email",
+            "Ce compte est en attente de validation, merci de verifier votre email",
         });
       }
 

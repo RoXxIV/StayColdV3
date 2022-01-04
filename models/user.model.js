@@ -1,6 +1,8 @@
 // import
 const mongoose = require("mongoose");
-
+/*
+  Le champs confirmationCode sert de token unique afin d'authentifier le user lors du mails de comfirmation
+*/
 const User = mongoose.model(
   "User",
   new mongoose.Schema(

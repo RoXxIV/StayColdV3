@@ -1,3 +1,4 @@
+// import
 const controller = require("../controllers/bath.controller");
 
 module.exports = function (app) {

@@ -1,5 +1,9 @@
+// import
 const mongoose = require("mongoose");
-
+/*
+  Seul les champs author, waterTemperature, timeInWater, temperatureOutside, weather.
+  Le temps maximal accepté pour les champs timeInWater & recoveryTime est de 1440min (24h).
+*/
 const Bath = mongoose.model(
   "Bath",
   new mongoose.Schema(
