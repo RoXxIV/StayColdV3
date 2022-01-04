@@ -26,3 +26,12 @@ exports.deleteBath = (req, res, next) => {
     .then(() => res.status(200).json({ message: "Baignade supprimé !" }))
     .catch((error) => res.status(400).json({ error }));
 };
+
+exports.getAllBath = (req, res, next) => {
+  const sort = { createdAt: -1 };
+  Bath.find()
+    .sort(sort)
+    .populate("author", "username -_id")
+    .then((baths) => res.status(200).json(baths))
+    .catch((error) => res.status(400).json({ error }));
+};

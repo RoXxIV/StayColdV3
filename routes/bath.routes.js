@@ -12,4 +12,5 @@ module.exports = function (app) {
   app.post("/api/bath", controller.createBath);
   app.put("/api/bath/:id", controller.modifyBath);
   app.delete("/api/bath/:id", controller.deleteBath);
+  app.get("/api/bath", controller.getAllBath);
 };
