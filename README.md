@@ -41,12 +41,15 @@ USER_MAIL=<email>
 USER_MAIL_SECRET=<Mot de passe associé à l'email>
 ```
 
-- Dans _server.js_ supprimez les commentaires avant : `// require("./plugin/init-roles")();``afin d'enregistrer les Rôles utilisateurs
+- Dans _server.js_ supprimez les commentaires avant : `// require("./plugin/init-roles")();` afin d'enregistrer les Rôles utilisateurs
   en bdd lors de la première connexion.
 
 ```
 npm install
 node server.js
+```
+
+```
 cd client
 npm install
 npm run serve
