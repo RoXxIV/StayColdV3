@@ -23,8 +23,9 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
       html: `<div>
         <h1>❄ Bonjour ${name} et bienvenue sur Staycold ! ❄</h1>
         <p>Merci de bien vouloir finaliser l'inscription en cliquant sur le lien ci-dessous</p>
-        <a href=http://localhost:3000/api/auth/confirm/${confirmationCode}>➡ Finaliser l'inscription ⬅</a>
+        <a href=http://localhost:8080/comfirmation-email-redirection/${confirmationCode}>➡ Finaliser l'inscription ⬅</a>
         </div>`,
     })
     .catch((err) => console.log(err));
 };
+// http://localhost:8000/api/auth/confirm/${confirmationCode}
