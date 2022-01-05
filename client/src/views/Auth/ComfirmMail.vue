@@ -19,7 +19,7 @@
 <script>
 import AuthServices from "../../services/auth-services";
 export default {
-  name: "Login",
+  name: "Confirm-mail",
   data() {
     return {
       time: 5,

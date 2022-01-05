@@ -3,7 +3,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "./views/Home.vue";
 import Login from "./views/Auth/Login.vue";
 import Register from "./views/Auth/Register.vue";
-import ComfirmMail from "./views/Auth/Comfirm-mail.vue";
+import ComfirmMail from "./views/Auth/ComfirmMail.vue";
 
 const routes = [
   {
@@ -23,7 +23,7 @@ const routes = [
   },
   {
     path: "/comfirmation-email-redirection/:confirmationCode?",
-    name: "ComfirmMail",
+    name: "Confirm-mail",
     component: ComfirmMail,
   },
 ];
