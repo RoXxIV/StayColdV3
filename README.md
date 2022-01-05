@@ -16,7 +16,7 @@ afin d’en tirer quelques statistiques et pourquoi pas les optimiser par la sui
 - une section de cette application sera dédié au bénéfices de la baignade en eau froide avec pour chacun, l'article scientifique associé d'entre eux
 - ...
 
-Démonstration du projet, déployé avec **Heroku** [Link](https://staycold.herokuapp.com/)
+Démonstration du projet v2, déployé avec **Heroku** [Link](https://staycold.herokuapp.com/)
 
 # MEVN stack
 
