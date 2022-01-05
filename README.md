@@ -13,7 +13,7 @@ afin d’en tirer quelques statistiques et pourquoi pas les optimiser par la sui
 - un utilisateur doit également être en mesure de modifier ou supprimer ses baignades
 - un utilisateur (connecté) à accès a une page de profil personnel regroupant un certain nombre d'informations et statistiques concernant ses baignades
 - un utilisateur (connecté ou non) peut afficher les baignades des autres utilisateur.
-- une section de cette application sera dédié au bénéfices de la baignade en eau froide avec pour chacun, l'article scientifique associé d'entre eux
+- une section de cette application sera dédié au bénéfices de la baignade en eau froide avec pour chacun, l'article scientifique associé.
 - ...
 
 Démonstration du projet v2, déployé avec **Heroku** [Link](https://staycold.herokuapp.com/)
