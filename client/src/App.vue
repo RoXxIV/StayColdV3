@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import MyHeader from "./components/Structure/MyHeader.vue";
+import MyHeader from "./components/Structure/Header/MyHeader.vue";
 export default {
   name: "App",
   components: { MyHeader },
