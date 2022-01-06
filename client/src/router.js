@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import Login from "./views/Auth/Login.vue";
 import Register from "./views/Auth/Register.vue";
 import ComfirmMail from "./views/Auth/ComfirmMail.vue";
+import PageNotFound from "./views/PageNotFound.vue";
 
 const routes = [
   {
@@ -22,10 +23,11 @@ const routes = [
     component: Register,
   },
   {
-    path: "/comfirmation-email-redirection/:confirmationCode?",
+    path: "/comfirmation-email-redirection/:confirmationCode",
     name: "Confirm-mail",
     component: ComfirmMail,
   },
+  { path: "/:pathMatch(.*)*", name: "not-found", component: PageNotFound },
 ];
 
 const router = createRouter({

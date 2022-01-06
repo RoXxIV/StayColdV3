@@ -142,19 +142,29 @@ exports.signin = (req, res) => {
 exports.verifyUSer = (req, res, next) => {
   User.findOne({ confirmationCode: req.params.confirmationCode })
     .then((user) => {
+      // code de comfirmation incorrect
       if (!user) {
-        return res.status(404).send({ message: "Utilisateur non trouvé." });
+        return res.status(401).send({ message: "Utilisateur non trouvé." });
       }
+      // Si le profile est deja activé
+      if (user.status === "Active") {
+        return res.status(401).send({
+          message: "Cet email a deja été verifié",
+        });
+      }
+
       user.status = "Active";
+
       user.save((err) => {
         if (err) {
           res.status(500).send({ message: err });
           return;
         }
+        res.json({ message: "Le compte à bien été activé!" });
       });
     })
     .catch((err) => {
       console.log(err);
     });
-  res.json({ message: "Le compte à bien été activé!" });
+  //
 };
