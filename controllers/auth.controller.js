@@ -148,7 +148,7 @@ exports.verifyUSer = (req, res, next) => {
       }
       // Si le profile est deja activé
       if (user.status === "Active") {
-        return res.status(401).send({
+        return res.status(403).send({
           message: "Cet email a deja été verifié",
         });
       }

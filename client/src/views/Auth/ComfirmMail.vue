@@ -33,7 +33,7 @@ export default {
     /*
       Si le mail est validé et l'utilisateur confirmé,
       il recoit une confirmation avant d'etre redirigé vers la page de connexion.
-      En cas d'erreur avec un status 401 (utilisateur non trouvé, compte dejà actif),
+      En cas d'erreur avec un status 401 ou 403 (utilisateur non trouvé, compte dejà actif),
       l'utilisateur est avertit puis redirigé vers la page d'acceuil.
     */
     sendComfirmationCode(code) {
@@ -46,7 +46,10 @@ export default {
           if (error.response) {
             console.log("status", error.response.status);
             this.isComfirmed = false;
-            if (error.response.status === 401) {
+            if (
+              error.response.status === 401 ||
+              error.response.status === 403
+            ) {
               this.errorMsg = error.response.data.message;
             } else {
               console.log("status", error.response.status);
