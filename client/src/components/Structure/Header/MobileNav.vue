@@ -1,5 +1,5 @@
 <template>
-  <div id="mobile-nav">
+  <div v-if="isDisplayed" id="mobile-nav">
     <ul>
       <li>
         <router-link to="/">Acceuil</router-link>
@@ -26,8 +26,12 @@
 </template>
 
 <script>
+import { boolean } from "yup/lib/locale";
 export default {
   name: "my-header",
+  props: {
+    isDisplayed: boolean,
+  },
 };
 </script>
 
