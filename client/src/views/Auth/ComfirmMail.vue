@@ -2,12 +2,12 @@
   <section>
     <!--email comfirmé-->
     <div v-if="isComfirmed">
-      <h2>Votre email a bien été confirmé</h2>
+      <h2>{{ message }}</h2>
       <router-link to="/connexion">Se connecter</router-link>
     </div>
     <!--erreur durant la confirmation du mail-->
     <div v-else>
-      <h2>Une erreur est survenue</h2>
+      <h2>{{ errorMsg }}</h2>
     </div>
     <!--Redirection-->
     <div>
@@ -25,40 +25,51 @@ export default {
       time: 5,
       isComfirmed: true,
       redirectionTimerId: undefined,
+      message: "",
+      errorMsg: "",
     };
   },
   methods: {
+    /*
+      Si le mail est validé et l'utilisateur confirmé,
+      il recoit une confirmation avant d'etre redirigé vers la page de connexion.
+      En cas d'erreur avec un status 401 (utilisateur non trouvé, compte dejà actif),
+      l'utilisateur est avertit puis redirigé vers la page d'acceuil.
+    */
     sendComfirmationCode(code) {
       AuthServices.verifyUser(code)
-        .then(() => {
-          // Email comfirmé, redirection vers la page de connexion apres 5 sec
-          this.redirectionTimerId = setInterval(() => {
-            this.time--;
-            if (this.time === 0) {
-              clearInterval(this.redirectionTimerId);
-              this.$router.push("/connexion");
-            }
-          }, 1000);
+        .then((response) => {
+          this.message = response.message;
+          this.Redirection();
         })
-        .catch((err) => {
-          // Erreur lors de la confirmation, redirection vers la page d'acceuil apres 5 sec
-          console.log("erreur de confirmation", err);
-          this.isComfirmed = false;
-          this.redirectionTimerId = setInterval(() => {
-            this.time--;
-            if (this.time === 0) {
-              clearInterval(this.redirectionTimerId);
-              this.$router.push("/");
+        .catch((error) => {
+          if (error.response) {
+            console.log("status", error.response.status);
+            this.isComfirmed = false;
+            if (error.response.status === 401) {
+              this.errorMsg = error.response.data.message;
+            } else {
+              console.log("status", error.response.status);
             }
-          }, 1000);
+            this.Redirection();
+          }
         });
+    },
+    Redirection() {
+      this.redirectionTimerId = setInterval(() => {
+        this.time--;
+        if (this.time === 0) {
+          clearInterval(this.redirectionTimerId);
+          this.isComfirmed
+            ? this.$router.push("/connexion")
+            : this.$router.push("/");
+        }
+      }, 1000);
     },
   },
   created() {
     if (this.$route.params.confirmationCode) {
       this.sendComfirmationCode(this.$route.params.confirmationCode);
-    } else {
-      this.isComfirmed = false;
     }
   },
 };
