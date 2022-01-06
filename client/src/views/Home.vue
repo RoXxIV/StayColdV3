@@ -1,16 +1,11 @@
 <template>
-  <button @click="logout">Deconnexion</button>
+  <p>home works</p>
 </template>
 
 <script>
 export default {
   name: "Home",
   components: {},
-  methods: {
-    logout() {
-      this.$store.dispatch("auth/logout");
-    },
-  },
 };
 </script>
 

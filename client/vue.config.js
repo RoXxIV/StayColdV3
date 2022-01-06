@@ -7,3 +7,15 @@ module.exports = {
     },
   },
 };
+module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: `
+          @import "@/assets/styles/app.scss";
+          @import "@/assets/styles/global.scss";
+        `,
+      },
+    },
+  },
+};
