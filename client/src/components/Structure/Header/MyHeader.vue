@@ -13,19 +13,19 @@
           <li><router-link to="/">Acceuil </router-link></li>
           <li><router-link to="/">Baignades</router-link></li>
           <!-----Nav User----->
-          <li v-if="logged" id="profil-link">
+          <li v-if="loggedIn" id="profil-link">
             <router-link to="/">Profil </router-link>
           </li>
         </ul>
         <!-----Nav d'authentification----->
         <ul id="auth-nav">
-          <li v-if="!logged">
+          <li v-if="!loggedIn">
             <router-link to="/connexion">Connexion</router-link>
           </li>
-          <li v-if="!logged">
+          <li v-if="!loggedIn">
             <router-link to="/inscription">Inscription</router-link>
           </li>
-          <li v-if="logged" @click.prevent="logOut">Deconnexion</li>
+          <li v-if="loggedIn" @click.prevent="logout">Deconnexion</li>
         </ul>
       </nav>
       <!-----Toggle Menu Burger Mobile----->
@@ -55,8 +55,12 @@ export default {
   data() {
     return {
       showMobileMenu: false,
-      logged: false,
     };
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
   },
   methods: {
     ToggleBurgerMenu() {
@@ -66,6 +70,7 @@ export default {
     },
     logout() {
       this.$store.dispatch("auth/logout");
+      this.$router.push("/");
     },
   },
 };

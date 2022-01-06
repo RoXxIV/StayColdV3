@@ -56,8 +56,8 @@ export default {
   methods: {
     handleLogin(user) {
       this.$store.dispatch("auth/login", user).then(
-        (response) => {
-          console.log(response);
+        () => {
+          this.$router.push("/");
         },
         (error) => {
           this.message =
