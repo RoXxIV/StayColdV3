@@ -105,6 +105,9 @@ section {
   position: absolute;
   top: 0;
   left: 0;
+  @media (max-width: 991.98px) {
+    display: none;
+  }
 }
 
 #blocs {
@@ -112,12 +115,27 @@ section {
   width: 75%;
   justify-content: space-around;
   margin: 150px auto 0px auto;
+  @media (max-width: 991.98px) {
+    width: 100%;
+    margin: 30px 0px 0px 0px;
+    margin-top: 20;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /*__Illustration__ */
 #illustration {
   margin-top: 50px;
   animation: float 6s ease-in-out infinite;
+  @media (max-width: 991.98px) {
+    max-width: 200px;
+    margin: 0;
+  }
+  @media (max-width: 611.98px) {
+    max-width: 100px;
+    margin: 0;
+  }
 }
 
 @keyframes float {
@@ -133,26 +151,35 @@ section {
 }
 
 /*__Form__*/
+
+form {
+  @media (max-width: 611.98px) {
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  input {
+    margin: 35px 0px 15px 20px;
+    border: none;
+    border-bottom: 2px solid $gray;
+    width: 280px;
+    transition: border-color 0.3s;
+    &:focus {
+      border-color: $blue;
+    }
+    @media (max-width: 611.98px) {
+      margin: 20px 0;
+    }
+  }
+}
+
 span {
   display: block;
   color: $blue;
-}
-
-label {
-  display: block;
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-input {
-  margin: 35px 0px 15px 20px;
-  border: none;
-  border-bottom: 2px solid $gray;
-  width: 280px;
-  transition: border-color 0.3s;
-  &:focus {
-    border-color: $blue;
-  }
 }
 
 .error-feedback {

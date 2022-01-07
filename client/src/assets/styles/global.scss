@@ -39,6 +39,12 @@ html {
       text-align: center;
       color: $gray;
       margin: 50px 0;
+      @media (max-width: 991.98px) {
+        font-size: 36px;
+      }
+      @media (max-width: 611.98px) {
+        font-size: 24px;
+      }
     }
 
     ul {
