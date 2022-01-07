@@ -7,14 +7,16 @@ $gray-card: #c4c4c4;
 /* Mixins __________*/
 @mixin button($borderColor, $backgroundColor) {
   border: 1px solid $borderColor;
+  color: black;
   background-color: $backgroundColor;
   padding: 7px 14px;
   border-radius: 5px;
   cursor: pointer;
   margin: 15px auto 0 auto;
   display: block;
-  &:hover {
-    color: white;
-    background: $gray;
-  }
+}
+
+@mixin buttonHover($textColor, $backgroundColor) {
+  color: $textColor;
+  background: $backgroundColor;
 }
