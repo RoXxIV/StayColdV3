@@ -25,7 +25,13 @@
           <li v-if="!loggedIn">
             <router-link to="/inscription">Inscription</router-link>
           </li>
-          <li v-if="loggedIn" @click.prevent="logout">Deconnexion</li>
+          <li v-if="loggedIn" @click.prevent="logout">
+            Deconnexion
+            <font-awesome-icon
+              class="font-awesome-icon"
+              :icon="['fa', 'sign-out-alt']"
+            />
+          </li>
         </ul>
       </nav>
       <!-----Toggle Menu Burger Mobile----->
@@ -84,6 +90,7 @@ header {
   padding: 20px 50px 20px 20px;
   font-weight: bold;
   border-bottom: 1px solid $gray;
+  color: $gray;
   @media (max-width: 991.98px) {
     flex-direction: column;
     justify-content: center;
