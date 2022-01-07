@@ -94,22 +94,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  width: 100vw;
-}
-
-#waves {
-  position: absolute;
-  top: 0;
-  left: 0;
-  @media (max-width: 991.98px) {
-    display: none;
-  }
-}
-
+/*__General__*/
 #blocs {
   display: flex;
   width: 75%;
@@ -122,6 +107,22 @@ section {
     flex-direction: column;
     align-items: center;
   }
+}
+
+#waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @media (max-width: 991.98px) {
+    display: none;
+  }
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100vw;
 }
 
 /*__Illustration__ */
@@ -151,37 +152,6 @@ section {
 }
 
 /*__Form__*/
-
-form {
-  @media (max-width: 611.98px) {
-    text-align: center;
-  }
-
-  label {
-    display: block;
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  input {
-    margin: 35px 0px 15px 20px;
-    border: none;
-    border-bottom: 2px solid $gray;
-    width: 280px;
-    transition: border-color 0.3s;
-    &:focus {
-      border-color: $blue;
-    }
-    @media (max-width: 611.98px) {
-      margin: 20px 0;
-    }
-  }
-}
-
-span {
-  display: block;
-  color: $blue;
-}
-
 .error-feedback {
   color: $red;
   margin-bottom: 20px;
@@ -203,5 +173,34 @@ span {
   text-align: center;
   margin-top: 20px;
   color: $red;
+}
+
+form {
+  @media (max-width: 611.98px) {
+    text-align: center;
+  }
+  label {
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  input {
+    margin: 35px 0px 15px 20px;
+    border: none;
+    border-bottom: 2px solid $gray;
+    width: 280px;
+    transition: border-color 0.3s;
+    &:focus {
+      border-color: $blue;
+    }
+    @media (max-width: 611.98px) {
+      margin: 20px 0;
+    }
+  }
+}
+
+h1 span {
+  display: block;
+  color: $blue;
 }
 </style>
