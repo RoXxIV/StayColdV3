@@ -47,9 +47,9 @@ html {
     }
 
     button {
-      @include button($gray, white);
+      @include button($black, $gray, $white);
       &:hover {
-        @include buttonHover(white, $gray)
+        @include buttonHover($white, $gray);
       }
     }
   }
@@ -57,6 +57,8 @@ html {
 
 /* Classes __________*/
 .btn-blue {
-  @include button(&blue, $blue);
+  @include button($white, $blue, $blue);
+  &:hover {
+    @include buttonHover($blue, $white);
+  }
 }
-
