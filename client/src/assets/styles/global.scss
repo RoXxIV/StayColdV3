@@ -7,15 +7,15 @@
   text-decoration: none;
   transition: all 0.2s ease 0s;
   font-family: "Space Mono", monospace;
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+  &:hover {
+    transition: all 0.2s ease 0s;
+  }
 }
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-*:hover {
-  transition: all 0.2s ease 0s;
-}
+
 html {
   font-size: 100%;
   box-sizing: border-box;
