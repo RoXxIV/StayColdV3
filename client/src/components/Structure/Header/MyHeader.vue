@@ -13,35 +13,40 @@
           <li><router-link to="/">Acceuil </router-link></li>
           <li><router-link to="/">Baignades</router-link></li>
           <!-----Nav User----->
-          <li v-if="logged" id="profil-link">
+          <li v-if="loggedIn" id="profil-link">
             <router-link to="/">Profil </router-link>
           </li>
         </ul>
         <!-----Nav d'authentification----->
         <ul id="auth-nav">
-          <li v-if="!logged">
+          <li v-if="!loggedIn">
             <router-link to="/connexion">Connexion</router-link>
           </li>
-          <li v-if="!logged">
+          <li v-if="!loggedIn">
             <router-link to="/inscription">Inscription</router-link>
           </li>
-          <li v-if="logged" @click.prevent="logOut">Deconnexion</li>
+          <li v-if="loggedIn" @click.prevent="logout" id="logout">
+            Deconnexion
+            <font-awesome-icon
+              class="font-awesome-icon"
+              :icon="['fa', 'sign-out-alt']"
+            />
+          </li>
         </ul>
       </nav>
       <!-----Toggle Menu Burger Mobile----->
       <div id="icon-burger">
-        <IconBurger
-          @click="
-            ToggleBurgerMenu();
-            showMobileMenu = !showMobileMenu;
-          "
-          id="btn-burger"
-        />
+        <IconBurger @click="ToggleBurgerMenu()" id="btn-burger" />
       </div>
     </header>
     <!-----Mobile Nav----->
     <transition name="fade">
-      <MobileNav :isDisplayed="showMobileMenu" />
+      <MobileNav
+        v-if="toggleMobileMenu"
+        @closeMenu="ToggleBurgerMenu"
+        @logout="logout"
+        :propsLoggedIn="loggedIn"
+      />
     </transition>
   </div>
 </template>
@@ -54,18 +59,24 @@ export default {
   components: { IconBurger, MobileNav },
   data() {
     return {
-      showMobileMenu: false,
-      logged: false,
+      toggleMobileMenu: false,
     };
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
   },
   methods: {
     ToggleBurgerMenu() {
       const burger = document.getElementById("btn-burger");
       burger.classList.toggle("opened");
       burger.setAttribute("aria-expanded", burger.classList.contains("opened"));
+      this.toggleMobileMenu = !this.toggleMobileMenu;
     },
     logout() {
       this.$store.dispatch("auth/logout");
+      this.$router.push("/");
     },
   },
 };
@@ -79,12 +90,25 @@ header {
   padding: 20px 50px 20px 20px;
   font-weight: bold;
   border-bottom: 1px solid $gray;
+  color: $gray;
+  @media (max-width: 991.98px) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  @media (max-width: 667.98px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
   /* Logo __________*/
   #logo {
     display: flex;
     align-items: center;
     margin-right: 100px;
     font-size: 24px;
+    @media (max-width: 991.98px) {
+      margin-right: 0;
+    }
     img {
       max-width: 57px;
       margin-right: 10px;
@@ -96,6 +120,12 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    @media (max-width: 991.98px) {
+      justify-content: space-around;
+    }
+    @media (max-width: 667.98px) {
+      display: none;
+    }
     /* Default __________*/
     #default-nav {
       display: flex;
@@ -116,6 +146,14 @@ header {
       display: flex;
       li {
         margin: 0px 10px;
+      }
+      #logout {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        .font-awesome-icon {
+          margin-left: 10px;
+        }
       }
     }
   }

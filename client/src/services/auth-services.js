@@ -14,9 +14,6 @@ class AuthService {
           localStorage.setItem("user", JSON.stringify(response.data));
         }
         return response.data;
-      })
-      .catch((err) => {
-        console.log("auth-service: ", err);
       });
   }
 

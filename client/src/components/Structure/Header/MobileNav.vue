@@ -1,38 +1,61 @@
 <template>
-  <div v-if="isDisplayed" id="mobile-nav">
+  <div id="mobile-nav">
     <ul>
-      <li>
+      <li @click="$emit('closeMenu')">
         <router-link to="/">Acceuil</router-link>
       </li>
-      <li>
+      <li @click="$emit('closeMenu')">
         <router-link to="/">Baignades</router-link>
       </li>
     </ul>
     <ul>
-      <li>
-        <router-link to="/">Connexion</router-link>
+      <li v-if="!propsLoggedIn" @click="$emit('closeMenu')">
+        <router-link to="/connexion">Connexion</router-link>
       </li>
-      <li>
-        <router-link to="/">Inscription</router-link>
+      <li v-if="!propsLoggedIn" @click="$emit('closeMenu')">
+        <router-link to="/inscription">Inscription</router-link>
       </li>
     </ul>
     <ul>
-      <li>
+      <li v-if="propsLoggedIn" @click="$emit('closeMenu')">
         <router-link to="/">Profil</router-link>
       </li>
-      <li>Deconnexion</li>
+      <li
+        v-if="propsLoggedIn"
+        @click="$emit('closeMenu')"
+        @click.prevent="$emit('logout')"
+        id="mobile-logout"
+      >
+        Deconnexion
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { boolean } from "yup/lib/locale";
 export default {
   name: "my-header",
   props: {
-    isDisplayed: boolean,
+    propsLoggedIn: Boolean,
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#mobile-nav {
+  position: absolute;
+  width: 100%;
+  font-size: 1.3em;
+  z-index: 1;
+  ul {
+    margin: 0;
+    li {
+      background: $white;
+      padding: 10px 0px 10px 15px;
+    }
+    #mobile-logout {
+      cursor: pointer;
+    }
+  }
+}
+</style>

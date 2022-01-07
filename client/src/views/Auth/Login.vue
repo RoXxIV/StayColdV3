@@ -2,18 +2,18 @@
   <section>
     <!--Illustration-wave-->
     <img
-        id="waves"
-        src="@/assets/images/form-login-waves.svg"
-        alt="vague de decoration"
+      id="waves"
+      src="@/assets/images/form-login-waves.svg"
+      alt="vague de decoration"
     />
 
     <div id="blocs">
       <!--Illustration-->
       <div>
         <img
-            id="illustration"
-            src="@/assets/images/login-illustration.svg"
-            alt="personnage qui medite"
+          id="illustration"
+          src="@/assets/images/login-illustration.svg"
+          alt="personnage qui medite"
         />
       </div>
       <!--Form-->
@@ -23,20 +23,14 @@
           <!--Username-->
           <div>
             <label for="username">Nom d'utilisateur</label>
-            <Field name="username" type="text"/>
-            <ErrorMessage
-                name="username"
-                class="error-feedback"
-            />
+            <Field name="username" type="text" />
+            <ErrorMessage name="username" class="error-feedback" />
           </div>
           <!--Password-->
           <div>
             <label for="password">Mot de passe</label>
-            <Field name="password" type="password"/>
-            <ErrorMessage
-                name="password"
-                class="error-feedback"
-            />
+            <Field name="password" type="password" />
+            <ErrorMessage name="password" class="error-feedback" />
           </div>
           <!--Submit-->
           <div>
@@ -51,7 +45,7 @@
         </Form>
         <!--Link to register-->
         <router-link to="/register" tag="span" id="Link-to-register"
-        >Créer un compte
+          >Créer un compte
         </router-link>
       </div>
     </div>
@@ -59,7 +53,7 @@
 </template>
 
 <script>
-import {Form, Field, ErrorMessage} from "vee-validate";
+import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 
 export default {
@@ -82,17 +76,17 @@ export default {
   methods: {
     handleLogin(user) {
       this.$store.dispatch("auth/login", user).then(
-          (response) => {
-            console.log(response);
-          },
-          (error) => {
-            this.message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                error.message ||
-                error.toString();
-          }
+        () => {
+          this.$router.push("/");
+        },
+        (error) => {
+          this.message =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+        }
       );
     },
   },

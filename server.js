@@ -24,7 +24,7 @@ db.mongoose
   })
   .then((response) => {
     console.log("Connexion à MongoDB réussie !");
-    // require("./plugin/init-roles")();
+    require("./plugin/init-roles")();
   })
   .catch((err) => {
     console.log("Connexion à MongoDB échouée !");
