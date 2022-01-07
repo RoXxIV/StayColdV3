@@ -133,14 +133,9 @@ section {
 }
 
 /*__Form__*/
-h1 {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-h1 span {
+span {
   display: block;
-  color: var(--blue);
+  color: $blue;
 }
 
 label {
@@ -155,38 +150,31 @@ input {
   border-bottom: 2px solid $gray;
   width: 280px;
   transition: border-color 0.3s;
-}
-
-input:focus {
-  border-color: var(--blue);
-}
-
-button {
-  margin: 15px auto 0px auto;
-  display: block;
+  &:focus {
+    border-color: $blue;
+  }
 }
 
 .error-feedback {
-  color: rgb(236, 52, 52);
+  color: $red;
   margin-bottom: 20px;
   display: block;
 }
 
 #Link-to-register {
-  color: var(--blue);
+  color: $blue;
   text-decoration: underline;
   margin-top: 50px;
   text-align: center;
   display: block;
-}
-
-#Link-to-register:hover {
-  color: #176cf5;
+  &:hover {
+    color: #176cf5;
+  }
 }
 
 #message {
   text-align: center;
   margin-top: 20px;
-  color: rgb(236, 52, 52);
+  color: $red;
 }
 </style>
