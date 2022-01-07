@@ -1,8 +1,12 @@
+/* Fonts __________*/
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
 /* Global Styles __________*/
 * {
   outline: none;
   text-decoration: none;
   transition: all 0.2s ease 0s;
+  font-family: "Space Mono", monospace;
 }
 *,
 *::before,
