@@ -25,7 +25,7 @@
           <li v-if="!loggedIn">
             <router-link to="/inscription">Inscription</router-link>
           </li>
-          <li v-if="loggedIn" @click.prevent="logout">
+          <li v-if="loggedIn" @click.prevent="logout" id="logout">
             Deconnexion
             <font-awesome-icon
               class="font-awesome-icon"
@@ -146,6 +146,14 @@ header {
       display: flex;
       li {
         margin: 0px 10px;
+      }
+      #logout {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        .font-awesome-icon {
+          margin-left: 10px;
+        }
       }
     }
   }

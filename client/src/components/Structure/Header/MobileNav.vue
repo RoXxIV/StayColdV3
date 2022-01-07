@@ -24,6 +24,7 @@
         v-if="propsLoggedIn"
         @click="$emit('closeMenu')"
         @click.prevent="$emit('logout')"
+        id="mobile-logout"
       >
         Deconnexion
       </li>
@@ -51,6 +52,9 @@ export default {
     li {
       background: $white;
       padding: 10px 0px 10px 15px;
+    }
+    #mobile-logout {
+      cursor: pointer;
     }
   }
 }
