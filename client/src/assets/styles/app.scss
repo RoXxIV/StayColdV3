@@ -11,6 +11,8 @@ $gray-card: #c4c4c4;
   padding: 7px 14px;
   border-radius: 5px;
   cursor: pointer;
+  margin: 15px auto 0 auto;
+  display: block;
   &:hover {
     color: white;
     background: $gray;
