@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-----Toggle Menu Burger Mobile----->
-    <button id="btn-burger" class="menu cursorPointer" aria-label="Main Menu">
+    <button id="btn-burger" class="menu" aria-label="Main Menu">
       <svg width="50" height="50" viewBox="0 0 100 100">
         <path
           class="line line1"
