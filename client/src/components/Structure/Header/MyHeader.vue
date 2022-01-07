@@ -30,18 +30,17 @@
       </nav>
       <!-----Toggle Menu Burger Mobile----->
       <div id="icon-burger">
-        <IconBurger
-          @click="
-            ToggleBurgerMenu();
-            showMobileMenu = !showMobileMenu;
-          "
-          id="btn-burger"
-        />
+        <IconBurger @click="ToggleBurgerMenu()" id="btn-burger" />
       </div>
     </header>
     <!-----Mobile Nav----->
     <transition name="fade">
-      <MobileNav :isDisplayed="showMobileMenu" />
+      <MobileNav
+        v-if="toggleMobileMenu"
+        @closeMenu="ToggleBurgerMenu"
+        @logout="logout"
+        :propsLoggedIn="loggedIn"
+      />
     </transition>
   </div>
 </template>
@@ -54,7 +53,7 @@ export default {
   components: { IconBurger, MobileNav },
   data() {
     return {
-      showMobileMenu: false,
+      toggleMobileMenu: false,
     };
   },
   computed: {
@@ -67,6 +66,7 @@ export default {
       const burger = document.getElementById("btn-burger");
       burger.classList.toggle("opened");
       burger.setAttribute("aria-expanded", burger.classList.contains("opened"));
+      this.toggleMobileMenu = !this.toggleMobileMenu;
     },
     logout() {
       this.$store.dispatch("auth/logout");
@@ -84,12 +84,24 @@ header {
   padding: 20px 50px 20px 20px;
   font-weight: bold;
   border-bottom: 1px solid $gray;
+  @media (max-width: 991.98px) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  @media (max-width: 667.98px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
   /* Logo __________*/
   #logo {
     display: flex;
     align-items: center;
     margin-right: 100px;
     font-size: 24px;
+    @media (max-width: 991.98px) {
+      margin-right: 0;
+    }
     img {
       max-width: 57px;
       margin-right: 10px;
@@ -101,6 +113,12 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    @media (max-width: 991.98px) {
+      justify-content: space-around;
+    }
+    @media (max-width: 667.98px) {
+      display: none;
+    }
     /* Default __________*/
     #default-nav {
       display: flex;
