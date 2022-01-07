@@ -68,3 +68,10 @@ html {
     @include buttonHover($blue, $white);
   }
 }
+
+.btn-red {
+  @include button($white, $red, $red);
+  &:hover {
+    @include buttonHover($red, $white);
+  }
+}

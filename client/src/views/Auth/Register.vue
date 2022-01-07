@@ -1,5 +1,6 @@
 <template>
   <section>
+    <!--Form-->
     <div id="bloc-form">
       <h1>
         Formulaire<br />
