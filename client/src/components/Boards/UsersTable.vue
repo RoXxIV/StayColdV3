@@ -2,6 +2,7 @@
   <section>
     <h2>Liste des utilisateurs</h2>
     <input type="text" placeholder="Recherche par pseudo" v-model="filter" />
+    <span> totale: {{ users.length }}</span>
     <table>
       <thead>
         <tr>
@@ -28,7 +29,7 @@
           <td :class="user.status === 'Pending' ? 'alert' : ''">
             {{ user.status }}
           </td>
-          <td>Select</td>
+          <td><span>Select</span></td>
         </tr>
       </tbody>
     </table>
@@ -107,7 +108,6 @@ section {
     tbody {
       tr:hover {
         opacity: 0.8;
-        cursor: pointer;
       }
       tr:nth-child(2n + 2) {
         td {
@@ -116,32 +116,17 @@ section {
       }
       td {
         padding-left: 10px;
+        span {
+          cursor: pointer;
+        }
       }
     }
+  }
+  @media (max-width: 991.98px) {
+    width: 100%;
   }
 }
 .alert {
   color: rgb(245, 92, 92);
 }
-/*
-table {
-
-}
-th {
-  text-align: left;
-  font-weight: 700;
-}
-tr {
-  padding-bottom: 10px;
-}
-td {
-  padding: 10px 10px 0;
-}
-
-tr:nth-child(2n + 2) {
-  td {
-    background-color: darken($light-gray, 4%);
-  }
-}
-*/
 </style>
