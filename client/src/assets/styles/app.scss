@@ -4,3 +4,20 @@ $blue: #3b82f6;
 $gray: #374151;
 $gray-card: #c4c4c4;
 $white: #ffffff;
+
+/* Mixins __________*/
+@mixin button($borderColor, $backgroundColor) {
+  border: 1px solid $borderColor;
+  color: black;
+  background-color: $backgroundColor;
+  padding: 7px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px auto 0 auto;
+  display: block;
+}
+
+@mixin buttonHover($textColor, $backgroundColor) {
+  color: $textColor;
+  background: $backgroundColor;
+}
