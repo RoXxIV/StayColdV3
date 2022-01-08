@@ -10,7 +10,7 @@ module.exports = function (app) {
     );
     next();
   });
-
+  // acces
   app.get("/api/test/all", controller.allAccess);
 
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
@@ -26,4 +26,7 @@ module.exports = function (app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+
+  // queries
+  app.get("/api/user", controller.getAllUsers);
 };
