@@ -103,7 +103,7 @@ export default {
   @media (max-width: 991.98px) {
     width: 100%;
     margin: 30px 0px 0px 0px;
-    margin-top: 20;
+    margin-top: 20px;
     flex-direction: column;
     align-items: center;
   }
