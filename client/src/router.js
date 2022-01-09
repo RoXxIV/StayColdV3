@@ -5,6 +5,8 @@ import Login from "./views/Auth/Login.vue";
 import Register from "./views/Auth/Register.vue";
 import ComfirmMail from "./views/Auth/ComfirmMail.vue";
 import PageNotFound from "./views/PageNotFound.vue";
+// boards view
+import AdminBoard from "./views/Boards/AdminBoard.vue";
 
 const routes = [
   {
@@ -26,6 +28,12 @@ const routes = [
     path: "/comfirmation-email-redirection/:confirmationCode",
     name: "Confirm-mail",
     component: ComfirmMail,
+  },
+  // Boards
+  {
+    path: "/admin-board",
+    name: "Admin-Board",
+    component: AdminBoard,
   },
   { path: "/:pathMatch(.*)*", name: "not-found", component: PageNotFound },
 ];

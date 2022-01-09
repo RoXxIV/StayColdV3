@@ -28,4 +28,3 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
     })
     .catch((err) => console.log(err));
 };
-// http://localhost:8000/api/auth/confirm/${confirmationCode}

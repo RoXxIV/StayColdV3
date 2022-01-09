@@ -10,23 +10,22 @@ const Role = db.role;
 
 dotenv.config();
 
+// Creation d'un compte utilisateur
 exports.signup = (req, res) => {
   // création du token unique { comfirmationCode } pour la vérification d'email
   const token = jwt.sign({ email: req.body.email }, process.env.SECRET);
-
   const user = new User({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
     confirmationCode: token,
   });
-
   user.save((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
       return;
     }
-
+    // Gestion des roles
     if (req.body.roles) {
       Role.find(
         {
@@ -37,14 +36,12 @@ exports.signup = (req, res) => {
             res.status(500).send({ message: err });
             return;
           }
-
           user.roles = roles.map((role) => role._id);
           user.save((err) => {
             if (err) {
               res.status(500).send({ message: err });
               return;
             }
-
             res.send({
               message:
                 "L'utilisateur a été enregistré avec succès! merci de vérifier votre email",
@@ -86,6 +83,7 @@ exports.signup = (req, res) => {
   });
 };
 
+// Connexion au compte utilisateur
 exports.signin = (req, res) => {
   User.findOne({
     username: req.body.username,
@@ -96,36 +94,29 @@ exports.signin = (req, res) => {
         res.status(500).send({ message: err });
         return;
       }
-
       if (!user) {
         return res.status(404).send({ message: "Utilisateur non trouvé." });
       }
-
       var passwordIsValid = bcrypt.compareSync(
         req.body.password,
         user.password
       );
-
       if (!passwordIsValid) {
         return res.status(401).send({
           accessToken: null,
           message: "Mot de passe invalide!",
         });
       }
-
       if (user.status != "Active") {
         return res.status(401).send({
           message:
             "Ce compte est en attente de validation, merci de verifier votre email",
         });
       }
-
       var token = jwt.sign({ id: user.id }, process.env.SECRET, {
         expiresIn: 86400, // 24 hours
       });
-
       var authorities = [];
-
       for (let i = 0; i < user.roles.length; i++) {
         authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
       }
@@ -139,6 +130,7 @@ exports.signin = (req, res) => {
     });
 };
 
+// Changement du status utilisateur apres verification du mail
 exports.verifyUSer = (req, res, next) => {
   User.findOne({ confirmationCode: req.params.confirmationCode })
     .then((user) => {
@@ -152,9 +144,7 @@ exports.verifyUSer = (req, res, next) => {
           message: "Cet email a deja été verifié",
         });
       }
-
       user.status = "Active";
-
       user.save((err) => {
         if (err) {
           res.status(500).send({ message: err });

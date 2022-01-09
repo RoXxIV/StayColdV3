@@ -1,15 +1,16 @@
 <template>
   <section>
-    <!--email comfirmé-->
+    <!-- Email comfirmé ----------->
     <div v-if="isComfirmed">
       <h2>{{ message }}</h2>
       <router-link to="/connexion">Se connecter</router-link>
     </div>
-    <!--erreur durant la confirmation du mail-->
+
+    <!-- Erreur durant la confirmation du mail ----------->
     <div v-else>
       <h2>{{ errorMsg }}</h2>
     </div>
-    <!--Redirection-->
+    <!-- Redirection ----------->
     <div>
       <p>Redirection dans {{ time }}</p>
     </div>
