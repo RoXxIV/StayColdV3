@@ -49,7 +49,7 @@ html {
     button {
       @include button($gray, white);
       &:hover {
-        @include buttonHover(white, $gray)
+        @include buttonHover(white, $gray);
       }
     }
   }
@@ -59,4 +59,3 @@ html {
 .btn-blue {
   @include button(&blue, $blue);
 }
-

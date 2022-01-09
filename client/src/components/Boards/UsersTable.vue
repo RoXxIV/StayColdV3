@@ -2,7 +2,7 @@
   <section>
     <h2>Liste des utilisateurs</h2>
     <input type="text" placeholder="Recherche par pseudo" v-model="filter" />
-    <span> totale: {{ users.length }}</span>
+    <span> totale: {{ filteredUser.length }}</span>
     <table>
       <thead>
         <tr>
@@ -21,7 +21,12 @@
           <td>
             <ul>
               <li>
-                {{ user.roles["name"] }}
+                <span>
+                  <font-awesome-icon
+                    class="font-awesome-icon"
+                    :icon="['fa', 'user-edit']"
+                  />{{ user.roles["name"] }}</span
+                >
               </li>
             </ul>
           </td>
@@ -29,22 +34,42 @@
           <td :class="user.status === 'Pending' ? 'alert' : ''">
             {{ user.status }}
           </td>
-          <td><span>Select</span></td>
+          <td>
+            <span @click="comfirmDelete(user._id)"
+              ><font-awesome-icon
+                class="font-awesome-icon"
+                :icon="['fa', 'user-times']"
+              />Supprimer
+            </span>
+          </td>
         </tr>
       </tbody>
     </table>
+    <!--Modal comfirmation de suppression-->
+    <popup-modal ref="popup">
+      <div id="delete-comfirmation">
+        <p>êtes vous sur ?</p>
+        <div>
+          <span @click="cancelDelete()" class="btn">Annuler</span>
+          <span @click="deleteThisUser()">Supprimer</span>
+        </div>
+      </div>
+    </popup-modal>
   </section>
 </template>
 
 <script>
 import UserServices from "../../services/user.service";
+import PopupModal from "../Reusable-components/PopupModal.vue";
 export default {
   name: "users-table",
+  components: { PopupModal },
   data() {
     return {
       users: [],
       searchUser: null,
       filter: "",
+      UserIdSelected: null,
     };
   },
   computed: {
@@ -76,6 +101,24 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    deleteThisUser() {
+      UserServices.deleteOne(this.UserIdSelected)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    // Modal
+    comfirmDelete(id) {
+      this.UserIdSelected = id;
+      this.$refs.popup.open();
+    },
+    cancelDelete() {
+      this.$refs.popup.close();
+      this.UserIdSelected = null;
     },
   },
   mounted() {
@@ -128,5 +171,8 @@ section {
 }
 .alert {
   color: rgb(245, 92, 92);
+}
+.font-awesome-icon {
+  margin-right: 10px;
 }
 </style>
