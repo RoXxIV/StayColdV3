@@ -34,7 +34,7 @@
           <td>
             <ul>
               <li>
-                <span>
+                <span @click="askUpdateUserRole(user._id, user.roles['name'])">
                   <font-awesome-icon
                     class="font-awesome-icon"
                     :icon="['fa', 'user-edit']"
@@ -48,7 +48,7 @@
             {{ user.status }}
           </td>
           <td>
-            <span @click="comfirmDelete(user._id)"
+            <span @click="askDeleteUser(user._id)"
               ><font-awesome-icon
                 class="font-awesome-icon"
                 :icon="['fa', 'user-times']"
@@ -68,12 +68,26 @@
         </div>
       </div>
     </popup-modal>
+    <!-- Modal de changement de role ----------->
+    <popup-modal ref="rolePopup">
+      <div id="update-comfirmation">
+        <select v-model="newRole">
+          <option value="moderator">Moderator</option>
+          <option value="user">User</option>
+        </select>
+        <div>
+          <button @click="cancelRoleUpdate()" class="btn">Annuler</button>
+          <button @click="updateUserRole()" class="btn">Validé</button>
+        </div>
+      </div>
+    </popup-modal>
   </section>
 </template>
 
 <script>
 import UserServices from "../../services/user.service";
 import PopupModal from "../Reusable-components/PopupModal.vue";
+
 export default {
   name: "users-table",
   components: { PopupModal },
@@ -82,7 +96,9 @@ export default {
       users: [],
       searchUser: null,
       filter: "",
-      UserIdSelected: null,
+      currentUserId: null,
+      currentUserRole: null,
+      newRole: null,
       message: "",
     };
   },
@@ -109,17 +125,14 @@ export default {
               .reverse()
               .join("/");
           });
-          // console.log(response);
-          // console.log(this.users);
         })
         .catch((err) => {
           console.log(err);
         });
     },
     deleteThisUser() {
-      UserServices.deleteOne(this.UserIdSelected)
+      UserServices.deleteOne(this.currentUserId)
         .then((response) => {
-          // console.log(response.data);
           this.message = response.data.message;
         })
         .catch((err) => {
@@ -127,16 +140,51 @@ export default {
           this.message = "Une erreur est survenue";
         });
       this.$refs.popup.close();
+      this.currentUserId = null;
       this.fetchUsers();
     },
-    // Modal
-    comfirmDelete(id) {
-      this.UserIdSelected = id;
+    updateUserRole() {
+      const roles = ["user"];
+      if (this.newRole === this.currentUserRole) {
+        this.message = "Aucun changement n'a été effectué.";
+        this.$refs.rolePopup.close();
+        [this.currentUserId, this.currentUserRole, this.newRole] = null;
+      } else {
+        if (this.newRole === "moderator") {
+          roles.push(this.newRole);
+        }
+        UserServices.updateUserRole(this.currentUserId, roles)
+          .then((response) => {
+            this.message = response.data;
+            this.$refs.rolePopup.close();
+            [this.currentUserId, this.currentUserRole, this.newRole] =
+              Array(3).fill(null);
+            this.fetchUsers();
+          })
+          .catch((err) => {
+            console.log(err);
+            this.message = "Une erreur est survenue";
+          });
+      }
+    },
+    // Modal de suppression du user
+    askDeleteUser(id) {
+      this.currentUserId = id;
       this.$refs.popup.open();
     },
     cancelDelete() {
       this.$refs.popup.close();
-      this.UserIdSelected = null;
+      this.currentUserId = null;
+    },
+    // Modal d'update des roles
+    askUpdateUserRole(id, role) {
+      this.currentUserId = id;
+      this.currentUserRole = role;
+      this.$refs.rolePopup.open();
+    },
+    cancelRoleUpdate() {
+      this.$refs.rolePopup.close();
+      [this.currentUserId, this.currentUserRole] = Array(2).fill(null);
     },
   },
   mounted() {
