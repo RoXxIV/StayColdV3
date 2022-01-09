@@ -71,9 +71,11 @@
     <!-- Modal de changement de role ----------->
     <popup-modal ref="rolePopup">
       <div id="update-comfirmation">
-        <select v-model="newRole">
-          <option value="moderator">Moderator</option>
-          <option value="user">User</option>
+        <label for="role">Nouveau Role</label>
+        <select v-model="newRole" name="role">
+          <option v-for="role in roleList" :key="role" :value="role">
+            {{ role }}
+          </option>
         </select>
         <div>
           <button @click="cancelRoleUpdate()" class="btn">Annuler</button>
@@ -94,6 +96,7 @@ export default {
   data() {
     return {
       users: [],
+      roleList: ["user", "moderator"],
       searchUser: null,
       filter: "",
       currentUserId: null,
@@ -145,10 +148,11 @@ export default {
     },
     updateUserRole() {
       const roles = ["user"];
-      if (this.newRole === this.currentUserRole) {
+      if (this.newRole === this.currentUserRole || this.newRole === null) {
         this.message = "Aucun changement n'a été effectué.";
         this.$refs.rolePopup.close();
-        [this.currentUserId, this.currentUserRole, this.newRole] = null;
+        [this.currentUserId, this.currentUserRole, this.newRole] =
+          Array(3).fill(null);
       } else {
         if (this.newRole === "moderator") {
           roles.push(this.newRole);
@@ -256,6 +260,24 @@ section {
     padding: 30px;
     div {
       display: flex;
+      button {
+        margin: 0px 10px;
+      }
+    }
+  }
+  #update-comfirmation {
+    text-align: center;
+    padding: 50px;
+    label {
+      margin-right: 10px;
+    }
+    select {
+      margin-bottom: 20px;
+      background: white;
+    }
+    div {
+      display: flex;
+      justify-content: center;
       button {
         margin: 0px 10px;
       }
