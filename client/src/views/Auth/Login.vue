@@ -55,7 +55,6 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-
 export default {
   name: "Login",
   components: {
@@ -94,32 +93,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/*__General__*/
+#blocs {
+  display: flex;
+  width: 75%;
+  justify-content: space-around;
+  margin: 150px auto 0px auto;
+  @media (max-width: 991.98px) {
+    width: 100%;
+    margin: 30px 0px 0px 0px;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+#waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @media (max-width: 991.98px) {
+    display: none;
+  }
+}
 section {
   display: flex;
   justify-content: space-between;
   position: relative;
   width: 100vw;
 }
-
-#waves {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-#blocs {
-  display: flex;
-  width: 75%;
-  justify-content: space-around;
-  margin: 150px auto 0px auto;
-}
-
 /*__Illustration__ */
 #illustration {
   margin-top: 50px;
   animation: float 6s ease-in-out infinite;
+  @media (max-width: 991.98px) {
+    max-width: 200px;
+    margin: 0;
+  }
+  @media (max-width: 611.98px) {
+    max-width: 100px;
+    margin: 0;
+  }
 }
-
 @keyframes float {
   0% {
     transform: translatey(0px);
@@ -131,62 +145,52 @@ section {
     transform: translatey(0px);
   }
 }
-
 /*__Form__*/
-h1 {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-h1 span {
-  display: block;
-  color: var(--blue);
-}
-
-label {
-  display: block;
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-input {
-  margin: 35px 0px 15px 20px;
-  border: none;
-  border-bottom: 2px solid $gray;
-  width: 280px;
-  transition: border-color 0.3s;
-}
-
-input:focus {
-  border-color: var(--blue);
-}
-
-button {
-  margin: 15px auto 0px auto;
-  display: block;
-}
-
 .error-feedback {
-  color: rgb(236, 52, 52);
+  color: $red;
   margin-bottom: 20px;
   display: block;
 }
-
 #Link-to-register {
-  color: var(--blue);
+  color: $blue;
   text-decoration: underline;
   margin-top: 50px;
   text-align: center;
   display: block;
+  &:hover {
+    color: #176cf5;
+  }
 }
-
-#Link-to-register:hover {
-  color: #176cf5;
-}
-
 #message {
   text-align: center;
   margin-top: 20px;
-  color: rgb(236, 52, 52);
+  color: $red;
+}
+form {
+  @media (max-width: 611.98px) {
+    text-align: center;
+  }
+  label {
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  input {
+    margin: 35px 0px 15px 20px;
+    border: none;
+    border-bottom: 2px solid $gray;
+    width: 280px;
+    transition: border-color 0.3s;
+    &:focus {
+      border-color: $blue;
+    }
+    @media (max-width: 611.98px) {
+      margin: 20px 0;
+    }
+  }
+}
+h1 span {
+  display: block;
+  color: $blue;
 }
 </style>

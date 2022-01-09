@@ -1,48 +1,55 @@
 <template>
   <section>
-    <Form @submit="handleRegister" :validation-schema="schema">
-      <div v-if="!successful">
-        <!--Username-->
-        <div>
-          <label for="username">Nom d'utilisateur</label>
-          <Field name="username" type="text" /><ErrorMessage
-            name="username"
-            class="error-feedback"
-          />
+    <!--Form-->
+    <div id="bloc-form">
+      <h1>
+        Formulaire<br />
+        d'<span>Inscription</span>
+      </h1>
+      <Form @submit="handleRegister" :validation-schema="schema">
+        <div v-if="!successful">
+          <!--Username-->
+          <div>
+            <label for="username">Nom d'utilisateur</label>
+            <Field name="username" type="text" /><ErrorMessage
+              name="username"
+              class="error-feedback"
+            />
+          </div>
+          <!--Email-->
+          <div>
+            <label for="email">Email</label>
+            <Field name="email" type="email" /><ErrorMessage
+              name="email"
+              class="error-feedback"
+            />
+          </div>
+          <!--Password-->
+          <div>
+            <label for="password">Mot de passe</label>
+            <Field name="password" type="password" />
+            <ErrorMessage name="password" class="error-feedback" />
+          </div>
+          <!--Comfirm password-->
+          <div>
+            <label for="passwordComfirmation">Confirmer le mot de passe</label>
+            <Field name="passwordComfirmation" type="password" />
+            <ErrorMessage name="passwordComfirmation" class="error-feedback" />
+          </div>
+          <!--Submit-->
+          <div>
+            <button class="btn-blue">S'inscrire</button>
+          </div>
         </div>
-        <!--Email-->
-        <div>
-          <label for="email">Email</label>
-          <Field name="email" type="email" /><ErrorMessage
-            name="email"
-            class="error-feedback"
-          />
-        </div>
-        <!--Password-->
-        <div>
-          <label for="password">Mot de passe</label>
-          <Field name="password" type="password" />
-          <ErrorMessage name="password" class="error-feedback" />
-        </div>
-        <!--Comfirm password-->
-        <div>
-          <label for="passwordComfirmation">Comfirmer le mot de passe</label>
-          <Field name="passwordComfirmation" type="password" />
-          <ErrorMessage name="passwordComfirmation" class="error-feedback" />
-        </div>
-        <!--Submit-->
-        <div>
-          <button class="btn-blue">S'inscrire</button>
-        </div>
+      </Form>
+      <!--erreur-->
+      <div
+        v-if="message"
+        class="alert"
+        :class="successful ? 'alert-success' : 'alert-danger'"
+      >
+        <span>{{ message }}</span>
       </div>
-    </Form>
-    <!--erreur-->
-    <div
-      v-if="message"
-      class="alert"
-      :class="successful ? 'alert-success' : 'alert-danger'"
-    >
-      <span>{{ message }}</span>
     </div>
   </section>
 </template>
@@ -109,4 +116,69 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+/*__General__*/
+section {
+  width: 100vw;
+  display: flex;
+  margin-left: 25%;
+  @media (max-width: 991.98px) {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+}
+/*__Form__*/
+.error-feedback {
+  color: $red;
+  margin-bottom: 20px;
+  display: block;
+}
+form {
+  label {
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  input {
+    margin: 25px 0px 15px 20px;
+    border: none;
+    border-bottom: 2px solid $gray;
+    width: 280px;
+    transition: border-color 0.3s;
+    &:focus {
+      border-color: $blue;
+    }
+  }
+}
+h1 span {
+  color: $blue;
+}
+/*#Link-to-login {
+  color: $blue;
+  text-decoration: underline;
+  margin-top: 50px;
+  text-align: center;
+  display: block;
+}
+#Link-to-login:hover {
+  color: #176cf5;
+}
+#redirectToLogin {
+  color: white;
+  background: $blue;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid $blue;
+  margin: 15px auto 0px auto;
+  display: block;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+#redirectToLogin:hover {
+  color: $blue;
+  background: white;
+  border: 1px solid $blue;
+}*/
+</style>

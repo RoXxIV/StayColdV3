@@ -7,15 +7,15 @@
   text-decoration: none;
   transition: all 0.2s ease 0s;
   font-family: "Space Mono", monospace;
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+  &:hover {
+    transition: all 0.2s ease 0s;
+  }
 }
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-*:hover {
-  transition: all 0.2s ease 0s;
-}
+
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -39,6 +39,12 @@ html {
       text-align: center;
       color: $gray;
       margin: 50px 0;
+      @media (max-width: 991.98px) {
+        font-size: 36px;
+      }
+      @media (max-width: 611.98px) {
+        font-size: 24px;
+      }
     }
 
     ul {
@@ -47,9 +53,9 @@ html {
     }
 
     button {
-      @include button($gray, white);
+      @include button($black, $gray, $white);
       &:hover {
-        @include buttonHover(white, $gray);
+        @include buttonHover($white, $gray);
       }
     }
   }
@@ -57,5 +63,15 @@ html {
 
 /* Classes __________*/
 .btn-blue {
-  @include button(&blue, $blue);
+  @include button($white, $blue, $blue);
+  &:hover {
+    @include buttonHover($blue, $white);
+  }
+}
+
+.btn-red {
+  @include button($white, $red, $red);
+  &:hover {
+    @include buttonHover($red, $white);
+  }
 }
