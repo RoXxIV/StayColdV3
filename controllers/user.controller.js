@@ -3,6 +3,7 @@ const db = require("../models");
 const Bath = require("../models/bath.model");
 
 const User = db.user;
+const Role = db.role;
 const sortOptions = { roles: -1 };
 
 // Gestion des acces
@@ -51,6 +52,38 @@ exports.deleteUser = (req, res, next) => {
           })
         )
         .catch((error) => res.status(400).json({ error }));
+    })
+    .catch((error) => res.status(400).json({ error }));
+};
+// change le role du user
+exports.updateUserRole = (req, res) => {
+  User.findOne({ _id: req.params.id })
+    .then((user) => {
+      if (!user) {
+        return res.status(401).send({ message: "Utilisateur non trouvé." });
+      }
+      // Gestion des roles
+      if (req.body.roles) {
+        Role.find(
+          {
+            name: { $in: req.body.roles },
+          },
+          (err, roles) => {
+            if (err) {
+              res.status(500).send({ message: err });
+              return;
+            }
+            user.roles = roles.map((role) => role._id);
+            user.save((err) => {
+              if (err) {
+                res.status(500).send({ message: err });
+                return;
+              }
+            });
+          }
+        );
+      }
+      res.status(200).send("Le Role a mis à jour.");
     })
     .catch((error) => res.status(400).json({ error }));
 };
