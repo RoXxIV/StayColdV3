@@ -75,3 +75,7 @@ html {
     @include buttonHover($red, $white);
   }
 }
+
+.alert {
+  color: rgb(245, 92, 92);
+}

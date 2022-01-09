@@ -1,8 +1,21 @@
 <template>
   <section>
     <h2>Liste des utilisateurs</h2>
-    <input type="text" placeholder="Recherche par pseudo" v-model="filter" />
-    <span> totale: {{ filteredUser.length }}</span>
+    <!-- Filtre ----------->
+    <ul>
+      <li>
+        <input
+          type="text"
+          placeholder="Recherche par pseudo"
+          v-model="filter"
+        />
+      </li>
+      <li>
+        <span> totale: {{ filteredUser.length }}</span>
+      </li>
+      <li>{{ message }}</li>
+    </ul>
+    <!-- Liste Utilisateurs ----------->
     <table>
       <thead>
         <tr>
@@ -45,13 +58,13 @@
         </tr>
       </tbody>
     </table>
-    <!--Modal comfirmation de suppression-->
+    <!-- Modal comfirmation de suppression ----------->
     <popup-modal ref="popup">
       <div id="delete-comfirmation">
         <p>êtes vous sur ?</p>
         <div>
-          <span @click="cancelDelete()" class="btn">Annuler</span>
-          <span @click="deleteThisUser()">Supprimer</span>
+          <button @click="cancelDelete()" class="btn">Annuler</button>
+          <button @click="deleteThisUser()" class="btn-red">Supprimer</button>
         </div>
       </div>
     </popup-modal>
@@ -70,6 +83,7 @@ export default {
       searchUser: null,
       filter: "",
       UserIdSelected: null,
+      message: "",
     };
   },
   computed: {
@@ -105,11 +119,15 @@ export default {
     deleteThisUser() {
       UserServices.deleteOne(this.UserIdSelected)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
+          this.message = response.data.message;
         })
         .catch((err) => {
           console.log(err);
+          this.message = "Une erreur est survenue";
         });
+      this.$refs.popup.close();
+      this.fetchUsers();
     },
     // Modal
     comfirmDelete(id) {
@@ -128,14 +146,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* section __________*/
 section {
   width: 75%;
   margin: auto;
-  input {
-    margin-bottom: 10px;
-    padding: 5px 10px;
-    border-color: $light-gray;
+  h2 {
+    color: $gray;
   }
+  /* ul __________*/
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      margin: 0px 10px;
+      input {
+        padding: 5px 10px;
+        border-color: $light-gray;
+      }
+    }
+  }
+  /* table __________*/
   table {
     width: 100%;
     thead {
@@ -161,18 +191,27 @@ section {
         padding-left: 10px;
         span {
           cursor: pointer;
+          .font-awesome-icon {
+            margin-right: 10px;
+          }
         }
       }
     }
   }
+  /* table responsive __________*/
   @media (max-width: 991.98px) {
     width: 100%;
   }
-}
-.alert {
-  color: rgb(245, 92, 92);
-}
-.font-awesome-icon {
-  margin-right: 10px;
+  /* modal __________*/
+  #delete-comfirmation {
+    text-align: center;
+    padding: 30px;
+    div {
+      display: flex;
+      button {
+        margin: 0px 10px;
+      }
+    }
+  }
 }
 </style>
