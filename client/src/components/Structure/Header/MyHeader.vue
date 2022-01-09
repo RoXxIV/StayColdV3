@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <!-----Logo----->
+      <!-- Logo ----------->
       <router-link to="/" id="logo">
         <svg
           width="57px"
@@ -27,17 +27,17 @@
         <span>StayCold</span>
       </router-link>
 
-      <!-----Nav par default----->
+      <!-- Nav default ----------->
       <nav>
         <ul id="default-nav">
           <li><router-link to="/">Acceuil </router-link></li>
           <li><router-link to="/">Baignades</router-link></li>
-          <!-----Nav User----->
+          <!-- Nav user ----------->
           <li v-if="loggedIn" id="profil-link">
             <router-link to="/">Profil </router-link>
           </li>
         </ul>
-        <!-----Nav d'authentification----->
+        <!-- Nav auth ----------->
         <ul id="auth-nav">
           <li v-if="!loggedIn">
             <router-link to="/connexion">Connexion</router-link>
@@ -54,12 +54,13 @@
           </li>
         </ul>
       </nav>
-      <!-----Toggle Menu Burger Mobile----->
+
+      <!-- Toggle burger ----------->
       <div id="icon-burger">
         <IconBurger @click="ToggleBurgerMenu()" id="btn-burger" />
       </div>
     </header>
-    <!-----Mobile Nav----->
+    <!-- Mobile menu ----------->
     <transition name="fade">
       <MobileNav
         v-if="toggleMobileMenu"

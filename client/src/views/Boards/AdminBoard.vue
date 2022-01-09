@@ -21,7 +21,7 @@ export default {
     getAdminAccess() {
       UserServices.getAdminBoard()
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           this.message = response.data;
         })
         .catch((err) => {

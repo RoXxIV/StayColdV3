@@ -1,6 +1,6 @@
 <template>
   <section>
-    <!--Illustration-wave-->
+    <!-- Illustration vagues ----------->
     <img
       id="waves"
       src="@/assets/images/form-login-waves.svg"
@@ -8,7 +8,7 @@
     />
 
     <div id="blocs">
-      <!--Illustration-->
+      <!-- Illustration meditation ----------->
       <div>
         <img
           id="illustration"
@@ -16,34 +16,34 @@
           alt="personnage qui medite"
         />
       </div>
-      <!--Form-->
+      <!-- Form ----------->
       <div>
         <h1>Formulaire de <span>Connexion</span></h1>
         <Form @submit="handleLogin" :validation-schema="schema">
-          <!--Username-->
+          <!-- Username ----------->
           <div>
             <label for="username">Nom d'utilisateur</label>
             <Field name="username" type="text" />
             <ErrorMessage name="username" class="error-feedback" />
           </div>
-          <!--Password-->
+          <!-- Password ----------->
           <div>
             <label for="password">Mot de passe</label>
             <Field name="password" type="password" />
             <ErrorMessage name="password" class="error-feedback" />
           </div>
-          <!--Submit-->
+          <!-- Submit ----------->
           <div>
             <button class="btn-blue">Connexion</button>
           </div>
-          <!--erreur-->
+          <!-- Erreur ----------->
           <div>
             <div id="message" v-if="message" role="alert">
               {{ message }}
             </div>
           </div>
         </Form>
-        <!--Link to register-->
+        <!-- Lien vers la page de connexion ----------->
         <router-link to="/register" tag="span" id="Link-to-register"
           >Créer un compte
         </router-link>
@@ -93,7 +93,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/*__General__*/
+/* Generals __________*/
 #blocs {
   display: flex;
   width: 75%;
@@ -107,6 +107,7 @@ export default {
     align-items: center;
   }
 }
+/* Illustration vagues __________*/
 #waves {
   position: absolute;
   top: 0;
@@ -115,13 +116,14 @@ export default {
     display: none;
   }
 }
+/* section __________*/
 section {
   display: flex;
   justify-content: space-between;
   position: relative;
   width: 100vw;
 }
-/*__Illustration__ */
+/* illustration meditation __________*/
 #illustration {
   margin-top: 50px;
   animation: float 6s ease-in-out infinite;
@@ -134,6 +136,7 @@ section {
     margin: 0;
   }
 }
+/* Illustration animations __________*/
 @keyframes float {
   0% {
     transform: translatey(0px);
@@ -145,7 +148,6 @@ section {
     transform: translatey(0px);
   }
 }
-/*__Form__*/
 .error-feedback {
   color: $red;
   margin-bottom: 20px;
@@ -166,6 +168,7 @@ section {
   margin-top: 20px;
   color: $red;
 }
+/* form __________*/
 form {
   @media (max-width: 611.98px) {
     text-align: center;

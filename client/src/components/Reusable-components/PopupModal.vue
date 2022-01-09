@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/*__transition__ */
+/* transitions __________*/
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
@@ -38,7 +38,7 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-/*__modal__ */
+/* modal __________*/
 .popup-modal {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;

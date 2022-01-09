@@ -1,6 +1,6 @@
 <template>
   <section>
-    <!--Form-->
+    <!-- Form ----------->
     <div id="bloc-form">
       <h1>
         Formulaire<br />
@@ -8,7 +8,7 @@
       </h1>
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
-          <!--Username-->
+          <!-- Username ----------->
           <div>
             <label for="username">Nom d'utilisateur</label>
             <Field name="username" type="text" /><ErrorMessage
@@ -16,7 +16,7 @@
               class="error-feedback"
             />
           </div>
-          <!--Email-->
+          <!-- Email ----------->
           <div>
             <label for="email">Email</label>
             <Field name="email" type="email" /><ErrorMessage
@@ -24,25 +24,25 @@
               class="error-feedback"
             />
           </div>
-          <!--Password-->
+          <!-- Password ----------->
           <div>
             <label for="password">Mot de passe</label>
             <Field name="password" type="password" />
             <ErrorMessage name="password" class="error-feedback" />
           </div>
-          <!--Comfirm password-->
+          <!-- Password confirmation ----------->
           <div>
             <label for="passwordComfirmation">Confirmer le mot de passe</label>
             <Field name="passwordComfirmation" type="password" />
             <ErrorMessage name="passwordComfirmation" class="error-feedback" />
           </div>
-          <!--Submit-->
+          <!-- Submit ----------->
           <div>
             <button class="btn-blue">S'inscrire</button>
           </div>
         </div>
       </Form>
-      <!--erreur-->
+      <!-- Erreur ----------->
       <div
         v-if="message"
         class="alert"
@@ -117,7 +117,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/*__General__*/
+/* General __________*/
 section {
   width: 100vw;
   display: flex;
@@ -128,12 +128,12 @@ section {
     margin: auto;
   }
 }
-/*__Form__*/
 .error-feedback {
   color: $red;
   margin-bottom: 20px;
   display: block;
 }
+/* form __________*/
 form {
   label {
     display: block;

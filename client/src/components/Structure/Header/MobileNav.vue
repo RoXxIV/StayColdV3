@@ -1,5 +1,6 @@
 <template>
   <div id="mobile-nav">
+    <!-- Nav default ----------->
     <ul>
       <li @click="$emit('closeMenu')">
         <router-link to="/">Acceuil</router-link>
@@ -8,6 +9,7 @@
         <router-link to="/">Baignades</router-link>
       </li>
     </ul>
+    <!-- Nav auth ----------->
     <ul>
       <li v-if="!propsLoggedIn" @click="$emit('closeMenu')">
         <router-link to="/connexion">Connexion</router-link>
@@ -16,6 +18,7 @@
         <router-link to="/inscription">Inscription</router-link>
       </li>
     </ul>
+    <!-- Nav user ----------->
     <ul>
       <li v-if="propsLoggedIn" @click="$emit('closeMenu')">
         <router-link to="/">Profil</router-link>
