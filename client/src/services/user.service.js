@@ -29,6 +29,9 @@ class UserService {
   deleteOne(id) {
     return axios.delete(`${API_URL}/${id}`);
   }
+  updateUserRole(id, role) {
+    return axios.post(`${API_URL}/update-role/${id}`, { roles: role });
+  }
 }
 
 export default new UserService();

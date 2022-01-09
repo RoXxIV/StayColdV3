@@ -27,4 +27,5 @@ module.exports = function (app) {
   app.get("/api/user", controller.getAllUsers);
   app.get("/api/user/:id", controller.getOneUser);
   app.delete("/api/user/:id", controller.deleteUser);
+  app.post("/api/user/update-role/:id", controller.updateUserRole);
 };
