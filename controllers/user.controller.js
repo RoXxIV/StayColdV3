@@ -25,8 +25,16 @@ exports.moderatorBoard = (req, res) => {
 exports.getAllUsers = (req, res, next) => {
   User.find()
     .select({ password: 0, confirmationCode: 0 })
-    .populate("roles", "name -_id")
+    .populate("roles", "name")
     .sort(sortOptions)
     .then((users) => res.status(200).json(users))
     .catch((error) => res.status(400).json({ error }));
+};
+
+exports.getOneUser = (req, res, next) => {
+  User.findOne({ _id: req.params.id })
+    .select({ password: 0, confirmationCode: 0 })
+    .populate("roles", "name")
+    .then((user) => res.status(200).json(user))
+    .catch((error) => res.status(404).json({ error }));
 };

@@ -29,4 +29,5 @@ module.exports = function (app) {
 
   // queries
   app.get("/api/user", controller.getAllUsers);
+  app.get("/api/user/:id", controller.getOneUser);
 };
