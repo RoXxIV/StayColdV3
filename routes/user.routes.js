@@ -30,4 +30,5 @@ module.exports = function (app) {
   // queries
   app.get("/api/user", controller.getAllUsers);
   app.get("/api/user/:id", controller.getOneUser);
+  app.delete("/api/user/:id", controller.deleteUser);
 };

@@ -1,5 +1,6 @@
 // import
 const db = require("../models");
+const Bath = require("../models/bath.model");
 
 const User = db.user;
 const sortOptions = { roles: -1 };
@@ -37,4 +38,21 @@ exports.getOneUser = (req, res, next) => {
     .populate("roles", "name")
     .then((user) => res.status(200).json(user))
     .catch((error) => res.status(404).json({ error }));
+};
+
+exports.deleteUser = (req, res, next) => {
+  User.deleteOne({ _id: req.params.id })
+    .then(() => {
+      Bath.deleteMany({ author: req.params.id })
+        .then(() =>
+          res
+            .status(200)
+            .json({
+              message:
+                "L'utilisateur et les baignades associé ont bien été supprimé !",
+            })
+        )
+        .catch((error) => res.status(400).json({ error }));
+    })
+    .catch((error) => res.status(400).json({ error }));
 };
