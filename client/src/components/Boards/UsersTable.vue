@@ -234,11 +234,6 @@ section {
       tr:hover {
         opacity: 0.8;
       }
-      tr:nth-child(2n + 2) {
-        td {
-          background-color: darken($light-gray, 4%);
-        }
-      }
       td {
         padding-left: 10px;
         span {

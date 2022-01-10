@@ -143,7 +143,8 @@ form {
   input {
     margin: 25px 0px 15px 20px;
     border: none;
-    border-bottom: 2px solid $gray;
+    background: transparent;
+    border-bottom: 2px solid var(--dark-to-light);
     width: 280px;
     transition: border-color 0.3s;
     &:focus {
