@@ -49,7 +49,7 @@
             Deconnexion
             <font-awesome-icon
               class="font-awesome-icon"
-              :icon="['fa', 'sign-out-alt']"
+              :icon="['fas', 'sign-out-alt']"
             />
           </li>
         </ul>
@@ -210,10 +210,11 @@ header {
 #toggle-theme {
   position: absolute;
   z-index: 10;
-  left: 96%;
+  left: calc(100% - 60px);
   margin-top: 20px;
   span {
-    font-size: 2em;
+    font-size: 1.6em;
+    user-select: none;
     cursor: pointer;
   }
 }

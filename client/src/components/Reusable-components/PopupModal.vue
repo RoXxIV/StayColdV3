@@ -58,6 +58,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     padding: 1rem;
+    color: $gray;
   }
 }
 </style>
