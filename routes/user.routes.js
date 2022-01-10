@@ -10,7 +10,7 @@ module.exports = function (app) {
     );
     next();
   });
-  // access
+  // Test permission
   app.get("/api/test/all", controller.allAccess);
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
   app.get(
@@ -23,9 +23,25 @@ module.exports = function (app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
-  // queries
-  app.get("/api/user", controller.getAllUsers);
-  app.get("/api/user/:id", controller.getOneUser);
-  app.delete("/api/user/:id", controller.deleteUser);
-  app.post("/api/user/update-role/:id", controller.updateUserRole);
+  // User queries
+  app.get(
+    "/api/user",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.getAllUsers
+  );
+  app.get(
+    "/api/user/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.getOneUser
+  );
+  app.delete(
+    "/api/user/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.deleteUser
+  );
+  app.post(
+    "/api/user/update-role/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.updateUserRole
+  );
 };
