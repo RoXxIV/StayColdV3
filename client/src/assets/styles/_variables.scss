@@ -9,9 +9,11 @@ $red: #ec3434;
 
 /* Variables du theme par default (light-mode) __________*/
 :root {
-  --background-color: $white;
+  #{--light-to-dark}: $white;
+  #{--dark-to-light}: $gray;
 }
 /* Variables du theme sombre (dark mode) __________*/
 [data-theme="darkMode"] {
-  #{--background-color}: $gray;
+  #{--light-to-dark}: $gray;
+  #{--dark-to-light}: $white;
 }

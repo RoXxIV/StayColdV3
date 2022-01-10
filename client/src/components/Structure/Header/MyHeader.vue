@@ -70,10 +70,10 @@
       />
     </transition>
     <!-- Toggle theme light/dark ----------->
-    <button @click="toggleTheme" aria-label="Toggle themes">
-      <span v-if="this.theme == 'darkMode'"> Light</span>
-      <span v-else> Dark</span>
-    </button>
+    <span @click="toggleTheme" aria-label="Toggle themes" id="toggle-theme">
+      <span v-if="this.theme == 'darkMode'">🌞</span>
+      <span v-else>🌚</span>
+    </span>
   </div>
 </template>
 
@@ -119,17 +119,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  background: var(--background-color);
-}
 /* Header __________*/
 header {
   display: flex;
   align-items: center;
   padding: 20px 50px 20px 20px;
   font-weight: bold;
-  border-bottom: 1px solid $gray;
-  color: $gray;
+  border-bottom: 1px solid var(--dark-to-light);
   @media (max-width: 991.98px) {
     flex-direction: column;
     justify-content: center;
@@ -155,7 +151,7 @@ header {
         fill: $blue;
       }
       .second-path {
-        fill: $gray;
+        fill: var(--dark-to-light);
       }
     }
   }
@@ -208,6 +204,17 @@ header {
     @media (max-width: 667.98px) {
       display: block;
     }
+  }
+}
+/* Toggle theme __________*/
+#toggle-theme {
+  position: absolute;
+  z-index: 10;
+  left: 96%;
+  margin-top: 20px;
+  span {
+    font-size: 2em;
+    cursor: pointer;
   }
 }
 /* Transitions __________*/
