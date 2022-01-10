@@ -12,7 +12,7 @@
       <div>
         <img
           id="illustration"
-          src="@/assets/images/login-illustration.svg"
+          src="@/assets/images/login-illustration.png"
           alt="personnage qui medite"
         />
       </div>
