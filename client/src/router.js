@@ -1,4 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
+import authGuards from "./helper/auth.guards";
 // views
 import Home from "./views/Home.vue";
 import Login from "./views/Auth/Login.vue";
@@ -33,6 +34,7 @@ const routes = [
   {
     path: "/admin-board",
     name: "Admin-Board",
+    beforeEnter: authGuards.isAdmin,
     component: AdminBoard,
   },
   { path: "/:pathMatch(.*)*", name: "not-found", component: PageNotFound },
