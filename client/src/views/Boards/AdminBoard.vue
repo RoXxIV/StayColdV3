@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import UserServices from "../../services/user.service";
+import AccessService from "../../services/access.service";
 import UsersTable from "../../components/Boards/UsersTable.vue";
 export default {
   name: "Admin-board",
@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     getAdminAccess() {
-      UserServices.getAdminBoard()
+      AccessService.getAdminBoard()
         .then((response) => {
           // console.log(response);
           this.message = response.data;
