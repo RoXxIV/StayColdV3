@@ -4,8 +4,9 @@ import router from "./router";
 import store from "./store";
 import { FontAwesomeIcon } from "./plugin/font-awesome";
 // styles
-import "./assets/styles/global.scss";
-import "./assets/styles/app.scss";
+import "./assets/styles/_variables.scss";
+import "./assets/styles/_mixin.scss";
+import "./assets/styles/_global.scss";
 
 createApp(App)
   .use(router)

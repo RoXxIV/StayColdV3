@@ -69,6 +69,11 @@
         :propsLoggedIn="loggedIn"
       />
     </transition>
+    <!-- Toggle theme light/dark ----------->
+    <button @click="toggleTheme" aria-label="Toggle themes">
+      <span v-if="this.theme == 'darkMode'"> Light</span>
+      <span v-else> Dark</span>
+    </button>
   </div>
 </template>
 
@@ -81,6 +86,7 @@ export default {
   data() {
     return {
       toggleMobileMenu: false,
+      theme: "",
     };
   },
   computed: {
@@ -95,15 +101,27 @@ export default {
       burger.setAttribute("aria-expanded", burger.classList.contains("opened"));
       this.toggleMobileMenu = !this.toggleMobileMenu;
     },
+    toggleTheme() {
+      this.theme = this.theme == "darkMode" ? "" : "darkMode";
+      document.documentElement.setAttribute("data-theme", this.theme);
+      localStorage.setItem("theme", this.theme);
+    },
     logout() {
       this.$store.dispatch("auth/logout");
       this.$router.push("/");
     },
   },
+  mounted() {
+    let localTheme = localStorage.getItem("theme");
+    document.documentElement.setAttribute("data-theme", localTheme);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+body {
+  background: var(--background-color);
+}
 /* Header __________*/
 header {
   display: flex;
