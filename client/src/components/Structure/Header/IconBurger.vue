@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Toggle Menu Burger Mobile ----------->
-    <button id="btn-burger" class="menu" aria-label="Main Menu">
+    <span id="btn-burger" class="menu" aria-label="Main Menu">
       <svg width="50" height="50" viewBox="0 0 100 100">
         <path
           class="line line1"
@@ -13,7 +13,7 @@
           d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
         />
       </svg>
-    </button>
+    </span>
   </div>
 </template>
 
@@ -30,10 +30,11 @@ export default {
   display: flex;
   padding: 0;
   cursor: pointer;
+  user-select: none;
 }
 .line {
   fill: none;
-  stroke: $gray;
+  stroke: var(--dark-to-light);
   stroke-width: 6;
   transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);

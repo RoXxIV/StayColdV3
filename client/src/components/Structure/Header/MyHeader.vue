@@ -67,6 +67,8 @@
         @closeMenu="ToggleBurgerMenu"
         @logout="logout"
         :propsLoggedIn="loggedIn"
+        @toggleTheme="toggleTheme"
+        :theme="theme"
       />
     </transition>
     <!-- Toggle theme light/dark ----------->
@@ -216,6 +218,9 @@ header {
     font-size: 1.6em;
     user-select: none;
     cursor: pointer;
+  }
+  @media (max-width: 667.98px) {
+    display: none;
   }
 }
 /* Transitions __________*/

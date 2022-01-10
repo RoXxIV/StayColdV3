@@ -2,6 +2,14 @@
   <div id="mobile-nav">
     <!-- Nav default ----------->
     <ul>
+      <li
+        @click="$emit('toggleTheme')"
+        aria-label="Toggle themes"
+        id="toggle-theme-mobile"
+      >
+        <span v-if="this.theme == 'darkMode'">Theme 🌞</span>
+        <span v-else>Theme 🌚</span>
+      </li>
       <li @click="$emit('closeMenu')">
         <router-link to="/">Acceuil</router-link>
       </li>
@@ -40,6 +48,7 @@ export default {
   name: "my-header",
   props: {
     propsLoggedIn: Boolean,
+    theme: String,
   },
 };
 </script>
@@ -53,8 +62,12 @@ export default {
   ul {
     margin: 0;
     li {
-      background: $white;
-      padding: 10px 0px 10px 15px;
+      background: var(--light-to-dark);
+      padding: 15px 0px 15px 15px;
+      border-bottom: 1px solid var(--dark-to-light);
+    }
+    #toggle-theme-mobile {
+      cursor: pointer;
     }
     #mobile-logout {
       cursor: pointer;

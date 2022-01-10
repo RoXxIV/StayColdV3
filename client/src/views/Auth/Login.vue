@@ -145,9 +145,14 @@ section {
         transform: translatey(0px);
       }
     }
-    h1 span {
-      display: block;
-      color: $blue;
+    h1 {
+      @media (max-width: 611.98px) {
+        margin-top: 0;
+      }
+      span {
+        display: block;
+        color: $blue;
+      }
     }
     /* form __________*/
     form {
@@ -164,6 +169,7 @@ section {
         border: none;
         background: transparent;
         border-bottom: 2px solid var(--dark-to-light);
+        color: var(--dark-to-light);
         width: 280px;
         transition: border-color 0.3s;
         &:focus {
