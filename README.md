@@ -8,7 +8,7 @@ afin d’en tirer quelques statistiques et pourquoi pas les optimiser par la sui
 
 ## objectif
 
-- un utilisateur doit pouvoir crer un compte, se connecter grace à une authentification sécurisé et ainsi être identifié par un token unique
+- un utilisateur doit pouvoir creer un compte, se connecter grace à une authentification sécurisé et ainsi être identifié par un token unique
 - un utilisateur (connecté) doit pouvoir enregistrer une baignade avec un certain nombre d'informations
 - un utilisateur doit également être en mesure de modifier ou supprimer ses baignades
 - un utilisateur (connecté) à accès a une page de profil personnel regroupant un certain nombre d'informations et statistiques concernant ses baignades
