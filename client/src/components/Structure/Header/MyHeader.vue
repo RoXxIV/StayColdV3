@@ -69,6 +69,11 @@
         :propsLoggedIn="loggedIn"
       />
     </transition>
+    <!-- Toggle theme light/dark ----------->
+    <span @click="toggleTheme" aria-label="Toggle themes" id="toggle-theme">
+      <span v-if="this.theme == 'darkMode'">🌞</span>
+      <span v-else>🌚</span>
+    </span>
   </div>
 </template>
 
@@ -81,6 +86,7 @@ export default {
   data() {
     return {
       toggleMobileMenu: false,
+      theme: "",
     };
   },
   computed: {
@@ -95,10 +101,19 @@ export default {
       burger.setAttribute("aria-expanded", burger.classList.contains("opened"));
       this.toggleMobileMenu = !this.toggleMobileMenu;
     },
+    toggleTheme() {
+      this.theme = this.theme == "darkMode" ? "" : "darkMode";
+      document.documentElement.setAttribute("data-theme", this.theme);
+      localStorage.setItem("theme", this.theme);
+    },
     logout() {
       this.$store.dispatch("auth/logout");
       this.$router.push("/");
     },
+  },
+  mounted() {
+    let localTheme = localStorage.getItem("theme");
+    document.documentElement.setAttribute("data-theme", localTheme);
   },
 };
 </script>
@@ -110,8 +125,7 @@ header {
   align-items: center;
   padding: 20px 50px 20px 20px;
   font-weight: bold;
-  border-bottom: 1px solid $gray;
-  color: $gray;
+  border-bottom: 1px solid var(--dark-to-light);
   @media (max-width: 991.98px) {
     flex-direction: column;
     justify-content: center;
@@ -137,7 +151,7 @@ header {
         fill: $blue;
       }
       .second-path {
-        fill: $gray;
+        fill: var(--dark-to-light);
       }
     }
   }
@@ -190,6 +204,17 @@ header {
     @media (max-width: 667.98px) {
       display: block;
     }
+  }
+}
+/* Toggle theme __________*/
+#toggle-theme {
+  position: absolute;
+  z-index: 10;
+  left: 96%;
+  margin-top: 20px;
+  span {
+    font-size: 2em;
+    cursor: pointer;
   }
 }
 /* Transitions __________*/

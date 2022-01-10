@@ -1,11 +1,3 @@
-/* Variables __________*/
-$light-gray: #fafafa;
-$blue: #3b82f6;
-$gray: #374151;
-$gray-card: #c4c4c4;
-$white: #ffffff;
-$black: #000000;
-$red: #ec3434;
 /* Mixins __________*/
 @mixin button($textColor, $borderColor, $backgroundColor) {
   color: $textColor;
