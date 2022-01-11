@@ -146,6 +146,7 @@ section {
       }
     }
     h1 {
+      margin-bottom: 50px;
       @media (max-width: 611.98px) {
         margin-top: 0;
       }

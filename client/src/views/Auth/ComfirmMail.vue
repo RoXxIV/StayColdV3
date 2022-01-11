@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Banner />
     <!-- Email comfirmé ----------->
     <div id="box">
       <div v-if="isComfirmed">
@@ -20,12 +19,10 @@
 
 <script>
 import AuthServices from "../../services/auth-services";
-import Banner from "../../components/Reusable-components/Banner.vue";
 import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Confirm-mail",
   components: {
-    Banner,
     Loading,
   },
   data() {
@@ -52,7 +49,7 @@ export default {
         })
         .catch((error) => {
           if (error.response) {
-            console.log("status", error.response.status);
+            // console.log("status", error.response.status);
             this.isComfirmed = false;
             if (
               error.response.status === 401 ||
@@ -82,6 +79,9 @@ export default {
     if (this.$route.params.confirmationCode) {
       this.sendComfirmationCode(this.$route.params.confirmationCode);
     }
+  },
+  beforeUnmount() {
+    clearInterval(this.redirectionTimerId);
   },
 };
 </script>

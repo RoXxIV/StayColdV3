@@ -67,9 +67,8 @@ export default {
 <style lang="scss" scoped>
 h1 {
   font-size: 1.8em;
-  color: var(--dark-to-light);
+  color: var(--light-to-dark);
   text-align: center;
-  margin: 50px 0px;
   .text-blue {
     color: $blue;
   }
