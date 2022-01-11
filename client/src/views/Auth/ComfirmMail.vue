@@ -2,10 +2,7 @@
   <section>
     <Banner />
     <!-- Email comfirmé ----------->
-    <div
-      id="box"
-      :class="isComfirmed ? 'successComfirmation' : 'failedConfirmation'"
-    >
+    <div id="box">
       <div v-if="isComfirmed">
         <h2>{{ message }} 😀</h2>
         <router-link to="/connexion">Se connecter</router-link>
@@ -16,6 +13,7 @@
       </div>
       <!-- Redirection ----------->
       <p>Redirection dans {{ time }}</p>
+      <Loading />
     </div>
   </section>
 </template>
@@ -23,10 +21,12 @@
 <script>
 import AuthServices from "../../services/auth-services";
 import Banner from "../../components/Reusable-components/Banner.vue";
+import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Confirm-mail",
   components: {
     Banner,
+    Loading,
   },
   data() {
     return {
@@ -73,7 +73,7 @@ export default {
           clearInterval(this.redirectionTimerId);
           this.isComfirmed
             ? this.$router.push("/connexion")
-            : this.$router.push("/");
+            : this.$router.push("/inscription");
         }
       }, 1000);
     },
@@ -95,13 +95,6 @@ section {
     width: auto;
     display: inline-block;
     padding: 50px 100px;
-    margin-top: 50px;
-  }
-  .failedConfirmation {
-    box-shadow: rgba(255, 2, 2, 0.3) 0px 0px 0px 3px;
-  }
-  .successComfirmation {
-    box-shadow: rgba(44, 255, 2, 0.3) 0px 0px 0px 3px;
   }
 }
 </style>
