@@ -55,7 +55,7 @@
         <img
           id="illustration"
           class="rubberBand"
-          src="@/assets/images/inscription.svg"
+          src="@/assets/images/form-register.svg"
           alt="vague de decoration"
         />
       </div>
