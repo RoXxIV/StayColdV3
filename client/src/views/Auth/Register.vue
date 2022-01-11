@@ -1,17 +1,17 @@
 <template>
   <section>
     <div id="blocs">
-      <div id="bloc-form">
+      <div v-if="!successful" id="bloc-form">
         <h1>Formulaire d'<span>Inscription</span></h1>
         <!-- Form ----------->
         <Form @submit="handleRegister" :validation-schema="schema">
-          <div v-if="!successful">
+          <div>
             <!-- Username ----------->
             <div>
               <label for="username">Nom d'utilisateur</label>
               <Field name="username" type="text" /><ErrorMessage
                 name="username"
-                class="error-feedback"
+                class="error-feedback alert"
               />
             </div>
             <!-- Email ----------->
@@ -19,14 +19,14 @@
               <label for="email">Email</label>
               <Field name="email" type="email" /><ErrorMessage
                 name="email"
-                class="error-feedback"
+                class="error-feedback alert"
               />
             </div>
             <!-- Password ----------->
             <div>
               <label for="password">Mot de passe</label>
               <Field name="password" type="password" />
-              <ErrorMessage name="password" class="error-feedback" />
+              <ErrorMessage name="password" class="error-feedback alert" />
             </div>
             <!-- Password confirmation ----------->
             <div>
@@ -36,7 +36,7 @@
               <Field name="passwordComfirmation" type="password" />
               <ErrorMessage
                 name="passwordComfirmation"
-                class="error-feedback"
+                class="error-feedback alert"
               />
             </div>
             <!-- Submit ----------->
@@ -45,24 +45,25 @@
             </div>
           </div>
         </Form>
+        <!-- Erreur ----------->
+        <div v-if="message && !successful" id="RegisterFailed" class="alert">
+          <span>{{ message }}</span>
+        </div>
       </div>
       <!--Illustration-->
-      <div>
+      <div v-if="!successful">
         <img
           id="illustration"
           src="@/assets/images/inscription.svg"
           alt="vague de decoration"
         />
       </div>
-
-      <!-- Erreur ----------->
-      <div
-        v-if="message"
-        class="alert"
-        :class="successful ? 'alert-success' : 'alert-danger'"
-      >
-        <span>{{ message }}</span>
-      </div>
+    </div>
+    <!-- Inscription Reussi ----------->
+    <div v-if="message && successful" id="RegistedSucces">
+      <span>❄ {{ message }} ❄</span>
+      <p>Redirection dans {{ time }}</p>
+      <Loading />
     </div>
   </section>
 </template>
@@ -70,12 +71,14 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Register",
   components: {
     Form,
     Field,
     ErrorMessage,
+    Loading,
   },
   data() {
     const schema = yup.object().shape({
@@ -97,12 +100,17 @@ export default {
       passwordComfirmation: yup
         .string()
         .required("Comfirmation requise")
-        .oneOf([yup.ref("password"), null], "Doit être identique"),
+        .oneOf(
+          [yup.ref("password"), null],
+          "Les mots de passe doivent être être identique"
+        ),
     });
     return {
       successful: false,
       message: "",
       schema,
+      redirectionTimerId: undefined,
+      time: 5,
     };
   },
   methods: {
@@ -113,6 +121,7 @@ export default {
         (data) => {
           this.message = data.message;
           this.successful = true;
+          this.redirection();
         },
         (error) => {
           this.message =
@@ -125,6 +134,15 @@ export default {
         }
       );
     },
+    redirection() {
+      this.redirectionTimerId = setInterval(() => {
+        this.time--;
+        if (this.time === 0) {
+          clearInterval(this.redirectionTimerId);
+          this.$router.push("/");
+        }
+      }, 1000);
+    },
   },
 };
 </script>
@@ -132,8 +150,6 @@ export default {
 <style lang="scss" scoped>
 /* section __________*/
 section {
-  display: flex;
-  justify-content: space-between;
   position: relative;
   width: 100vw;
   @media (max-width: 991.98px) {
@@ -201,49 +217,25 @@ section {
             margin: 20px 0;
           }
         }
-
         .error-feedback {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           display: block;
-        }
-        #message {
           text-align: center;
-          margin-top: 20px;
         }
       }
       @media (max-width: 991.98px) {
         margin-top: 0;
       }
+      #RegisterFailed {
+        text-align: center;
+        margin-top: 20px;
+      }
     }
   }
+  #RegistedSucces {
+    font-size: 1.4em;
+    text-align: center;
+    margin-top: 100px;
+  }
 }
-/*
-#Link-to-login {
-  color: var(--blue);
-  text-decoration: underline;
-  margin-top: 50px;
-  text-align: center;
-  display: block;
-}
-#Link-to-login:hover {
-  color: #176cf5;
-}
-#redirectToLogin {
-  color: white;
-  background: var(--blue);
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: 1px solid var(--blue);
-  margin: 15px auto 0px auto;
-  display: block;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: center;
-}
-#redirectToLogin:hover {
-  color: var(--blue);
-  background: white;
-  border: 1px solid var(--blue);
-}
-*/
 </style>
