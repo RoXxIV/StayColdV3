@@ -48,7 +48,7 @@ export default {
       AuthServices.verifyUser(code)
         .then((response) => {
           this.message = response.message;
-          //this.Redirection();
+          this.Redirection();
         })
         .catch((error) => {
           if (error.response) {
@@ -62,7 +62,7 @@ export default {
             } else {
               console.log("status", error.response.status);
             }
-            //this.Redirection();
+            this.Redirection();
           }
         });
     },
