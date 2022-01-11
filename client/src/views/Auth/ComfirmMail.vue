@@ -1,26 +1,33 @@
 <template>
   <section>
+    <Banner />
     <!-- Email comfirmé ----------->
-    <div v-if="isComfirmed">
-      <h2>{{ message }}</h2>
-      <router-link to="/connexion">Se connecter</router-link>
-    </div>
-
-    <!-- Erreur durant la confirmation du mail ----------->
-    <div v-else>
-      <h2>{{ errorMsg }}</h2>
-    </div>
-    <!-- Redirection ----------->
-    <div>
+    <div id="box">
+      <div v-if="isComfirmed">
+        <h2>{{ message }} 😀</h2>
+        <router-link to="/connexion">Se connecter</router-link>
+      </div>
+      <!-- Erreur durant la confirmation du mail ----------->
+      <div v-else>
+        <h2>{{ errorMsg }}</h2>
+      </div>
+      <!-- Redirection ----------->
       <p>Redirection dans {{ time }}</p>
+      <Loading />
     </div>
   </section>
 </template>
 
 <script>
 import AuthServices from "../../services/auth-services";
+import Banner from "../../components/Reusable-components/Banner.vue";
+import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Confirm-mail",
+  components: {
+    Banner,
+    Loading,
+  },
   data() {
     return {
       time: 5,
@@ -66,7 +73,7 @@ export default {
           clearInterval(this.redirectionTimerId);
           this.isComfirmed
             ? this.$router.push("/connexion")
-            : this.$router.push("/");
+            : this.$router.push("/inscription");
         }
       }, 1000);
     },
@@ -79,4 +86,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+section {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+  #box {
+    width: auto;
+    display: inline-block;
+    padding: 50px 100px;
+  }
+}
+</style>
