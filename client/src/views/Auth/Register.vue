@@ -155,6 +155,7 @@ section {
   @media (max-width: 991.98px) {
     flex-direction: column;
   }
+  /* Blocs __________*/
   #blocs {
     display: flex;
     width: 75%;
@@ -179,6 +180,7 @@ section {
         margin: 0;
       }
     }
+    /* Bloc form __________*/
     #bloc-form {
       width: 50%;
       display: flex;
@@ -186,6 +188,9 @@ section {
       align-items: center;
       margin-top: 50px;
       h1 {
+        @media (max-width: 991.98px) {
+          margin-top: 0;
+        }
         @media (max-width: 611.98px) {
           margin-top: 0;
         }
@@ -217,6 +222,7 @@ section {
             margin: 20px 0;
           }
         }
+        /* Erreur de saisis __________*/
         .error-feedback {
           margin-bottom: 10px;
           display: block;
