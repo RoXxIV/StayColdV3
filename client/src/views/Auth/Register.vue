@@ -134,6 +134,7 @@ export default {
         }
       );
     },
+    // Redirection apres inscription dans un delai de 5sec
     redirection() {
       this.redirectionTimerId = setInterval(() => {
         this.time--;

@@ -57,7 +57,6 @@ html {
     }
   }
 }
-
 /* Classes __________*/
 .btn-blue {
   @include button($white, $blue, $blue);
@@ -65,14 +64,12 @@ html {
     @include buttonHover($blue, $white);
   }
 }
-
 .btn-red {
   @include button($white, $red, $red);
   &:hover {
     @include buttonHover($red, $white);
   }
 }
-
 .alert {
   color: rgb(245, 92, 92);
 }

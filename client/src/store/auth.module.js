@@ -1,5 +1,6 @@
 import AuthService from "../services/auth-services";
 
+// verifie la presence d'un user connecté dans le local storage
 const user = JSON.parse(localStorage.getItem("user"));
 const initialState = user
   ? { status: { loggedIn: true }, user }

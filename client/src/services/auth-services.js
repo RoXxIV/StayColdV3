@@ -2,6 +2,10 @@ import axios from "axios";
 
 const API_URL = "/api/auth/";
 
+/*
+  Gestion Inscription, connexion, deconnexion et verification du mail user
+*/
+
 class AuthService {
   login(user) {
     return axios
