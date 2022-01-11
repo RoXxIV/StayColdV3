@@ -1,47 +1,60 @@
 <template>
   <section>
-    <!-- Form ----------->
-    <div id="bloc-form">
-      <h1>
-        Formulaire<br />
-        d'<span>Inscription</span>
-      </h1>
-      <Form @submit="handleRegister" :validation-schema="schema">
-        <div v-if="!successful">
-          <!-- Username ----------->
-          <div>
-            <label for="username">Nom d'utilisateur</label>
-            <Field name="username" type="text" /><ErrorMessage
-              name="username"
-              class="error-feedback"
-            />
+    <div id="blocs">
+      <div id="bloc-form">
+        <h1>Formulaire d'<span>Inscription</span></h1>
+        <!-- Form ----------->
+        <Form @submit="handleRegister" :validation-schema="schema">
+          <div v-if="!successful">
+            <!-- Username ----------->
+            <div>
+              <label for="username">Nom d'utilisateur</label>
+              <Field name="username" type="text" /><ErrorMessage
+                name="username"
+                class="error-feedback"
+              />
+            </div>
+            <!-- Email ----------->
+            <div>
+              <label for="email">Email</label>
+              <Field name="email" type="email" /><ErrorMessage
+                name="email"
+                class="error-feedback"
+              />
+            </div>
+            <!-- Password ----------->
+            <div>
+              <label for="password">Mot de passe</label>
+              <Field name="password" type="password" />
+              <ErrorMessage name="password" class="error-feedback" />
+            </div>
+            <!-- Password confirmation ----------->
+            <div>
+              <label for="passwordComfirmation"
+                >Confirmer le mot de passe</label
+              >
+              <Field name="passwordComfirmation" type="password" />
+              <ErrorMessage
+                name="passwordComfirmation"
+                class="error-feedback"
+              />
+            </div>
+            <!-- Submit ----------->
+            <div>
+              <button class="btn-blue">S'inscrire</button>
+            </div>
           </div>
-          <!-- Email ----------->
-          <div>
-            <label for="email">Email</label>
-            <Field name="email" type="email" /><ErrorMessage
-              name="email"
-              class="error-feedback"
-            />
-          </div>
-          <!-- Password ----------->
-          <div>
-            <label for="password">Mot de passe</label>
-            <Field name="password" type="password" />
-            <ErrorMessage name="password" class="error-feedback" />
-          </div>
-          <!-- Password confirmation ----------->
-          <div>
-            <label for="passwordComfirmation">Confirmer le mot de passe</label>
-            <Field name="passwordComfirmation" type="password" />
-            <ErrorMessage name="passwordComfirmation" class="error-feedback" />
-          </div>
-          <!-- Submit ----------->
-          <div>
-            <button class="btn-blue">S'inscrire</button>
-          </div>
-        </div>
-      </Form>
+        </Form>
+      </div>
+      <!--Illustration-->
+      <div>
+        <img
+          id="illustration"
+          src="@/assets/images/inscription.svg"
+          alt="vague de decoration"
+        />
+      </div>
+
       <!-- Erreur ----------->
       <div
         v-if="message"
@@ -117,46 +130,96 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* General __________*/
+/* section __________*/
 section {
-  width: 100vw;
   display: flex;
-  margin-left: 25%;
+  justify-content: space-between;
+  position: relative;
+  width: 100vw;
   @media (max-width: 991.98px) {
     flex-direction: column;
-    align-items: center;
-    margin: auto;
   }
-}
-.error-feedback {
-  color: $red;
-  margin-bottom: 20px;
-  display: block;
-}
-/* form __________*/
-form {
-  label {
-    display: block;
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  input {
-    margin: 25px 0px 15px 20px;
-    border: none;
-    background: transparent;
-    border-bottom: 2px solid var(--dark-to-light);
-    width: 280px;
-    transition: border-color 0.3s;
-    &:focus {
-      border-color: $blue;
+  #blocs {
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+    margin: 50px auto 0px auto;
+    @media (max-width: 991.98px) {
+      width: 100%;
+      margin: 30px 0px 0px 0px;
+      margin-top: 20px;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    /* illustration montagne __________*/
+    #illustration {
+      max-width: 700px;
+      @media (max-width: 991.98px) {
+        max-width: 200px;
+        margin: 0;
+      }
+      @media (max-width: 611.98px) {
+        max-width: 100px;
+        margin: 0;
+      }
+    }
+    #bloc-form {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      h1 {
+        @media (max-width: 611.98px) {
+          margin-top: 0;
+        }
+        span {
+          display: inline-block;
+          color: $blue;
+        }
+      }
+      /* form __________*/
+      form {
+        @media (max-width: 611.98px) {
+        }
+        label {
+          display: block;
+          font-size: 18px;
+        }
+        input {
+          margin: 10px 0px 35px 30px;
+          border: none;
+          background: transparent;
+          border-bottom: 2px solid var(--dark-to-light);
+          color: var(--dark-to-light);
+          width: 280px;
+          transition: border-color 0.3s;
+          &:focus {
+            border-color: $blue;
+          }
+          @media (max-width: 611.98px) {
+            margin: 20px 0;
+          }
+        }
+
+        .error-feedback {
+          margin-bottom: 20px;
+          display: block;
+        }
+        #message {
+          text-align: center;
+          margin-top: 20px;
+        }
+      }
+      @media (max-width: 991.98px) {
+        margin-top: 0;
+      }
     }
   }
 }
-h1 span {
-  color: $blue;
-}
-/*#Link-to-login {
-  color: $blue;
+/*
+#Link-to-login {
+  color: var(--blue);
   text-decoration: underline;
   margin-top: 50px;
   text-align: center;
@@ -167,10 +230,10 @@ h1 span {
 }
 #redirectToLogin {
   color: white;
-  background: $blue;
+  background: var(--blue);
   padding: 10px 20px;
   border-radius: 5px;
-  border: 1px solid $blue;
+  border: 1px solid var(--blue);
   margin: 15px auto 0px auto;
   display: block;
   font-size: 14px;
@@ -178,8 +241,9 @@ h1 span {
   text-align: center;
 }
 #redirectToLogin:hover {
-  color: $blue;
+  color: var(--blue);
   background: white;
-  border: 1px solid $blue;
-}*/
+  border: 1px solid var(--blue);
+}
+*/
 </style>
