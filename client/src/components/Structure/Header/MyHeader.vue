@@ -174,8 +174,10 @@ header {
       display: flex;
       li {
         margin-right: 30px;
+        transition: all 0.2s ease 0s;
       }
       li:hover {
+        transition: all 0.2s ease 0s;
         opacity: 0.8;
       }
     }
