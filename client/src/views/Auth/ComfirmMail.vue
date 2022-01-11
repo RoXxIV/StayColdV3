@@ -1,17 +1,20 @@
 <template>
   <section>
+    <Banner />
     <!-- Email comfirmé ----------->
-    <div v-if="isComfirmed">
-      <h2>{{ message }}</h2>
-      <router-link to="/connexion">Se connecter</router-link>
-    </div>
-
-    <!-- Erreur durant la confirmation du mail ----------->
-    <div v-else>
-      <h2>{{ errorMsg }}</h2>
-    </div>
-    <!-- Redirection ----------->
-    <div>
+    <div
+      id="box"
+      :class="isComfirmed ? 'successComfirmation' : 'failedConfirmation'"
+    >
+      <div v-if="isComfirmed">
+        <h2>{{ message }} 😀</h2>
+        <router-link to="/connexion">Se connecter</router-link>
+      </div>
+      <!-- Erreur durant la confirmation du mail ----------->
+      <div v-else>
+        <h2>{{ errorMsg }}</h2>
+      </div>
+      <!-- Redirection ----------->
       <p>Redirection dans {{ time }}</p>
     </div>
   </section>
@@ -19,8 +22,12 @@
 
 <script>
 import AuthServices from "../../services/auth-services";
+import Banner from "../../components/Reusable-components/Banner.vue";
 export default {
   name: "Confirm-mail",
+  components: {
+    Banner,
+  },
   data() {
     return {
       time: 5,
@@ -41,7 +48,7 @@ export default {
       AuthServices.verifyUser(code)
         .then((response) => {
           this.message = response.message;
-          this.Redirection();
+          //this.Redirection();
         })
         .catch((error) => {
           if (error.response) {
@@ -55,7 +62,7 @@ export default {
             } else {
               console.log("status", error.response.status);
             }
-            this.Redirection();
+            //this.Redirection();
           }
         });
     },
@@ -79,4 +86,22 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+section {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+  #box {
+    width: auto;
+    display: inline-block;
+    padding: 50px 100px;
+    margin-top: 50px;
+  }
+  .failedConfirmation {
+    box-shadow: rgba(255, 2, 2, 0.3) 0px 0px 0px 3px;
+  }
+  .successComfirmation {
+    box-shadow: rgba(44, 255, 2, 0.3) 0px 0px 0px 3px;
+  }
+}
+</style>
