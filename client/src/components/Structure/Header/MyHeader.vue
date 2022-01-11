@@ -114,6 +114,7 @@ export default {
     },
   },
   mounted() {
+    // Recupere et set le theme definit dans le local storare
     let localTheme = localStorage.getItem("theme");
     document.documentElement.setAttribute("data-theme", localTheme);
   },

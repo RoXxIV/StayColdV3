@@ -1,7 +1,7 @@
 <template>
   <section>
     <h2>Liste des utilisateurs</h2>
-    <!-- Filtre ----------->
+    <!-- Filtre de recherche ----------->
     <ul>
       <li>
         <input
@@ -58,7 +58,7 @@
         </tr>
       </tbody>
     </table>
-    <!-- Modal comfirmation de suppression ----------->
+    <!-- Modal comfirmation de suppression de l'utilisateur ----------->
     <popup-modal ref="popup">
       <div id="delete-comfirmation">
         <p>êtes vous sur ?</p>
@@ -68,7 +68,7 @@
         </div>
       </div>
     </popup-modal>
-    <!-- Modal de changement de role ----------->
+    <!-- Modal de changement de role de l'utilisateur ----------->
     <popup-modal ref="rolePopup">
       <div id="update-comfirmation">
         <label for="role">Nouveau Role</label>
@@ -106,6 +106,7 @@ export default {
     };
   },
   computed: {
+    // filtre la liste des user par pseudo
     filteredUser() {
       return this.users.filter((user) => {
         const username = user.username.toLowerCase();
@@ -115,6 +116,7 @@ export default {
     },
   },
   methods: {
+    // recupere la liste des utilisateur
     fetchUsers() {
       UserServices.getAllUsers()
         .then((response) => {
@@ -133,6 +135,7 @@ export default {
           console.log(err);
         });
     },
+    // supprime un utilisateur et referme le modal
     deleteThisUser() {
       UserServices.deleteOne(this.currentUserId)
         .then((response) => {
@@ -146,6 +149,7 @@ export default {
       this.currentUserId = null;
       this.fetchUsers();
     },
+    // Modifie le rôle d'un utilisateur et referme le modal
     updateUserRole() {
       const roles = ["user"];
       if (this.newRole === this.currentUserRole || this.newRole === null) {
