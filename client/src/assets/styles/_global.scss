@@ -10,9 +10,6 @@
   &::after {
     box-sizing: inherit;
   }
-  &:hover {
-    transition: all 0.2s ease 0s;
-  }
 }
 
 html {
@@ -54,8 +51,10 @@ html {
 
     button {
       @include button($black, $gray, $white);
+      transition: all 0.3s ease 0s;
       &:hover {
         @include buttonHover($white, $gray);
+        transition: all 0.3s ease 0s;
       }
     }
   }
