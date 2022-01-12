@@ -1,12 +1,12 @@
 <template>
   <section>
-    <!-- Illustration vagues ----------->
+    <!-- Illustration vagues ---------
     <img
       id="waves"
       src="@/assets/images/form-login-waves.svg"
       alt="vague de decoration"
     />
-
+-->
     <div id="blocs">
       <!-- Illustration meditation ----------->
       <div>
@@ -146,6 +146,7 @@ section {
       }
     }
     h1 {
+      margin-bottom: 50px;
       @media (max-width: 611.98px) {
         margin-top: 0;
       }

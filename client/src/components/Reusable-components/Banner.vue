@@ -69,7 +69,6 @@ h1 {
   font-size: 1.8em;
   color: var(--dark-to-light);
   text-align: center;
-  margin: 50px 0px;
   .text-blue {
     color: $blue;
   }
@@ -77,7 +76,7 @@ h1 {
     display: inline-block;
     margin-left: 3px;
     width: 3px;
-    background-color: #374151;
+    background-color: var(--dark-to-light);
     animation: cursorBlink 1s infinite;
     &.typing {
       animation: none;
@@ -85,7 +84,7 @@ h1 {
   }
   @keyframes cursorBlink {
     49% {
-      background-color: #374151;
+      background-color: var(--dark-to-light);
     }
     50% {
       background-color: transparent;

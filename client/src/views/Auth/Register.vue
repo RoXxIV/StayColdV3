@@ -146,6 +146,9 @@ export default {
       }, 1000);
     },
   },
+  beforeUnmount() {
+    clearInterval(this.redirectionTimerId);
+  },
 };
 </script>
 
@@ -190,6 +193,7 @@ section {
       align-items: center;
       margin-top: 50px;
       h1 {
+        margin-bottom: 50px;
         @media (max-width: 991.98px) {
           margin-top: 0;
         }

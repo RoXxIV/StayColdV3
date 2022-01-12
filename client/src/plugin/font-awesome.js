@@ -5,8 +5,9 @@ import {
   faSignOutAlt,
   faUserEdit,
   faUserTimes,
+  faArrowCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSignOutAlt, faUserEdit, faUserTimes);
+library.add(faSignOutAlt, faUserEdit, faUserTimes, faArrowCircleRight);
 
 export { FontAwesomeIcon };
