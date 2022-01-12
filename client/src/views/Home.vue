@@ -18,7 +18,6 @@ export default {
 
 <style lang="scss" scoped>
 #banner-home {
-  //background: var(--dark-to-light);
   height: 120px;
   display: flex;
   justify-content: center;

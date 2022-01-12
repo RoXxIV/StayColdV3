@@ -6,15 +6,18 @@
         c’est quoi ?
       </h2>
       <div>
-        <font-awesome-icon
+        <span
           @click="
             {
               showText = !showText;
             }
           "
-          class="font-awesome-icon"
-          :icon="['fas', 'arrow-circle-right']"
-        />
+          >Voir
+          <font-awesome-icon
+            class="font-awesome-icon rotate"
+            :class="{ down: showText }"
+            :icon="['fas', 'arrow-circle-right']"
+        /></span>
       </div>
     </div>
     <div id="content-text">
@@ -60,11 +63,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+/* Section __________*/
 section {
   width: 65%;
   margin: 50px auto;
   display: flex;
-
+  /* content-title __________*/
   #content-title {
     min-width: 40%;
     padding-top: 30px;
@@ -74,18 +78,24 @@ section {
       span {
         color: $blue;
       }
+      @media (max-width: 991.98px) {
+        margin: 0;
+      }
       @media (max-width: 611.98px) {
         font-size: 1.6em;
-        margin: 0;
       }
     }
     div {
       text-align: right;
-
+      span {
+        margin-right: 10px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
       .font-awesome-icon {
         font-size: 2.5em;
         margin-right: 60px;
-        cursor: pointer;
+
         @media (max-width: 991.98px) {
           rotate: 90deg;
         }
@@ -97,21 +107,32 @@ section {
         text-align: right;
       }
     }
+    /* content-title media-queries __________*/
     @media (max-width: 991.98px) {
       padding-top: 0;
     }
   }
-  img {
-    max-width: 250px;
-    margin: auto;
-  }
+
   #content-text {
     font-size: 1.1em;
     line-height: 1.4em;
+    img {
+      max-width: 250px;
+      margin: auto;
+      &.shark {
+        position: absolute;
+        left: 60%;
+        z-index: -1;
+        @media (max-width: 991.98px) {
+          left: calc(50% - 125px);
+        }
+      }
+    }
     span {
       color: $blue;
     }
   }
+  /* content-title Section __________*/
   @media (max-width: 991.98px) {
     flex-direction: column;
     margin-top: 0;
@@ -121,6 +142,7 @@ section {
     padding: 0px 10px;
   }
 }
+/* Transition Content-text __________*/
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
@@ -128,16 +150,9 @@ section {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+/* Transition Shark __________*/
 .sharkAnimation {
   opacity: 0.1 !important;
-}
-.shark {
-  position: absolute;
-  left: 60%;
-  z-index: -1;
-  @media (max-width: 991.98px) {
-    left: calc(50% - 125px);
-  }
 }
 
 .lightSpeedIn {
@@ -193,5 +208,16 @@ section {
     transform: none;
     opacity: 1;
   }
+}
+
+.rotate {
+  -moz-transition: all 0.4s linear;
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+.rotate.down {
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 </style>
