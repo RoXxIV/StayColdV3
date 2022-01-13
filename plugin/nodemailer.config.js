@@ -35,12 +35,16 @@ module.exports.resetPasswordEmail = (name, email, confirmationCode) => {
     .sendMail({
       from: user,
       to: email,
-      subject: "Récupération de mot de passe",
+      subject: "Votre demande de nouveau mot de passe",
       html: `<div>
-        <h1>❄ Bonjour ${name}</h1>
-        <p>Veuillez cliquer sur le lien ci-dessous afin de générer un nouveau mot de passe</p>
-        <a href=http://localhost:8080/reset-password/${confirmationCode}>➡ Générer un nouveau mot de passe ⬅</a>
+        <h1>❄ Bonjour ${name} ❄</h1>
+        <p>Il semble que vous ayez besoin d'un nouveau mot de passe. Cliquez sur le lien ci-dessous pour confirmer votre demande.</p>
+        <br />
+        <a href=http://localhost:8080/reset-password/${confirmationCode}>➡ Confirmer votre demande ⬅</a>
+        <br />
         <p>Si vous ne l'avez pas demandé, veuillez ignorer cet e-mail et votre mot de passe restera inchangé.</p>
+        <p>À bientôt, <br />
+        L'équipe StayCold</p>
         </div>`,
     })
     .catch((err) => console.log(err));

@@ -45,7 +45,7 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
-  name: "Confirm-mail",
+  name: "Set-new-password",
   components: {
     Form,
     Field,
