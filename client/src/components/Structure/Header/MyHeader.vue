@@ -40,10 +40,10 @@
         <!-- Nav auth ----------->
         <ul id="auth-nav">
           <li v-if="!loggedIn">
-            <router-link to="/connexion">Connexion</router-link>
+            <router-link to="/login">Connexion</router-link>
           </li>
           <li v-if="!loggedIn">
-            <router-link to="/inscription">Inscription</router-link>
+            <router-link to="/register">Inscription</router-link>
           </li>
           <li v-if="loggedIn" @click.prevent="logout" id="logout">
             Deconnexion

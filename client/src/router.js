@@ -5,6 +5,8 @@ import Home from "./views/Home.vue";
 import Login from "./views/Auth/Login.vue";
 import Register from "./views/Auth/Register.vue";
 import ComfirmMail from "./views/Auth/ComfirmMail.vue";
+import ResetPassword from "./views/Auth/ResetPassword.vue";
+import GenerateNewPassword from "./views/Auth/GenerateNewPassword.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
@@ -16,19 +18,29 @@ const routes = [
     component: Home,
   },
   {
-    path: "/connexion",
+    path: "/login",
     name: "Login",
     component: Login,
   },
   {
-    path: "/inscription",
+    path: "/register",
     name: "Register",
     component: Register,
   },
   {
-    path: "/comfirmation-email-redirection/:confirmationCode",
+    path: "/comfirm-mail-redirection/:confirmationCode",
     name: "Confirm-mail",
     component: ComfirmMail,
+  },
+  {
+    path: "/reset-password/:confirmationCode",
+    name: "reset-password",
+    component: ResetPassword,
+  },
+  {
+    path: "/generate-new-password",
+    name: "generate-new-password",
+    component: GenerateNewPassword,
   },
   // Boards
   {
@@ -36,6 +48,12 @@ const routes = [
     name: "Admin-Board",
     beforeEnter: authGuards.isAdmin,
     component: AdminBoard,
+  },
+  // 404
+  {
+    path: "/not-found",
+    name: "not-found",
+    component: PageNotFound,
   },
   { path: "/:pathMatch(.*)*", name: "not-found", component: PageNotFound },
 ];

@@ -4,7 +4,7 @@
     <div id="box">
       <div v-if="isComfirmed">
         <h2>{{ message }} 😀</h2>
-        <router-link to="/connexion">Se connecter</router-link>
+        <router-link to="/login">Se connecter</router-link>
       </div>
       <!-- Erreur durant la confirmation du mail ----------->
       <div v-else>
@@ -69,8 +69,8 @@ export default {
         if (this.time === 0) {
           clearInterval(this.redirectionTimerId);
           this.isComfirmed
-            ? this.$router.push("/connexion")
-            : this.$router.push("/inscription");
+            ? this.$router.push("/login")
+            : this.$router.push("/register");
         }
       }, 1000);
     },

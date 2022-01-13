@@ -43,6 +43,12 @@
             </div>
           </div>
         </Form>
+        <!-- Mot de pass oublié ----------->
+        <div id="forgottenPassword">
+          <router-link to="/generate-new-password"
+            >Mot de passe oublié ?</router-link
+          >
+        </div>
         <!-- Lien vers la page de connexion ----------->
         <router-link to="/register" tag="span" id="Link-to-register"
           >Créer un compte
@@ -189,10 +195,16 @@ section {
         margin-top: 20px;
       }
     }
+    #forgottenPassword {
+      color: $blue;
+      text-decoration: underline;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
     #Link-to-register {
       color: $blue;
       text-decoration: underline;
-      margin-top: 50px;
       text-align: center;
       display: block;
       &:hover {

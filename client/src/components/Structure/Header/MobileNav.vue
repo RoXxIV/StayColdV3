@@ -20,10 +20,10 @@
     <!-- Nav auth ----------->
     <ul>
       <li v-if="!propsLoggedIn" @click="$emit('closeMenu')">
-        <router-link to="/connexion">Connexion</router-link>
+        <router-link to="/login">Connexion</router-link>
       </li>
       <li v-if="!propsLoggedIn" @click="$emit('closeMenu')">
-        <router-link to="/inscription">Inscription</router-link>
+        <router-link to="/register">Inscription</router-link>
       </li>
     </ul>
     <!-- Nav user ----------->
