@@ -1,9 +1,7 @@
 /** initialise les roles user lors de la premiere connexion
  * @module plugin/initial
  */
-/**
- * @requires module:models
- */
+/** @requires module:models */
 const db = require("../models");
 /**
  * modele roles
