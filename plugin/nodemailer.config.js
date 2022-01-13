@@ -24,6 +24,8 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
         <h1>❄ Bonjour ${name} et bienvenue sur Staycold ! ❄</h1>
         <p>Merci de bien vouloir finaliser l'inscription en cliquant sur le lien ci-dessous</p>
         <a href=http://localhost:8080/comfirm-mail-redirection/${confirmationCode}>➡ Finaliser l'inscription ⬅</a>
+        <p>À bientôt, <br />
+        L'équipe StayCold</p>
         </div>`,
     })
     .catch((err) => console.log(err));
