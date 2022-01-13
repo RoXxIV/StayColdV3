@@ -158,3 +158,48 @@ exports.verifyUSer = (req, res, next) => {
     });
   //
 };
+
+// envoie un mail de reinitialisation du mot de passe au user
+exports.sendEmailResetPassword = (req, res, next) => {
+  User.findOne({ email: req.params.email })
+    .then((user) => {
+      // code de comfirmation incorrect
+      if (!user) {
+        return res.status(401).send({ message: "Utilisateur non trouvé." });
+      }
+      res.send({
+        message: "La demarche a Suivre vous a été envoyé par mail",
+      });
+      nodemailer.resetPasswordEmail(
+        user.username,
+        user.email,
+        user.confirmationCode
+      );
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  //
+};
+
+// reinitialisation du mot de passe
+exports.resetPassword = (req, res, next) => {
+  User.findOne({ confirmationCode: req.params.confirmationCode })
+    .then((user) => {
+      // code de comfirmation incorrect
+      if (!user) {
+        return res.status(401).send({ message: "Utilisateur non trouvé." });
+      }
+      (user.password = bcrypt.hashSync(req.body.password, 8)),
+        user.save((err) => {
+          if (err) {
+            res.status(500).send({ message: err });
+            return;
+          }
+          res.json({ message: "Votre demande a bien été prise en compte" });
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
