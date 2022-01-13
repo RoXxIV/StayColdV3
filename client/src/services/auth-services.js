@@ -41,6 +41,14 @@ class AuthService {
       password: password,
     });
   }
+  // Envoie du mail reset password
+  resetPasswordEmail(email) {
+    return axios
+      .get(API_URL + "email-reset-password/" + email)
+      .then((response) => {
+        return response.data;
+      });
+  }
 }
 
 export default new AuthService();

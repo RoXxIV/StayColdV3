@@ -168,7 +168,7 @@ exports.sendEmailResetPassword = (req, res, next) => {
         return res.status(401).send({ message: "Utilisateur non trouvé." });
       }
       res.send({
-        message: "La demarche a Suivre vous a été envoyé par mail",
+        message: "La démarche à suivre vous a été envoyé par mail",
       });
       nodemailer.resetPasswordEmail(
         user.username,
