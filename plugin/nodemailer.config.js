@@ -1,10 +1,23 @@
-// import
+/** @requires module:nodemailer */
 const nodemailer = require("nodemailer");
+/** @requires module:dotenv */
 const dotenv = require("dotenv");
 
+/**
+ * adresse utilisé pour l'envoie de mail
+ * @type {string}
+ */
 const user = process.env.USER_MAIL;
+/**
+ * mot de passe associé a l'adresse mail
+ * @type {string}
+ */
 const pass = process.env.USER_MAIL_SECRET;
 
+/**
+ * parametres SMTP
+ * @type {object}
+ */
 const transport = nodemailer.createTransport({
   service: "Gmail",
   auth: {
@@ -13,6 +26,12 @@ const transport = nodemailer.createTransport({
   },
 });
 
+/**
+ * Envoie le mail permettant l'activation du compte user
+ * @param {string} name
+ * @param {string} email
+ * @param {string} confirmationCode
+ */
 module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
   transport
     .sendMail({
@@ -29,7 +48,12 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
     })
     .catch((err) => console.log(err));
 };
-
+/**
+ * Envoie le mail permettant de generer un nouveau mot de passe
+ * @param {string} name
+ * @param {string} email
+ * @param {string} confirmationCode
+ */
 module.exports.resetPasswordEmail = (name, email, confirmationCode) => {
   console.log("reset password");
   transport

@@ -1,20 +1,19 @@
-/** Express router providing bath related routes
+/** Routeur express, routes liées aux utilisateurs
  * @module routes/user
  */
 
-/**
- * @requires module:middleware
- * @const
- */
+/** @requires module:middleware */
 const { authJwt } = require("../middleware");
-/**
- * @requires module:controllers/user
- * @const
- */
+
+/** @requires module:controllers/user */
 const controller = require("../controllers/user.controller");
 
 /** @module routes/auth */
 module.exports = function (app) {
+  /**
+   * Headers
+   * @param middleware
+   */
   app.use(function (req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",
@@ -24,7 +23,7 @@ module.exports = function (app) {
   });
 
   /**
-   * Test public permissions.
+   * Test permission public.
    * @name get/api/test/all
    * @function
    * @memberof module:routes/user
@@ -34,7 +33,7 @@ module.exports = function (app) {
    */
   app.get("/api/test/all", controller.allAccess);
   /**
-   * Test users permissions.
+   * Test permissions utilisateur.
    * @name get/api/test/user
    * @function
    * @memberof module:routes/user
@@ -45,7 +44,7 @@ module.exports = function (app) {
    */
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
   /**
-   * Test moderator permissions.
+   * Test permissions moderateurs.
    * @name get/api/test/mod
    * @function
    * @memberof module:routes/user
@@ -60,7 +59,7 @@ module.exports = function (app) {
     controller.moderatorBoard
   );
   /**
-   * Test Admin permissions.
+   * Test permissions admins.
    * @name get/api/test/admin
    * @function
    * @memberof module:routes/user
@@ -75,7 +74,7 @@ module.exports = function (app) {
     controller.adminBoard
   );
   /**
-   * Get all users.
+   * Recupere tout les utilisateurs.
    * @name get/api/user
    * @function
    * @memberof module:routes/user
@@ -90,7 +89,7 @@ module.exports = function (app) {
     controller.getAllUsers
   );
   /**
-   * Get user by id.
+   * Recupere un utilisateurs par ID.
    * @name get/api/user/:id
    * @function
    * @memberof module:routes/user
@@ -105,7 +104,7 @@ module.exports = function (app) {
     controller.getOneUser
   );
   /**
-   * Delete one user.
+   * Supprime un utilisateur.
    * @name delete/api/user/:id
    * @function
    * @memberof module:routes/user
@@ -120,7 +119,7 @@ module.exports = function (app) {
     controller.deleteUser
   );
   /**
-   * Update user rôle.
+   * Modifie le rôle de l'utilisateur.
    * @name post/api/user/update-role/:id
    * @function
    * @memberof module:routes/user

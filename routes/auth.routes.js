@@ -1,19 +1,21 @@
-/** Express router providing authentication related routes
+/** Routeur express, routes liées à l'authentification
  * @module routes/auth
  */
-/**
- * @requires module:middleware
- * @const
- */
+/** @requires module:middleware */
 const { verifySignUp } = require("../middleware");
-/**
- * @requires module:controllers/auth
- * @const
- */
+
+/** @requires module:controllers/auth */
 const controller = require("../controllers/auth.controller");
 
-/** @module routes/auth */
+/**
+ * @module routes/auth
+ * @param {object} app
+ */
 module.exports = function (app) {
+  /**
+   * Headers
+   * @param middleware
+   */
   app.use(function (req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",
@@ -22,7 +24,7 @@ module.exports = function (app) {
     next();
   });
   /**
-   * Signup.
+   * Inscription
    * @name post/api/auth/signup
    * @function
    * @memberof module:routes/auth
@@ -40,7 +42,7 @@ module.exports = function (app) {
     controller.signup
   );
   /**
-   * Login.
+   * Connexion
    * @name post/api/auth/signin
    * @function
    * @memberof module:routes/auth
@@ -50,7 +52,7 @@ module.exports = function (app) {
    */
   app.post("/api/auth/signin", controller.signin);
   /**
-   * Reset user password.
+   * Reset password.
    * @name post/api/auth/reset-password/:confirmationCode
    * @function
    * @memberof module:routes/auth
@@ -63,7 +65,7 @@ module.exports = function (app) {
     controller.resetPassword
   );
   /**
-   * Send a mail to comfirm the user account.
+   * Envoie du mail permettant d'aciver le compte user
    * @name post/api/auth/confirm/:confirmationCode
    * @function
    * @memberof module:routes/auth
@@ -73,7 +75,7 @@ module.exports = function (app) {
    */
   app.get("/api/auth/confirm/:confirmationCode", controller.verifyUSer);
   /**
-   * Send a mail to reset the user password.
+   * Envoie du mail permettant de générer un nouveau mot de passe.
    * @name post/api/auth/confirm/:confirmationCode
    * @function
    * @memberof module:routes/auth

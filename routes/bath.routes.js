@@ -1,15 +1,16 @@
-/** Express router providing bath related routes
+/** Routeur express, routes liées aux baignades
  * @module routes/bath
  */
 
-/**
- * @requires module:controllers/bath
- * @const
- */
+/** @requires module:controllers/bath */
 const controller = require("../controllers/bath.controller");
 
 /** @module routes/bath */
 module.exports = function (app) {
+  /**
+   * Headers
+   * @param middleware
+   */
   app.use(function (req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",
@@ -18,7 +19,7 @@ module.exports = function (app) {
     next();
   });
   /**
-   * Add a bath.
+   * Ajout d'une baignade
    * @name post/api/bath
    * @function
    * @memberof module:routes/bath
@@ -28,7 +29,7 @@ module.exports = function (app) {
    */
   app.post("/api/bath", controller.createBath);
   /**
-   * Updade a bath.
+   * Edition d'une baignade
    * @name post/api/bath/:id
    * @function
    * @memberof module:routes/bath
@@ -38,7 +39,7 @@ module.exports = function (app) {
    */
   app.put("/api/bath/:id", controller.modifyBath);
   /**
-   * Delete a bath.
+   * Suppression d'une baignade
    * @name delete/api/bath/:id
    * @function
    * @memberof module:routes/bath
@@ -48,7 +49,7 @@ module.exports = function (app) {
    */
   app.delete("/api/bath/:id", controller.deleteBath);
   /**
-   * Get all baths.
+   * Recupere toutes les baignades
    * @name get/api/bath
    * @function
    * @memberof module:routes/bath
@@ -58,7 +59,7 @@ module.exports = function (app) {
    */
   app.get("/api/bath", controller.getAllBaths);
   /**
-   * Get a bath by id.
+   * Recupere une baignades par sont ID
    * @name get/api/bath/:id
    * @function
    * @memberof module:routes/bath
@@ -68,7 +69,7 @@ module.exports = function (app) {
    */
   app.get("/api/bath/:id", controller.getOneBath);
   /**
-   * Get recent baths with a custom limit.
+   * Recupere toutes les baignades recentes avec une limite
    * @name get/api/recent/:limit
    * @function
    * @memberof module:routes/bath
@@ -78,7 +79,7 @@ module.exports = function (app) {
    */
   app.get("/api/bath/recent/:limit", controller.getRecentBaths);
   /**
-   * Get all baths owned by a specific user.
+   * Recupere toutes les baignades appartenant a un utilisateur
    * @name get/api/bath/user/:userId
    * @function
    * @memberof module:routes/bath
