@@ -45,7 +45,7 @@
         </Form>
         <!-- Mot de pass oublié ----------->
         <div id="forgottenPassword">
-          <router-link to="/generate-new-password"
+          <router-link to="/set-new-password"
             >Mot de passe oublié ?</router-link
           >
         </div>

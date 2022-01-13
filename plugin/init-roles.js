@@ -1,8 +1,17 @@
-//import
+/** initialise les roles user lors de la premiere connexion
+ * @module plugin/initial
+ */
+/** @requires module:models */
 const db = require("../models");
+/**
+ * modele roles
+ * @type {object}
+ */
 const Role = db.role;
 
-// Creation des roles lors de la première connexion à la base de données
+/**
+ * Creation des roles lors de la première connexion à la base de données
+ */
 const initial = () => {
   Role.estimatedDocumentCount((err, count) => {
     if (!err && count === 0) {

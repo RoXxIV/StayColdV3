@@ -6,7 +6,7 @@ import Login from "./views/Auth/Login.vue";
 import Register from "./views/Auth/Register.vue";
 import ComfirmMail from "./views/Auth/ComfirmMail.vue";
 import ResetPassword from "./views/Auth/ResetPassword.vue";
-import GenerateNewPassword from "./views/Auth/GenerateNewPassword.vue";
+import SetNewPassword from "./views/Auth/SetNewPassword.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
@@ -34,13 +34,13 @@ const routes = [
   },
   {
     path: "/reset-password/:confirmationCode",
-    name: "reset-password",
+    name: "Reset-password",
     component: ResetPassword,
   },
   {
-    path: "/generate-new-password",
-    name: "generate-new-password",
-    component: GenerateNewPassword,
+    path: "/set-new-password",
+    name: "Set-new-password",
+    component: SetNewPassword,
   },
   // Boards
   {

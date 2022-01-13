@@ -1,12 +1,23 @@
-// import
+/** Token et permissions
+ * @module middleware/authJwt
+ */
+
+/** @requires module:jsonwebtoken */
 const jwt = require("jsonwebtoken");
+
+/** @requires module:dotenv */
 const dotenv = require("dotenv");
+
+/** @requires module:models */
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
 
 dotenv.config();
 
+/**
+ * Verifie la presence d'un token dans le header
+ */
 verifyToken = (req, res, next) => {
   let token = req.headers["x-access-token"];
 
@@ -21,14 +32,18 @@ verifyToken = (req, res, next) => {
     next();
   });
 };
-
+/**
+ * Verifie si l'utilisateur est admin
+ */
 isAdmin = (req, res, next) => {
   User.findById(req.userId).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
       return;
     }
-
+    /**
+     * parcours les roles a la recherche de la mention admin
+     */
     Role.find(
       {
         _id: { $in: user.roles },
@@ -52,14 +67,18 @@ isAdmin = (req, res, next) => {
     );
   });
 };
-
+/**
+ * Verifie si l'utilisateur est moderateur
+ */
 isModerator = (req, res, next) => {
   User.findById(req.userId).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
       return;
     }
-
+    /**
+     * parcours les roles a la recherche de la mention moderateur
+     */
     Role.find(
       {
         _id: { $in: user.roles },

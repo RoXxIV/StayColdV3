@@ -1,10 +1,19 @@
-// import
+/** verifie les doublon d'email, usurname ou la presense d'un rôle donné
+ * @module middleware/verifySignup
+ */
+
+/** @requires module:models */
 const db = require("../models");
 const ROLES = db.ROLES;
 const User = db.user;
 
+/**
+ * Verifie, lors de l'inscription si l'email ou l'usurname n'est pas deja présent en bdd
+ */
 checkDuplicateUsernameOrEmail = (req, res, next) => {
-  // Username
+  /**
+   * Verification de l'usurname
+   */
   User.findOne({
     username: req.body.username,
   }).exec((err, user) => {
@@ -18,8 +27,9 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
         .send({ message: "Ce Nom d'utilisateur est déja utilisé!" });
       return;
     }
-
-    // Email
+    /**
+     * Verification de l'email
+     */
     User.findOne({
       email: req.body.email,
     }).exec((err, user) => {
@@ -36,6 +46,10 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
   });
 };
 
+/**
+ * Verifie, lors de l'ajout d'un utilisateur si le rôle présent dans la requete
+ * existe bien en bdd
+ */
 checkRolesExisted = (req, res, next) => {
   if (req.body.roles) {
     for (let i = 0; i < req.body.roles.length; i++) {
