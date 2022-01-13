@@ -1,8 +1,15 @@
-// import
+/** @requires module:express */
 const express = require("express");
+
+/** @requires module:bodyPasrser */
 const bodyParser = require("body-parser");
+
+/** @requires module:dotEnv */
 const dotenv = require("dotenv");
+
+/** @requires module:cors */
 const cors = require("cors");
+
 const PORT = process.env.PORT || 3000;
 
 const db = require("./models");
@@ -16,7 +23,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// connexion à la BDD
+/**
+ * Connexion a la base de données
+ */
 db.mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -31,13 +40,17 @@ db.mongoose
     process.exit();
   });
 
+/**
+ * @param middleware
+ */
 app.get("/", (req, res) => {
   res.json({ message: "Bienvenue sur StayCold API" });
 });
-
-// Routes
+/** @requires module:routes/auth */
 require("./routes/auth.routes")(app);
+/** @requires module:routes/user */
 require("./routes/user.routes")(app);
+/** @requires module:routes/bath */
 require("./routes/bath.routes")(app);
 
 app.listen(PORT, () => {
