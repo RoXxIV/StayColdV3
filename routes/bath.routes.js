@@ -24,7 +24,7 @@ module.exports = function (app) {
    * @memberof module:routes/bath
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/bath.controller.createBath()
    */
   app.post("/api/bath", controller.createBath);
   /**
@@ -34,7 +34,7 @@ module.exports = function (app) {
    * @memberof module:routes/bath
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/bath.controller.modifyBath()
    */
   app.put("/api/bath/:id", controller.modifyBath);
   /**
@@ -44,7 +44,7 @@ module.exports = function (app) {
    * @memberof module:routes/bath
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/bath.controller.deleteBath()
    */
   app.delete("/api/bath/:id", controller.deleteBath);
   /**
@@ -54,7 +54,7 @@ module.exports = function (app) {
    * @memberof module:routes/bath
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/bath.controller.getAllBaths()
    */
   app.get("/api/bath", controller.getAllBaths);
   /**
@@ -64,7 +64,7 @@ module.exports = function (app) {
    * @memberof module:routes/bath
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/bath.controller.getOneBath()
    */
   app.get("/api/bath/:id", controller.getOneBath);
   /**
@@ -74,7 +74,7 @@ module.exports = function (app) {
    * @memberof module:routes/bath
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/bath.controller.getRecentBath()
    */
   app.get("/api/bath/recent/:limit", controller.getRecentBaths);
   /**
@@ -84,7 +84,7 @@ module.exports = function (app) {
    * @memberof module:routes/bath
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/bath.controller.getUserBath()
    */
   app.get("/api/bath/user/:userId", controller.getUserBaths);
 };

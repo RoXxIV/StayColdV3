@@ -30,7 +30,7 @@ module.exports = function (app) {
    * @memberof module:routes/user
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/user.controller.allAccess()
    */
   app.get("/api/test/all", controller.allAccess);
   /**
@@ -40,7 +40,8 @@ module.exports = function (app) {
    * @memberof module:routes/user
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {array} middleware - authJwt.verifyToken()
+   * @param {module} controller - controllers/user.controller.userBoard()
    */
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
   /**
@@ -50,7 +51,8 @@ module.exports = function (app) {
    * @memberof module:routes/user
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {array} middleware - authJwt.verifyToken() && authJwt.isModerator()
+   * @param {module} controller - controllers/user.controller.moderatorBoard()
    */
   app.get(
     "/api/test/mod",
@@ -64,7 +66,8 @@ module.exports = function (app) {
    * @memberof module:routes/user
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {array} middleware - authJwt.verifyToken() && authJwt.isAdmin()
+   * @param {module} controller - controllers/user.controller.adminBoard()
    */
   app.get(
     "/api/test/admin",
@@ -78,7 +81,8 @@ module.exports = function (app) {
    * @memberof module:routes/user
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {array} middleware - authJwt.verifyToken() && authJwt.isAdmin()
+   * @param {module} controller - controllers/user.controller.getAllUsers()
    */
   app.get(
     "/api/user",
@@ -92,7 +96,8 @@ module.exports = function (app) {
    * @memberof module:routes/user
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {array} middleware - authJwt.verifyToken() && authJwt.isAdmin()
+   * @param {module} controller - controllers/user.controller.getOneUser()
    */
   app.get(
     "/api/user/:id",
@@ -106,7 +111,8 @@ module.exports = function (app) {
    * @memberof module:routes/user
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {array} middleware - authJwt.verifyToken() && authJwt.isAdmin()
+   * @param {module} controller - controllers/user.controller.deleteUser()
    */
   app.delete(
     "/api/user/:id",
@@ -120,7 +126,8 @@ module.exports = function (app) {
    * @memberof module:routes/user
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {array} middleware - authJwt.verifyToken() && authJwt.isAdmin()
+   * @param {module} controller - controllers/user.controller.updateUserRole()
    */
   app.post(
     "/api/user/update-role/:id",

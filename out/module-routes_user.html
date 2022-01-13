@@ -206,7 +206,7 @@
     
 
     
-    <h4 class="name" id="~delete/api/user/:id"><span class="type-signature">(inner) </span>delete/api/user/:id<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~delete/api/user/:id"><span class="type-signature">(inner) </span>delete/api/user/:id<span class="signature">(path, middleware, controller)</span><span class="type-signature"></span></h4>
     
 
     
@@ -279,7 +279,7 @@
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">array</span>
 
 
             
@@ -289,7 +289,30 @@
 
             
 
-            <td class="description last">Express middleware.</td>
+            <td class="description last">authJwt.verifyToken() && authJwt.isAdmin()</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>controller</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">module</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">controllers/user.controller.deleteUser()</td>
         </tr>
 
     
@@ -330,7 +353,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line102">line 102</a>
+        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line107">line 107</a>
     </li></ul></dd>
     
 
@@ -366,7 +389,7 @@
     
 
     
-    <h4 class="name" id="~get/api/test/admin"><span class="type-signature">(inner) </span>get/api/test/admin<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~get/api/test/admin"><span class="type-signature">(inner) </span>get/api/test/admin<span class="signature">(path, middleware, controller)</span><span class="type-signature"></span></h4>
     
 
     
@@ -439,7 +462,7 @@
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">array</span>
 
 
             
@@ -449,7 +472,30 @@
 
             
 
-            <td class="description last">Express middleware.</td>
+            <td class="description last">authJwt.verifyToken() && authJwt.isAdmin()</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>controller</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">module</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">controllers/user.controller.adminBoard()</td>
         </tr>
 
     
@@ -490,7 +536,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line60">line 60</a>
+        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -526,7 +572,7 @@
     
 
     
-    <h4 class="name" id="~get/api/test/all"><span class="type-signature">(inner) </span>get/api/test/all<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~get/api/test/all"><span class="type-signature">(inner) </span>get/api/test/all<span class="signature">(path, controller)</span><span class="type-signature"></span></h4>
     
 
     
@@ -593,13 +639,13 @@
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>controller</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">module</span>
 
 
             
@@ -609,7 +655,7 @@
 
             
 
-            <td class="description last">Express middleware.</td>
+            <td class="description last">controllers/user.controller.allAccess()</td>
         </tr>
 
     
@@ -686,7 +732,7 @@
     
 
     
-    <h4 class="name" id="~get/api/test/mod"><span class="type-signature">(inner) </span>get/api/test/mod<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~get/api/test/mod"><span class="type-signature">(inner) </span>get/api/test/mod<span class="signature">(path, middleware, controller)</span><span class="type-signature"></span></h4>
     
 
     
@@ -759,7 +805,7 @@
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">array</span>
 
 
             
@@ -769,7 +815,30 @@
 
             
 
-            <td class="description last">Express middleware.</td>
+            <td class="description last">authJwt.verifyToken() && authJwt.isModerator()</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>controller</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">module</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">controllers/user.controller.moderatorBoard()</td>
         </tr>
 
     
@@ -810,7 +879,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line46">line 46</a>
+        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line47">line 47</a>
     </li></ul></dd>
     
 
@@ -846,7 +915,7 @@
     
 
     
-    <h4 class="name" id="~get/api/test/user"><span class="type-signature">(inner) </span>get/api/test/user<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~get/api/test/user"><span class="type-signature">(inner) </span>get/api/test/user<span class="signature">(path, middleware, controller)</span><span class="type-signature"></span></h4>
     
 
     
@@ -919,7 +988,7 @@
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">array</span>
 
 
             
@@ -929,7 +998,30 @@
 
             
 
-            <td class="description last">Express middleware.</td>
+            <td class="description last">authJwt.verifyToken()</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>controller</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">module</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">controllers/user.controller.userBoard()</td>
         </tr>
 
     
@@ -1006,7 +1098,7 @@
     
 
     
-    <h4 class="name" id="~get/api/user"><span class="type-signature">(inner) </span>get/api/user<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~get/api/user"><span class="type-signature">(inner) </span>get/api/user<span class="signature">(path, middleware, controller)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1079,7 +1171,7 @@
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">array</span>
 
 
             
@@ -1089,7 +1181,30 @@
 
             
 
-            <td class="description last">Express middleware.</td>
+            <td class="description last">authJwt.verifyToken() && authJwt.isAdmin()</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>controller</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">module</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">controllers/user.controller.getAllUsers()</td>
         </tr>
 
     
@@ -1130,7 +1245,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line74">line 74</a>
+        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line77">line 77</a>
     </li></ul></dd>
     
 
@@ -1166,7 +1281,7 @@
     
 
     
-    <h4 class="name" id="~get/api/user/:id"><span class="type-signature">(inner) </span>get/api/user/:id<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~get/api/user/:id"><span class="type-signature">(inner) </span>get/api/user/:id<span class="signature">(path, middleware, controller)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1239,7 +1354,7 @@
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">array</span>
 
 
             
@@ -1249,7 +1364,30 @@
 
             
 
-            <td class="description last">Express middleware.</td>
+            <td class="description last">authJwt.verifyToken() && authJwt.isAdmin()</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>controller</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">module</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">controllers/user.controller.getOneUser()</td>
         </tr>
 
     
@@ -1290,7 +1428,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line88">line 88</a>
+        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -1326,7 +1464,7 @@
     
 
     
-    <h4 class="name" id="~post/api/user/update-role/:id"><span class="type-signature">(inner) </span>post/api/user/update-role/:id<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~post/api/user/update-role/:id"><span class="type-signature">(inner) </span>post/api/user/update-role/:id<span class="signature">(path, middleware, controller)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1399,7 +1537,7 @@
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">array</span>
 
 
             
@@ -1409,7 +1547,30 @@
 
             
 
-            <td class="description last">Express middleware.</td>
+            <td class="description last">authJwt.verifyToken() && authJwt.isAdmin()</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>controller</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">module</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">controllers/user.controller.updateUserRole()</td>
         </tr>
 
     
@@ -1450,7 +1611,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line116">line 116</a>
+        <a href="user.routes.js.html">user.routes.js</a>, <a href="user.routes.js.html#line122">line 122</a>
     </li></ul></dd>
     
 
@@ -1502,7 +1663,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jan 13 2022 17:43:04 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jan 13 2022 18:19:40 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

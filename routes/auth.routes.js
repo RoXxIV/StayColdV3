@@ -28,7 +28,8 @@ module.exports = function (app) {
    * @memberof module:routes/auth
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {array} middleware - verifySignUp.checkDuplicateUsernameOrEmail() & verifySignUp.checkRolesExisted()
+   * @param {module} controller - controllers/auth.controller.signup()
    */
   app.post(
     "/api/auth/signup",
@@ -45,7 +46,7 @@ module.exports = function (app) {
    * @memberof module:routes/auth
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/auth.controller.signin()
    */
   app.post("/api/auth/signin", controller.signin);
   /**
@@ -55,7 +56,7 @@ module.exports = function (app) {
    * @memberof module:routes/auth
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/auth.controller.resetPassword()
    */
   app.post(
     "/api/auth/reset-password/:confirmationCode",
@@ -68,7 +69,7 @@ module.exports = function (app) {
    * @memberof module:routes/auth
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/auth.controller.verifyUSer()
    */
   app.get("/api/auth/confirm/:confirmationCode", controller.verifyUSer);
   /**
@@ -78,7 +79,7 @@ module.exports = function (app) {
    * @memberof module:routes/auth
    * @inner
    * @param {string} path - Express path
-   * @param {callback} middleware - Express middleware.
+   * @param {module} controller - controllers/auth.controller.sendEmailResetPassword()
    */
   app.get(
     "/api/auth/email-reset-password/:email",
