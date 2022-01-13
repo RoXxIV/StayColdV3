@@ -18,22 +18,22 @@ const routes = [
     component: Home,
   },
   {
-    path: "/connexion",
+    path: "/login",
     name: "Login",
     component: Login,
   },
   {
-    path: "/inscription",
+    path: "/register",
     name: "Register",
     component: Register,
   },
   {
-    path: "/comfirmation-email-redirection/:confirmationCode",
+    path: "/comfirm-mail-redirection/:confirmationCode",
     name: "Confirm-mail",
     component: ComfirmMail,
   },
   {
-    path: "/recuperation-mot-de-passe/:confirmationCode",
+    path: "/reset-password/:confirmationCode",
     name: "reset-password",
     component: ResetPassword,
   },

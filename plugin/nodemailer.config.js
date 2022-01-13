@@ -23,7 +23,7 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
       html: `<div>
         <h1>❄ Bonjour ${name} et bienvenue sur Staycold ! ❄</h1>
         <p>Merci de bien vouloir finaliser l'inscription en cliquant sur le lien ci-dessous</p>
-        <a href=http://localhost:8080/comfirmation-email-redirection/${confirmationCode}>➡ Finaliser l'inscription ⬅</a>
+        <a href=http://localhost:8080/comfirm-mail-redirection/${confirmationCode}>➡ Finaliser l'inscription ⬅</a>
         </div>`,
     })
     .catch((err) => console.log(err));
@@ -39,7 +39,7 @@ module.exports.resetPasswordEmail = (name, email, confirmationCode) => {
       html: `<div>
         <h1>❄ Bonjour ${name}</h1>
         <p>Veuillez cliquer sur le lien ci-dessous afin de générer un nouveau mot de passe</p>
-        <a href=http://localhost:8080/recuperation-mot-de-passe/${confirmationCode}>➡ Générer un nouveau mot de passe ⬅</a>
+        <a href=http://localhost:8080/reset-password/${confirmationCode}>➡ Générer un nouveau mot de passe ⬅</a>
         <p>Si vous ne l'avez pas demandé, veuillez ignorer cet e-mail et votre mot de passe restera inchangé.</p>
         </div>`,
     })

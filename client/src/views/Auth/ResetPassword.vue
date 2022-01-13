@@ -27,7 +27,7 @@
     <!-- Changement de mot de passe reussi ----------->
     <div v-if="successfulMessage && successful" id="redirect-to-login">
       <span>❄ {{ successfulMessage }} ❄</span>
-      <router-link to="/connexion"
+      <router-link to="/login"
         ><button class="btn-blue">Se connecter</button></router-link
       >
 
@@ -122,7 +122,7 @@ export default {
         if (this.time === 0) {
           clearInterval(this.redirectionTimerId);
           !this.serverError
-            ? this.$router.push("/connexion")
+            ? this.$router.push("/login")
             : this.$router.push("/");
         }
       }, 1000);
