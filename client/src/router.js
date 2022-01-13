@@ -5,6 +5,7 @@ import Home from "./views/Home.vue";
 import Login from "./views/Auth/Login.vue";
 import Register from "./views/Auth/Register.vue";
 import ComfirmMail from "./views/Auth/ComfirmMail.vue";
+import ResetPassword from "./views/Auth/ResetPassword.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
@@ -30,12 +31,23 @@ const routes = [
     name: "Confirm-mail",
     component: ComfirmMail,
   },
+  {
+    path: "/recuperation-mot-de-passe/:confirmationCode",
+    name: "reset-password",
+    component: ResetPassword,
+  },
   // Boards
   {
     path: "/admin-board",
     name: "Admin-Board",
     beforeEnter: authGuards.isAdmin,
     component: AdminBoard,
+  },
+  // 404
+  {
+    path: "/not-found",
+    name: "not-found",
+    component: PageNotFound,
   },
   { path: "/:pathMatch(.*)*", name: "not-found", component: PageNotFound },
 ];

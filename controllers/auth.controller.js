@@ -190,14 +190,14 @@ exports.resetPassword = (req, res, next) => {
       if (!user) {
         return res.status(401).send({ message: "Utilisateur non trouvé." });
       }
-      (user.password = bcrypt.hashSync(req.body.password, 8)),
-        user.save((err) => {
-          if (err) {
-            res.status(500).send({ message: err });
-            return;
-          }
-          res.json({ message: "Votre demande a bien été prise en compte" });
-        });
+      user.password = bcrypt.hashSync(req.body.password, 8);
+      user.save((err) => {
+        if (err) {
+          res.status(500).send({ message: err });
+          return;
+        }
+        res.json({ message: "Votre demande a bien été prise en compte" });
+      });
     })
     .catch((err) => {
       console.log(err);
