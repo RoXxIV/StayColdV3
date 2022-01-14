@@ -28,6 +28,9 @@ export default {
     };
   },
   methods: {
+    /**
+     * En charge de l'ecriture du texte à une vitesse donné
+     */
     typeText() {
       if (this.charIndex < this.typeArray[this.typeArrayIndex].length) {
         if (!this.typeStatus) this.typeStatus = true;
@@ -41,6 +44,9 @@ export default {
         setTimeout(this.eraseText, this.newTextDelay);
       }
     },
+    /**
+     * En charge de l'effacement du texte à une vitesse donné
+     */
     eraseText() {
       if (this.charIndex > 0) {
         if (!this.typeStatus) this.typeStatus = true;

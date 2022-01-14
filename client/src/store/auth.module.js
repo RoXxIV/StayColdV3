@@ -1,11 +1,17 @@
 import AuthService from "../services/auth-services";
 
-// verifie la presence d'un user connecté dans le local storage
+/**
+ * verifie la presence d'un user connecté dans le local storage
+ */
 const user = JSON.parse(localStorage.getItem("user"));
 const initialState = user
   ? { status: { loggedIn: true }, user }
   : { status: { loggedIn: false }, user: null };
 
+/**
+ * Ce store s'occupe de la connexion, l'inscription et la deconnexion de l'utilisateur.
+ * Il renvoie egalement le status de connexion du l'utilisateur a travers l'application
+ */
 export const auth = {
   namespaced: true,
   state: initialState,

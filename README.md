@@ -18,6 +18,10 @@ afin d’en tirer quelques statistiques et pourquoi pas les optimiser par la sui
 
 Démonstration du projet v2, déployé avec **Heroku** [Link](https://staycold.herokuapp.com/)
 
+# Documentation
+
+La Documentation des differentes routes de l'API est disponible dans le fichier `out/index.html`
+
 # MEVN stack
 
 ### **MongoDB** - **Express** - **Vuejs 3** - **NodeJS**
