@@ -13,49 +13,56 @@ import AdminBoard from "./views/Boards/AdminBoard.vue";
 
 const routes = [
   {
+    /** Page d'acceuil */
     path: "/",
     name: "Home",
     component: Home,
   },
+  /** Page de connexion */
   {
     path: "/login",
     name: "Login",
     component: Login,
   },
+  /** Page d'inscription */
   {
     path: "/register",
     name: "Register",
     component: Register,
   },
+  /** page de comfirmation du compte utilisateur */
   {
     path: "/comfirm-mail-redirection/:confirmationCode",
     name: "Confirm-mail",
     component: ComfirmMail,
   },
+  /** Page de generation d'un nouveau mot de passe utilisateur */
   {
     path: "/reset-password/:confirmationCode",
     name: "Reset-password",
     component: ResetPassword,
   },
+  /** Page de demande d'un nouveau mot de passe utilisateur */
   {
     path: "/set-new-password",
     name: "Set-new-password",
     component: SetNewPassword,
   },
-  // Boards
+  /** Page board admin */
   {
     path: "/admin-board",
     name: "Admin-Board",
     beforeEnter: authGuards.isAdmin,
     component: AdminBoard,
   },
-  // 404
+  /** Page 404 */
   {
     path: "/not-found",
-    name: "not-found",
+    name: "Not-found",
     component: PageNotFound,
   },
-  { path: "/:pathMatch(.*)*", name: "not-found", component: PageNotFound },
+  /** Redirige les routes incorecte sur la page 404 */
+  { path: "/:pathMatch(.*)*", name: "Not-found", component: PageNotFound },
 ];
 
 const router = createRouter({

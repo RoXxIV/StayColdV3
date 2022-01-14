@@ -91,7 +91,7 @@ import UserServices from "../../services/user.service";
 import PopupModal from "../Reusable-components/PopupModal.vue";
 
 export default {
-  name: "users-table",
+  name: "Users-table",
   components: { PopupModal },
   data() {
     return {

@@ -1,8 +1,15 @@
-// import
+/** Controller auth
+ * @module controller/auth
+ */
+/** @requires module:dotenv */
 const dotenv = require("dotenv");
+/** @requires module:models */
 const db = require("../models");
+/** @requires module:jsonwebtoken */
 var jwt = require("jsonwebtoken");
+/** @requires module:bcryptjs */
 var bcrypt = require("bcryptjs");
+/** @requires module:nodemailer */
 const nodemailer = require("../plugin/nodemailer.config");
 
 const User = db.user;
@@ -10,9 +17,13 @@ const Role = db.role;
 
 dotenv.config();
 
-// Creation d'un compte utilisateur
+/**
+ * Creation d'un compte utilisateur
+ */
 exports.signup = (req, res) => {
-  // création du token unique { comfirmationCode } pour la vérification d'email
+  /**
+   * Création du token unique { comfirmationCode } pour la vérification d'email
+   */
   const token = jwt.sign({ email: req.body.email }, process.env.SECRET);
   const user = new User({
     username: req.body.username,
@@ -25,7 +36,9 @@ exports.signup = (req, res) => {
       res.status(500).send({ message: err });
       return;
     }
-    // Gestion des roles
+    /**
+     * Gestion des roles
+     */
     if (req.body.roles) {
       Role.find(
         {
@@ -82,8 +95,9 @@ exports.signup = (req, res) => {
     }
   });
 };
-
-// Connexion au compte utilisateur
+/**
+ * Connexion au compte utilisateur
+ */
 exports.signin = (req, res) => {
   User.findOne({
     username: req.body.username,
@@ -130,11 +144,15 @@ exports.signin = (req, res) => {
     });
 };
 
-// Changement du status utilisateur apres verification du mail
+/**
+ * Changement du status du compte utilisateur apres verification du mail
+ */
 exports.verifyUSer = (req, res, next) => {
   User.findOne({ confirmationCode: req.params.confirmationCode })
     .then((user) => {
-      // code de comfirmation incorrect
+      /**
+       * code de comfirmation incorrect
+       */
       if (!user) {
         return res.status(401).send({ message: "Utilisateur non trouvé." });
       }
@@ -159,11 +177,15 @@ exports.verifyUSer = (req, res, next) => {
   //
 };
 
-// envoie un mail de reinitialisation du mot de passe au user
+/**
+ * Envoie un mail de reinitialisation du mot de passe a l'utilisateur
+ */
 exports.sendEmailResetPassword = (req, res, next) => {
   User.findOne({ email: req.params.email })
     .then((user) => {
-      // code de comfirmation incorrect
+      /**
+       * code de comfirmation incorrect
+       */
       if (!user) {
         return res.status(401).send({ message: "Utilisateur non trouvé." });
       }
@@ -181,12 +203,15 @@ exports.sendEmailResetPassword = (req, res, next) => {
     });
   //
 };
-
-// reinitialisation du mot de passe
+/**
+ * Reinitialisation du mot de passe utilisateur
+ */
 exports.resetPassword = (req, res, next) => {
   User.findOne({ confirmationCode: req.params.confirmationCode })
     .then((user) => {
-      // code de comfirmation incorrect
+      /**
+       * code de comfirmation incorrect
+       */
       if (!user) {
         return res.status(401).send({ message: "Utilisateur non trouvé." });
       }

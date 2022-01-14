@@ -1,7 +1,9 @@
 import AccessService from "../services/access.service";
-/*
-  Gestion des role , restriction d'acces utilisé dans le routeur pour les redirectionsc 
-*/
+
+/**
+ * Gestion des role , restriction d'acces utilisé dans le routeur pour les redirections
+ * @class
+ */
 class AuthGuards {
   isAdmin(to, from, next) {
     AccessService.getAdminBoard()

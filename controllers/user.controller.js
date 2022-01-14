@@ -1,29 +1,42 @@
-// import
+/** Controller user
+ * @module controller/user
+ */
+/** @requires module:models */
 const db = require("../models");
+/** @requires module:models/bath */
 const Bath = require("../models/bath.model");
 
 const User = db.user;
 const Role = db.role;
 const sortOptions = { roles: -1 };
 
-// Gestion des acces
+/**
+ * Authorisation des acces Public
+ */
 exports.allAccess = (req, res) => {
   res.status(200).send("Public Content.");
 };
-// Acces utilisateur
+/**
+ * Authorisation des acces Utilisateur
+ */
 exports.userBoard = (req, res) => {
   res.status(200).send("User Content.");
 };
-// Acces Admin
+/**
+ * Authorisation des acces Admin
+ */
 exports.adminBoard = (req, res) => {
   res.status(200).send("Admin Board.");
 };
-// Acces Moderateur
+/**
+ * Authorisation des acces Moderateur
+ */
 exports.moderatorBoard = (req, res) => {
   res.status(200).send("Moderator Content.");
 };
-
-// Recupere tout les utilisateurs
+/**
+ * Recupere tout les utilisateurs
+ */
 exports.getAllUsers = (req, res, next) => {
   User.find()
     .select({ password: 0, confirmationCode: 0 })
@@ -32,7 +45,9 @@ exports.getAllUsers = (req, res, next) => {
     .then((users) => res.status(200).json(users))
     .catch((error) => res.status(400).json({ error }));
 };
-// Recupere un utilisateur
+/**
+ * Recupere un utilisateur
+ */
 exports.getOneUser = (req, res, next) => {
   User.findOne({ _id: req.params.id })
     .select({ password: 0, confirmationCode: 0 })
@@ -40,7 +55,9 @@ exports.getOneUser = (req, res, next) => {
     .then((user) => res.status(200).json(user))
     .catch((error) => res.status(404).json({ error }));
 };
-// Suppression d'un utilisateur et des baignades associé
+/**
+ * Suppression d'un utilisateur et des baignades associé
+ */
 exports.deleteUser = (req, res, next) => {
   User.deleteOne({ _id: req.params.id })
     .then(() => {
@@ -55,14 +72,18 @@ exports.deleteUser = (req, res, next) => {
     })
     .catch((error) => res.status(400).json({ error }));
 };
-// change le role du user
+/**
+ * Change le role du user
+ */
 exports.updateUserRole = (req, res) => {
   User.findOne({ _id: req.params.id })
     .then((user) => {
       if (!user) {
         return res.status(401).send({ message: "Utilisateur non trouvé." });
       }
-      // Gestion des roles
+      /**
+       * Gestion des rôles
+       */
       if (req.body.roles) {
         Role.find(
           {

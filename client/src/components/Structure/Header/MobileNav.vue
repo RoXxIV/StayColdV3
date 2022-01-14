@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  name: "my-header",
+  name: "Mobile-nav",
   props: {
     propsLoggedIn: Boolean,
     theme: String,

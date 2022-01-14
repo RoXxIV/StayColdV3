@@ -3,7 +3,6 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import { FontAwesomeIcon } from "./plugin/font-awesome";
-// styles
 import "./assets/styles/_variables.scss";
 import "./assets/styles/_mixin.scss";
 import "./assets/styles/_global.scss";
