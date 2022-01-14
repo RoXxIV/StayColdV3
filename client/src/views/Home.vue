@@ -10,9 +10,26 @@
 <script>
 import Banner from "../components/Reusable-components/Banner.vue";
 import Introduction from "../components/Home/Introduction.vue";
+// test
+import bathDataServices from "../services/bathDataServices";
 export default {
   name: "Home",
   components: { Banner, Introduction },
+  methods: {
+    testfetch() {
+      bathDataServices
+        .getAll()
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+  created() {
+    this.testfetch();
+  },
 };
 </script>
 
