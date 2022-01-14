@@ -10,6 +10,7 @@
 <script>
 import Banner from "../components/Reusable-components/Banner.vue";
 import Introduction from "../components/Home/Introduction.vue";
+
 export default {
   name: "Home",
   components: { Banner, Introduction },
