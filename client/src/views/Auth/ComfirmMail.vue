@@ -35,12 +35,13 @@ export default {
     };
   },
   methods: {
-    /*
-      Si le mail est validé et l'utilisateur confirmé,
-      il recoit une confirmation avant d'etre redirigé vers la page de connexion.
-      En cas d'erreur avec un status 401 ou 403 (utilisateur non trouvé, compte dejà actif),
-      l'utilisateur est avertit puis redirigé vers la page d'acceuil.
-    */
+    /**
+     *Si le mail est validé et l'utilisateur confirmé,
+     * il recoit une confirmation avant d'etre redirigé vers la page de connexion.
+     * En cas d'erreur avec un status 401 ou 403 (utilisateur non trouvé, compte dejà actif),
+     *l'utilisateur est avertit puis redirigé vers la page d'acceuil.
+     * @param {string} code
+     */
     sendComfirmationCode(code) {
       AuthServices.verifyUser(code)
         .then((response) => {
@@ -63,6 +64,10 @@ export default {
           }
         });
     },
+    /**
+     * Redirige l'utilisateur sur la page
+     * login ou register suivant sont status
+     */
     Redirection() {
       this.redirectionTimerId = setInterval(() => {
         this.time--;

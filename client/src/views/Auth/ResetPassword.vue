@@ -49,7 +49,7 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
-  name: "reset-password",
+  name: "Reset-password",
   components: {
     Form,
     Field,
@@ -83,15 +83,16 @@ export default {
     };
   },
   methods: {
-    /*
-      Envoie du nouveau mot de passe : 
-        - Si le changement de mot de passe a reussi l'utilisateur est avertit 
-          puis redirigé sur la page de connexion.
-        - Dans le cas ou le code de comfirmation est incorrect (utilisateur non reconnu)
-          celui-ci est redirigé vers la page 404 par securité.
-        - Si toute autre erreur est renvoyé (erreur serveur) l'utilisateur est imformé puis redirigé
-          à la page d'acceuil du site.
-    */
+    /**
+     * Envoie du nouveau mot de passe :
+     * - Si le changement de mot de passe a reussi l'utilisateur est avertit
+     * puis redirigé sur la page de connexion.
+     * - Dans le cas ou le code de comfirmation est incorrect (utilisateur non reconnu)
+     * celui-ci est redirigé vers la page 404 par securité.
+     * - Si toute autre erreur est renvoyé (erreur serveur) l'utilisateur est imformé puis redirigé
+     * à la page d'acceuil du site.
+     * @param {object} passwords
+     */
     handleResetPassword(passwords) {
       const password = passwords.password;
       authServices
@@ -116,6 +117,9 @@ export default {
           }
         });
     },
+    /**
+     * Redirection de l'utilisateur
+     */
     redirection() {
       this.redirectionTimerId = setInterval(() => {
         this.time--;
@@ -129,6 +133,9 @@ export default {
     },
   },
   created() {
+    /**
+     * Redirige a l'acceuil si le paramettre url est absent
+     */
     if (!this.$route.params.confirmationCode) return this.$router.push("/");
     this.code = this.$route.params.confirmationCode;
   },

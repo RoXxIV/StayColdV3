@@ -83,7 +83,7 @@
 import IconBurger from "./IconBurger.vue";
 import MobileNav from "./MobileNav.vue";
 export default {
-  name: "my-header",
+  name: "My-header",
   components: { IconBurger, MobileNav },
   data() {
     return {
@@ -92,29 +92,43 @@ export default {
     };
   },
   computed: {
+    /**
+     * Recupere le status de connexion de l'utilisateur
+     */
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
     },
   },
   methods: {
+    /**
+     * toggle du menu mobile au clique du bouton burger
+     */
     ToggleBurgerMenu() {
       const burger = document.getElementById("btn-burger");
       burger.classList.toggle("opened");
       burger.setAttribute("aria-expanded", burger.classList.contains("opened"));
       this.toggleMobileMenu = !this.toggleMobileMenu;
     },
+    /**
+     * Toggle des theme light et sombre, set le theme choisis dans le local storare
+     */
     toggleTheme() {
       this.theme = this.theme == "darkMode" ? "" : "darkMode";
       document.documentElement.setAttribute("data-theme", this.theme);
       localStorage.setItem("theme", this.theme);
     },
+    /**
+     * Deconnexion et redirection a l'Acceuil de l'utilisateur
+     */
     logout() {
       this.$store.dispatch("auth/logout");
       this.$router.push("/");
     },
   },
   mounted() {
-    // Recupere et set le theme definit dans le local storare
+    /**
+     * Recupere et set le theme definit dans le local storage
+     */
     let localTheme = localStorage.getItem("theme");
     document.documentElement.setAttribute("data-theme", localTheme);
   },

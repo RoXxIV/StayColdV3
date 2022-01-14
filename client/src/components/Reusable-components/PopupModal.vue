@@ -10,17 +10,22 @@
 
 <script>
 export default {
-  name: "PopupModal",
+  name: "Popup-modal",
   data() {
     return {
       isVisible: false,
     };
   },
   methods: {
+    /**
+     * Ouvre le modal
+     */
     open() {
       this.isVisible = true;
     },
-
+    /**
+     * Referme le modal
+     */
     close() {
       this.isVisible = false;
     },

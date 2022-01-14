@@ -1,12 +1,5 @@
 <template>
   <section>
-    <!-- Illustration vagues ---------
-    <img
-      id="waves"
-      src="@/assets/images/form-login-waves.svg"
-      alt="vague de decoration"
-    />
--->
     <div id="blocs">
       <!-- Illustration meditation ----------->
       <div>
@@ -79,6 +72,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * Connecte l'utilisateur
+     * @param {object} user
+     */
     handleLogin(user) {
       this.$store.dispatch("auth/login", user).then(
         () => {

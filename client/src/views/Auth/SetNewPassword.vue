@@ -74,6 +74,11 @@ export default {
     };
   },
   methods: {
+    /**
+     * Demande d'un lien de changement de mot de passe a
+     * l'adresse email indiqué
+     * @param {object} email
+     */
     handlePasswordEmail(email) {
       const mail = email.email;
       this.message = "";

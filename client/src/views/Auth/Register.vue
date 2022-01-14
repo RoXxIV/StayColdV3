@@ -115,6 +115,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * Inscription d'un nouvel utilisateur
+     * @param {object} user
+     */
     handleRegister(user) {
       this.message = "";
       this.successful = false;
@@ -135,7 +139,9 @@ export default {
         }
       );
     },
-    // Redirection apres inscription dans un delai de 5sec
+    /**
+     * Redirection apres inscription dans un delai de 5sec
+     */
     redirection() {
       this.redirectionTimerId = setInterval(() => {
         this.time--;

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "page-not-found",
+  name: "Page-not-found",
 };
 </script>
 
