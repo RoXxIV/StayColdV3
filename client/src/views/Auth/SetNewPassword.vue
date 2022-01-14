@@ -34,6 +34,7 @@
     </div>
     <div v-if="successful" id="sentSucces">
       <span>❄ {{ message }} ❄</span>
+      <p>Redirection dans {{ time }}</p>
       <Loading />
     </div>
   </section>
@@ -71,6 +72,8 @@ export default {
       successful: false,
       schema,
       message: "",
+      redirectionTimerId: undefined,
+      time: 5,
     };
   },
   methods: {
@@ -88,6 +91,7 @@ export default {
           // console.log(response);
           this.message = response.message;
           this.successful = true;
+          this.Redirection();
         },
         (error) => {
           this.message =
@@ -98,6 +102,18 @@ export default {
             error.toString();
         }
       );
+    },
+    /**
+     * Redirige l'utilisateur sur la page d'acceuil
+     */
+    Redirection() {
+      this.redirectionTimerId = setInterval(() => {
+        this.time--;
+        if (this.time === 0) {
+          clearInterval(this.redirectionTimerId);
+          this.$router.push("/");
+        }
+      }, 1000);
     },
   },
   beforeUnmount() {
@@ -110,38 +126,42 @@ export default {
 section {
   width: 75%;
   margin: auto;
-  text-align: center;
-  h1 {
-    margin: 30px auto;
-  }
-  form {
-    margin-top: 50px;
-    label {
-      display: block;
-      font-size: 1.3em;
-      margin-top: 10px;
+  #bloc-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      margin: 50px auto;
     }
-    input {
-      margin: 20px 0px 10px 20px;
-      border: none;
-      background: transparent;
-      border-bottom: 2px solid var(--dark-to-light);
-      color: var(--dark-to-light);
-      width: 280px;
-      transition: border-color 0.3s;
-      &:focus {
-        border-color: $blue;
+    form {
+      margin-top: 30px;
+      label {
+        display: block;
+        font-size: 1.3em;
+        margin-top: 10px;
       }
-      @media (max-width: 611.98px) {
-        margin: 20px 0;
+      input {
+        margin: 20px 0px 10px 20px;
+        border: none;
+        background: transparent;
+        border-bottom: 2px solid var(--dark-to-light);
+        color: var(--dark-to-light);
+        width: 280px;
+        transition: border-color 0.3s;
+        &:focus {
+          border-color: $blue;
+        }
+        @media (max-width: 611.98px) {
+          margin: 20px 0;
+        }
       }
-    }
-    .error-feedback {
-      margin-bottom: 20px;
-      display: block;
-    }
-    button {
-      margin-top: 20px;
+      .error-feedback {
+        margin-bottom: 20px;
+        display: block;
+      }
+      button {
+        margin-top: 20px;
+      }
     }
   }
   #error {
@@ -149,6 +169,7 @@ section {
   }
   #sentSucces {
     text-align: center;
+    margin-top: 200px;
     font-size: 1.4em;
   }
 }
