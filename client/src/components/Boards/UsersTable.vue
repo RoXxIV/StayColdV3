@@ -106,7 +106,10 @@ export default {
     };
   },
   computed: {
-    // filtre la liste des user par pseudo
+    /**
+     * Filtre la liste des utilisateurs par pseudo
+     * @return {string}
+     */
     filteredUser() {
       return this.users.filter((user) => {
         const username = user.username.toLowerCase();
@@ -116,12 +119,16 @@ export default {
     },
   },
   methods: {
-    // recupere la liste des utilisateur
+    /**
+     * Recupere la liste des utilisateurs
+     */
     fetchUsers() {
       UserServices.getAllUsers()
         .then((response) => {
           this.users = response.data;
-          //Recupere le dernier rôle du tableau & Formate les dates
+          /**
+           * Recupere le dernier rôle du tableau & Formate les dates
+           */
           this.users.filter((user) => {
             user.roles = user.roles.pop();
             user.createdAt = user.createdAt
@@ -135,7 +142,9 @@ export default {
           console.log(err);
         });
     },
-    // supprime un utilisateur et referme le modal
+    /**
+     * Supprime un utilisateur et referme le modal
+     */
     deleteThisUser() {
       UserServices.deleteOne(this.currentUserId)
         .then((response) => {
@@ -149,7 +158,11 @@ export default {
       this.currentUserId = null;
       this.fetchUsers();
     },
-    // Modifie le rôle d'un utilisateur et referme le modal
+    /**
+     * Modifie le rôle d'un utilisateur et referme le modal
+     * Annule l'operation si le rôle selectioné est égal auto
+     * rôle de l'utilisateur
+     */
     updateUserRole() {
       const roles = ["user"];
       if (this.newRole === this.currentUserRole || this.newRole === null) {
@@ -175,21 +188,34 @@ export default {
           });
       }
     },
-    // Modal de suppression du user
+    /**
+     * Ouvre le modal de suppression d'un utilisateur
+     * @param {string} id
+     */
     askDeleteUser(id) {
       this.currentUserId = id;
       this.$refs.popup.open();
     },
+    /**
+     * Annule et referme le modal
+     */
     cancelDelete() {
       this.$refs.popup.close();
       this.currentUserId = null;
     },
-    // Modal d'update des roles
+    /**
+     * Ouvre le modal de modification du rôle utilisateur
+     * @param {string} id
+     * @param {string} role
+     */
     askUpdateUserRole(id, role) {
       this.currentUserId = id;
       this.currentUserRole = role;
       this.$refs.rolePopup.open();
     },
+    /**
+     * Annule et referme le modal
+     */
     cancelRoleUpdate() {
       this.$refs.rolePopup.close();
       [this.currentUserId, this.currentUserRole] = Array(2).fill(null);
