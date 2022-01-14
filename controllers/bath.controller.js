@@ -43,7 +43,7 @@ exports.deleteBath = (req, res, next) => {
 exports.getAllBaths = (req, res, next) => {
   Bath.find()
     .sort(sortOptions)
-    .populate("author", "username -_id")
+    .populate("author", "username")
     .then((baths) => res.status(200).json(baths))
     .catch((error) => res.status(400).json({ error }));
 };
@@ -52,7 +52,7 @@ exports.getAllBaths = (req, res, next) => {
  */
 exports.getOneBath = (req, res, next) => {
   Bath.findOne({ _id: req.params.id })
-    .populate("author", "username -_id")
+    .populate("author", "username")
     .then((bath) => res.status(200).json(bath))
     .catch((error) => res.status(404).json({ error }));
 };
@@ -72,10 +72,10 @@ exports.getRecentBaths = (req, res, next) => {
  * Recuperation des baignades appartenant à un seul utilisateur
  */
 exports.getUserBaths = (req, res, next) => {
-  const username = req.params.userId;
-  Bath.find({ author: username })
+  const userId = req.params.userId;
+  Bath.find({ author: userId })
     .sort(sortOptions)
-    .populate("author", "username -_id")
+    .populate("author", "username")
     .then((baths) => res.status(200).json(baths))
     .catch((error) => res.status(400).json({ error }));
 };

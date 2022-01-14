@@ -25,11 +25,11 @@ class BathDataService {
   }
   /**
    * Recupere les baignades d'un utilisateur donné
-   * @param {string} username
+   * @param {string} userId
    * @returns {object}
    */
-  getByUsername(username) {
-    return axios.get(`${API_URL}user/${username}`);
+  getByUserId(userId) {
+    return axios.get(`${API_URL}user/${userId}`);
   }
   /**
    * Recupere les baignades recente avec une limite donné
