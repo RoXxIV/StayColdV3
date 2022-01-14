@@ -209,5 +209,8 @@ section {
       }
     }
   }
+  @media (max-width: 991.98px) {
+    margin-top: 20px;
+  }
 }
 </style>
