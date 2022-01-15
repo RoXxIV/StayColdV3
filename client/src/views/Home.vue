@@ -4,16 +4,18 @@
       <Banner />
     </div>
     <Introduction />
+    <RecentBath />
   </div>
 </template>
 
 <script>
 import Banner from "../components/Reusable-components/Banner.vue";
 import Introduction from "../components/Home/Introduction.vue";
+import RecentBath from "../components/Baths/RecentBath.vue";
 
 export default {
   name: "Home",
-  components: { Banner, Introduction },
+  components: { Banner, Introduction, RecentBath },
 };
 </script>
 
