@@ -24,18 +24,21 @@ const routes = [
   {
     path: "/login",
     name: "Login",
+    beforeEnter: authGuards.redirectUserGuard,
     component: Login,
   },
   /** Page d'inscription */
   {
     path: "/register",
     name: "Register",
+    beforeEnter: authGuards.redirectUserGuard,
     component: Register,
   },
   /** page de comfirmation du compte utilisateur */
   {
     path: "/comfirm-mail-redirection/:confirmationCode",
     name: "Confirm-mail",
+    beforeEnter: authGuards.redirectUserGuard,
     component: ComfirmMail,
   },
   /** Page de generation d'un nouveau mot de passe utilisateur */
@@ -54,12 +57,14 @@ const routes = [
   {
     path: "/add-bath",
     name: "Add-bath",
+    beforeEnter: authGuards.userGuard,
     component: AddBath,
   },
   /** Formulaire de modification d'une baignade */
   {
     path: "/edit-bath/:bathId",
     name: "Edit-bath",
+    beforeEnter: authGuards.userGuard,
     component: EditBath,
   },
   /** Page board admin */

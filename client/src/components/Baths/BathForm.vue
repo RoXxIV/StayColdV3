@@ -344,25 +344,34 @@ export default {
     },
     /**
      * Recupere la baignade a l'aide de sont ID en parametre d'url
+     * Redirige sur la page 404 si la baignade n'appartient pas a l'utilisateur
+     * ou si aucune baignade n'est trouvé
      * @param {string} id
      */
     getcurrentBath(id) {
-      BathDataServices.getOne(id).then((response) => {
-        console.log(response.data);
-        if (response.data.author._id === this.$store.state.auth.user.id) {
-          this.bath.id = response.data._id;
-          this.bath.author = response.data.author._id;
-          this.bath.waterTemperature = response.data.waterTemperature;
-          this.bath.timeInWater = response.data.timeInWater;
-          this.bath.temperatureOutside = response.data.temperatureOutside;
-          this.bath.weather = response.data.weather;
-          this.bath.wind = response.data.wind;
-          this.bath.recoveryTime = response.data.recoveryTime;
-          this.bath.afterdrop = response.data.afterdrop;
-          this.bath.globalFeeling = response.data.globalFeeling;
-          this.bath.commentary = response.data.commentary;
-        }
-      });
+      BathDataServices.getOne(id)
+        .then((response) => {
+          console.log(response.data);
+          if (response.data.author._id === this.$store.state.auth.user.id) {
+            this.bath.id = response.data._id;
+            this.bath.author = response.data.author._id;
+            this.bath.waterTemperature = response.data.waterTemperature;
+            this.bath.timeInWater = response.data.timeInWater;
+            this.bath.temperatureOutside = response.data.temperatureOutside;
+            this.bath.weather = response.data.weather;
+            this.bath.wind = response.data.wind;
+            this.bath.recoveryTime = response.data.recoveryTime;
+            this.bath.afterdrop = response.data.afterdrop;
+            this.bath.globalFeeling = response.data.globalFeeling;
+            this.bath.commentary = response.data.commentary;
+          } else {
+            this.$router.push("/not-found");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$router.push("/not-found");
+        });
     },
     /**
      * Ré-affiche le formulaire apres l'ajout reussi d'une baignade
