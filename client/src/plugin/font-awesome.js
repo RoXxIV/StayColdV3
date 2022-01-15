@@ -9,8 +9,33 @@ import {
   faUserEdit,
   faUserTimes,
   faArrowCircleRight,
+  faSwimmingPool,
+  faTemperatureHigh,
+  faCloudSunRain,
+  faStopwatch,
+  faWind,
+  faHourglassHalf,
+  faWaveSquare,
+  faQuestionCircle,
+  faGrinStars,
+  faPencilAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSignOutAlt, faUserEdit, faUserTimes, faArrowCircleRight);
+library.add(
+  faSignOutAlt,
+  faUserEdit,
+  faUserTimes,
+  faArrowCircleRight,
+  faSwimmingPool,
+  faTemperatureHigh,
+  faCloudSunRain,
+  faStopwatch,
+  faWind,
+  faHourglassHalf,
+  faWaveSquare,
+  faQuestionCircle,
+  faGrinStars,
+  faPencilAlt
+);
 
 export { FontAwesomeIcon };

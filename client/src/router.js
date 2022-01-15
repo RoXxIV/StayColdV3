@@ -7,6 +7,8 @@ import Register from "./views/Auth/Register.vue";
 import ComfirmMail from "./views/Auth/ComfirmMail.vue";
 import ResetPassword from "./views/Auth/ResetPassword.vue";
 import SetNewPassword from "./views/Auth/SetNewPassword.vue";
+import AddBath from "./views/User/AddBath.vue";
+import EditBath from "./views/User/EditBath.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
@@ -22,18 +24,21 @@ const routes = [
   {
     path: "/login",
     name: "Login",
+    beforeEnter: authGuards.redirectUserGuard,
     component: Login,
   },
   /** Page d'inscription */
   {
     path: "/register",
     name: "Register",
+    beforeEnter: authGuards.redirectUserGuard,
     component: Register,
   },
   /** page de comfirmation du compte utilisateur */
   {
     path: "/comfirm-mail-redirection/:confirmationCode",
     name: "Confirm-mail",
+    beforeEnter: authGuards.redirectUserGuard,
     component: ComfirmMail,
   },
   /** Page de generation d'un nouveau mot de passe utilisateur */
@@ -47,6 +52,20 @@ const routes = [
     path: "/set-new-password",
     name: "Set-new-password",
     component: SetNewPassword,
+  },
+  /** Formulaire d'ajout d'une baignade */
+  {
+    path: "/add-bath",
+    name: "Add-bath",
+    beforeEnter: authGuards.userGuard,
+    component: AddBath,
+  },
+  /** Formulaire de modification d'une baignade */
+  {
+    path: "/edit-bath/:bathId",
+    name: "Edit-bath",
+    beforeEnter: authGuards.userGuard,
+    component: EditBath,
   },
   /** Page board admin */
   {

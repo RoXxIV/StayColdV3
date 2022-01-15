@@ -57,7 +57,7 @@ const Bath = mongoose.model(
       /** vent */
       wind: {
         type: String,
-        enum: ["aucun", "leger", "modéré", "beaucoup", null],
+        enum: ["aucun", "leger", "modéré", "beaucoup", ""],
       },
       /** temps de recuperation apres la baignade */
       recoveryTime: {
@@ -68,12 +68,12 @@ const Bath = mongoose.model(
       /** intensité des tremlements pendant la recuperation */
       afterdrop: {
         type: String,
-        enum: ["très intense", "intense", "modéré", "leger", "aucun", null],
+        enum: ["très intense", "intense", "modéré", "leger", "aucun", ""],
       },
       /** ressenti generale de la baignade */
       globalFeeling: {
         type: String,
-        enum: ["très dur", "dur", "modéré", "facile", "très facile", null],
+        enum: ["très dur", "dur", "modéré", "facile", "très facile", ""],
       },
       /** commantaire sir la baignade */
       commentary: { type: String, maxlength: 500 },
