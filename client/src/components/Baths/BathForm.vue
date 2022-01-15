@@ -202,9 +202,9 @@
       </div>
     </Form>
     <!----- Si l'envoie a réussi ----->
-    <div v-if="submited && editMode === false" id="submited">
+    <div v-if="submited" id="submited">
       <h2>{{ message }}</h2>
-      <div>
+      <div v-if="editMode === false">
         <button @click="resetForm" class="btn-blue">Nouvelle Baignade</button>
       </div>
     </div>
@@ -267,6 +267,8 @@ export default {
       submited: false,
       message: "",
       failed: false,
+      redirectionTimerId: undefined,
+      time: 2,
       selectedWeather: [
         "partiellement nuageux",
         "nuageux",
@@ -290,7 +292,6 @@ export default {
         afterdrop: "",
         globalFeeling: "",
         commentary: "",
-        userId: "",
       },
     };
   },
@@ -320,16 +321,70 @@ export default {
         });
     },
     /**
+     * Edite une baignade puis redirige l'utilisateur sur la page precedente
+     */
+    editBath() {
+      BathDataServices.update(this.bath.id, this.bath)
+        .then((response) => {
+          console.log(response.data);
+          this.message = response.data.message;
+          this.submited = true;
+          this.redirectionTimerId = setInterval(() => {
+            this.time--;
+            if (this.time === 0) {
+              clearInterval(this.redirectionTimerId);
+              this.$router.go(-1);
+            }
+          }, 1000);
+        })
+        .catch((error) => {
+          console.log(error);
+          this.failed = true;
+        });
+    },
+    /**
+     * Recupere la baignade a l'aide de sont ID en parametre d'url
+     * @param {string} id
+     */
+    getcurrentBath(id) {
+      BathDataServices.getOne(id).then((response) => {
+        console.log(response.data);
+        if (response.data.author._id === this.$store.state.auth.user.id) {
+          this.bath.id = response.data._id;
+          this.bath.author = response.data.author._id;
+          this.bath.waterTemperature = response.data.waterTemperature;
+          this.bath.timeInWater = response.data.timeInWater;
+          this.bath.temperatureOutside = response.data.temperatureOutside;
+          this.bath.weather = response.data.weather;
+          this.bath.wind = response.data.wind;
+          this.bath.recoveryTime = response.data.recoveryTime;
+          this.bath.afterdrop = response.data.afterdrop;
+          this.bath.globalFeeling = response.data.globalFeeling;
+          this.bath.commentary = response.data.commentary;
+        }
+      });
+    },
+    /**
      * Ré-affiche le formulaire apres l'ajout reussi d'une baignade
      */
     resetForm() {
       this.submited = false;
     },
   },
+  /**
+   * A la creation du composant, si le formulaire est en mode edition
+   * on recupere l'ID de la baignade en URL afin de pré-remplir
+   * les champs du formulaire
+   */
   created() {
-    if (!this.editMode) {
-      console.log("add - mode");
+    if (this.editMode) {
+      if (this.$route.params.bathId) {
+        this.getcurrentBath(this.$route.params.bathId);
+      }
     }
+  },
+  beforeUnmount() {
+    clearInterval(this.redirectionTimerId);
   },
 };
 </script>
