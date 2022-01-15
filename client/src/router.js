@@ -7,6 +7,7 @@ import Register from "./views/Auth/Register.vue";
 import ComfirmMail from "./views/Auth/ComfirmMail.vue";
 import ResetPassword from "./views/Auth/ResetPassword.vue";
 import SetNewPassword from "./views/Auth/SetNewPassword.vue";
+import AddBath from "./views/User/AddBath.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
@@ -47,6 +48,12 @@ const routes = [
     path: "/set-new-password",
     name: "Set-new-password",
     component: SetNewPassword,
+  },
+  /** Formulaire d'ajout d'une baignade */
+  {
+    path: "/add-bath",
+    name: "Add-bath",
+    component: AddBath,
   },
   /** Page board admin */
   {
