@@ -16,4 +16,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+section {
+  width: 75%;
+  margin: auto;
+  h1 {
+    margin: 50px auto 50px auto;
+  }
+  @media (max-width: 991.98px) {
+    width: 100%;
+  }
+}
+</style>
