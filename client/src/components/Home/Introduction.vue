@@ -125,6 +125,7 @@ section {
         z-index: -1;
         @media (max-width: 991.98px) {
           left: calc(50% - 125px);
+          position: inherit;
         }
       }
     }
@@ -153,6 +154,9 @@ section {
 /* Transition Shark __________*/
 .sharkAnimation {
   opacity: 0.1 !important;
+  @media (max-width: 991.98px) {
+    display: none;
+  }
 }
 
 .lightSpeedIn {

@@ -1,5 +1,6 @@
 /* Variables __________*/
 $light-gray: #fafafa;
+$less-light-gray: #333333;
 $blue: #3b82f6;
 $gray: #2c3138;
 $gray-card: #c4c4c4;
@@ -11,9 +12,11 @@ $red: #ec3434;
 :root {
   #{--light-to-dark}: $white;
   #{--dark-to-light}: $gray;
+  #{--light-gray-to-less}: $light-gray;
 }
 /* Variables du theme sombre (dark mode) __________*/
 [data-theme="darkMode"] {
   #{--light-to-dark}: $gray;
   #{--dark-to-light}: $white;
+  #{--light-gray-to-less}: $less-light-gray;
 }
