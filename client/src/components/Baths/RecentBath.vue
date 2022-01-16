@@ -29,11 +29,17 @@ export default {
     };
   },
   methods: {
+    /**
+     * Recupere la liste des baignades récente
+     */
     fetchRecentBath() {
       BathDataServices.getRecent()
         .then((response) => {
           this.recentBaths = response.data;
           console.log(this.recentBaths);
+          /**
+           * Permet de changer le format de la météo et des dates
+           */
           this.recentBaths.forEach((data) => {
             data.weather = RenderBathData.displayWeatherAsEmoji(data.weather);
             data.createdAt = RenderBathData.editDateFormat(data.createdAt);

@@ -4,6 +4,7 @@
       <Banner />
     </div>
     <Introduction />
+
     <RecentBath />
   </div>
 </template>
@@ -25,5 +26,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+img {
+  position: fixed;
+  z-index: -4;
+  max-width: 100%;
 }
 </style>

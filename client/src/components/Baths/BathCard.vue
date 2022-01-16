@@ -26,6 +26,10 @@ export default {
     bath: {},
   },
   methods: {
+    /**
+     * recupere le svg correspondant a la météo indiqué
+     * @param {string} pic
+     */
     getImgUrl(pic) {
       return require(`@/assets/images/weather-icons/${pic}.svg`);
     },
@@ -46,7 +50,6 @@ export default {
     -webkit-box-shadow: 0 40px 43px -60px $blue;
     box-shadow: 0 40px 43px -60px $blue;
   }
-  // #fafafa #333333
   img {
     min-width: 80px;
     min-height: 80px;
