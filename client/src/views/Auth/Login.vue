@@ -26,7 +26,7 @@
             <ErrorMessage name="password" class="error-feedback alert" />
           </div>
           <!-- Submit ----------->
-          <div>
+          <div id="submit">
             <button class="btn-blue">Connexion</button>
           </div>
           <!-- Erreur ----------->
@@ -186,6 +186,10 @@ section {
       .error-feedback {
         margin-bottom: 20px;
         display: block;
+      }
+      #submit {
+        text-align: center;
+        margin-top: 15px;
       }
       #message {
         text-align: center;

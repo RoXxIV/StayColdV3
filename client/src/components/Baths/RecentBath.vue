@@ -6,6 +6,11 @@
         <BathCard :bath="bath" id="cards" />
       </router-link>
     </div>
+    <div id="all-bath-link">
+      <router-link to="/all-baths" tag="button"
+        ><span class="btn-blue">Voir tout</span></router-link
+      >
+    </div>
     <div v-if="serverError" id="serverError">
       {{ errorMessage }}
     </div>
@@ -81,6 +86,13 @@ section {
   }
   #serverError {
     text-align: center;
+  }
+  #all-bath-link {
+    text-align: center;
+    margin-top: 50px;
+    span {
+      display: inline;
+    }
   }
 }
 </style>

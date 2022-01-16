@@ -23,7 +23,7 @@
             />
           </div>
           <!-- Submit ----------->
-          <div>
+          <div id="submit">
             <button class="btn-blue">Envoyer</button>
           </div>
         </div>
@@ -159,8 +159,9 @@ section {
         margin-bottom: 20px;
         display: block;
       }
-      button {
-        margin-top: 20px;
+      #submit {
+        text-align: center;
+        margin-top: 15px;
       }
     }
   }

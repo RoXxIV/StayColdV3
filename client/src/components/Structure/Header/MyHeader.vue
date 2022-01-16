@@ -31,7 +31,7 @@
       <nav>
         <ul id="default-nav">
           <li><router-link to="/">Acceuil </router-link></li>
-          <li><router-link to="/">Baignades</router-link></li>
+          <li><router-link to="/all-baths">Baignades</router-link></li>
           <!-- Nav user ----------->
           <li v-if="loggedIn" id="profil-link">
             <router-link to="/">Profil </router-link>

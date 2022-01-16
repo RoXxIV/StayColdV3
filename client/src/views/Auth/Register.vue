@@ -40,7 +40,7 @@
               />
             </div>
             <!-- Submit ----------->
-            <div>
+            <div id="submit">
               <button class="btn-blue">S'inscrire</button>
             </div>
           </div>
@@ -233,6 +233,10 @@ section {
           @media (max-width: 611.98px) {
             margin: 20px 0;
           }
+        }
+        #submit {
+          text-align: center;
+          margin-top: 15px;
         }
         /* Erreur de saisis __________*/
         .error-feedback {

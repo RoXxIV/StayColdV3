@@ -527,6 +527,9 @@ export default {
       }
     }
   }
+  button {
+    display: block;
+  }
   @media (max-width: 991.98px) {
     margin: auto;
     text-align: center;
