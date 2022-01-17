@@ -9,6 +9,7 @@ import ResetPassword from "./views/Auth/ResetPassword.vue";
 import SetNewPassword from "./views/Auth/SetNewPassword.vue";
 import AddBath from "./views/User/AddBath.vue";
 import EditBath from "./views/User/EditBath.vue";
+import AllBath from "./views/AllBaths.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
@@ -66,6 +67,12 @@ const routes = [
     name: "Edit-bath",
     beforeEnter: authGuards.userGuard,
     component: EditBath,
+  },
+  /** Liste de toutes les baignades */
+  {
+    path: "/all-baths",
+    name: "All-baths",
+    component: AllBath,
   },
   /** Page board admin */
   {

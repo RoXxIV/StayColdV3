@@ -14,7 +14,7 @@
         <router-link to="/">Acceuil</router-link>
       </li>
       <li @click="$emit('closeMenu')">
-        <router-link to="/">Baignades</router-link>
+        <router-link to="/all-baths">Baignades</router-link>
       </li>
     </ul>
     <!-- Nav auth ----------->

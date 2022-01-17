@@ -2,9 +2,17 @@
   <section>
     <h2>Baignades <span class="text-blue">récentes</span></h2>
     <div id="cards-list">
-      <router-link to="/" v-for="bath in recentBaths" :key="bath">
-        <BathCard :bath="bath" id="cards" />
-      </router-link>
+      <BathCard
+        v-for="bath in recentBaths"
+        :key="bath"
+        :bath="bath"
+        id="cards"
+      />
+    </div>
+    <div id="all-bath-link">
+      <router-link to="/all-baths" tag="button"
+        ><span class="btn-blue">Voir tout</span></router-link
+      >
     </div>
     <div v-if="serverError" id="serverError">
       {{ errorMessage }}
@@ -81,6 +89,13 @@ section {
   }
   #serverError {
     text-align: center;
+  }
+  #all-bath-link {
+    text-align: center;
+    margin-top: 50px;
+    span {
+      display: inline;
+    }
   }
 }
 </style>
