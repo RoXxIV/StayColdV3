@@ -56,7 +56,7 @@
           id="illustration"
           class="rubberBand"
           src="@/assets/images/form-register.svg"
-          alt="vague de decoration"
+          alt="Illustration d'une montagne sur fond bleu avec des nuages en arriere plan"
         />
       </div>
     </div>

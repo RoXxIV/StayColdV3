@@ -1,43 +1,55 @@
 <template>
   <section>
     <h1>Details de la <span>Baignade</span></h1>
-    <BathCardDetails :bath="currentBath" />
-    <!--Si proprietaire de la baignade-->
-    <div v-if="isOwner">
-      <div id="commentary">
-        <span
-          ><font-awesome-icon
-            class="font-awesome-icon"
-            :icon="['fa', 'pencil-alt']"
-          />
-          Commentaires</span
-        >
-        <p>
-          {{
-            currentBath.commentary
-              ? currentBath.commentary
-              : "Aucun commantaire"
-          }}
-        </p>
-      </div>
-      <div id="action">
-        <router-link :to="`/edit-bath/${currentBath._id}`"
-          ><span class="btn-blue">Modifier</span></router-link
-        >
-        <span @click="comfirmDelete()" class="btn-red">Supprimer</span>
-      </div>
-      <!-- Modal comfirmation de suppression de la baignade ----------->
-      <popup-modal ref="popup">
-        <div id="delete-comfirmation">
-          <p>êtes vous sur ?</p>
-          <div>
-            <button @click="cancelDelete()" class="btn-blue">Annuler</button>
-            <button @click="deleteOneBath(currentBath._id)" class="btn-red">
-              Supprimer
-            </button>
-          </div>
+    <!--Illustration-->
+    <img
+      id="illustration"
+      class="fadeIn"
+      src="@/assets/images/bath-details.png"
+      alt="illustration d'un bonhomme avec une loupe"
+    />
+    <div id="border">
+      <BathCardDetails :bath="currentBath" />
+      <!--Si proprietaire de la baignade-->
+      <div v-if="isOwner">
+        <div id="commentary">
+          <span
+            ><font-awesome-icon
+              class="font-awesome-icon"
+              :icon="['fa', 'pencil-alt']"
+            />
+            Commentaires</span
+          >
+          <p>
+            {{
+              currentBath.commentary
+                ? currentBath.commentary
+                : "Aucun commantaire"
+            }}
+          </p>
         </div>
-      </popup-modal>
+        <div id="action">
+          <router-link :to="`/edit-bath/${currentBath._id}`"
+            ><span class="btn-blue">Modifier</span></router-link
+          >
+          <span @click="comfirmDelete()" class="btn-red">Supprimer</span>
+        </div>
+        <!-- Modal comfirmation de suppression de la baignade ----------->
+        <popup-modal ref="popup">
+          <div id="delete-comfirmation">
+            <p>êtes vous sur ?</p>
+            <div>
+              <button @click="cancelDelete()" class="btn-blue">Annuler</button>
+              <button @click="deleteOneBath(currentBath._id)" class="btn-red">
+                Supprimer
+              </button>
+            </div>
+          </div>
+        </popup-modal>
+      </div>
+    </div>
+    <div id="return">
+      <router-link to="/all-baths">Retour à la liste des baignades</router-link>
     </div>
   </section>
 </template>
@@ -137,37 +149,82 @@ section {
   margin: auto;
 
   h1 {
+    margin-bottom: 0px;
     span {
       color: $blue;
     }
   }
-  #commentary {
-    width: 75%;
-    margin: auto;
-    text-align: center;
-    span {
-      font-size: 1.2em;
+  #illustration {
+    max-width: 100px;
+    margin: 0px auto;
+    display: block;
+  }
+  #border {
+    border: 2px solid var(--light-gray-to-less);
+    border-radius: 5px;
+    padding: 50px 0px;
+    #commentary {
+      width: 75%;
+      margin: auto;
+      text-align: center;
+      span {
+        font-size: 1.2em;
+      }
+      p {
+        line-height: 1.3em;
+      }
+      @media (max-width: 667.98px) {
+        width: 90%;
+      }
     }
-    p {
-      line-height: 1.3em;
+    /* Editer / Supprimer __________*/
+    #action {
+      text-align: center;
+      margin-top: 50px;
+      span {
+        margin: 0px 10px;
+      }
     }
-    @media (max-width: 667.98px) {
-      width: 90%;
+    #delete-comfirmation {
+      padding: 30px;
+      text-align: center;
+      button {
+        margin: 0px 10px;
+      }
     }
   }
-  #action {
+  /* Return link __________*/
+  #return {
+    margin: 40px 0px;
     text-align: center;
-    margin-top: 50px;
-    span {
-      margin: 0px 10px;
-    }
+    text-decoration: underline;
+    color: $blue;
+    font-weight: bold;
   }
-  #delete-comfirmation {
-    padding: 30px;
-    text-align: center;
-    button {
-      margin: 0px 10px;
-    }
+}
+/* Animation illustration __________*/
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>

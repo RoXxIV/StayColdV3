@@ -6,7 +6,7 @@
         id="illustration"
         class="slideInLeft"
         src="@/assets/images/iceberg.png"
-        alt="illlustration iceberg"
+        alt="illlustration d'un iceberg"
       />
     </div>
 

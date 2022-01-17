@@ -23,7 +23,7 @@
     <div id="content-text">
       <img
         src="@/assets/images/shark.png"
-        alt="illustration de requin"
+        alt="illustration d'un requin"
         class="lightSpeedIn"
         :class="{ sharkAnimation: showText }"
       />

@@ -6,7 +6,7 @@
         <img
           id="illustration"
           src="@/assets/images/login-illustration.png"
-          alt="personnage qui medite"
+          alt="Illustration d'un personnage qui medite en lévitation"
         />
       </div>
       <!-- Form ----------->
