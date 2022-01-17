@@ -47,6 +47,7 @@ import * as yup from "yup";
 import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Set-new-password",
+  title: "Demander un nouveau mot de passe",
   components: {
     Form,
     Field,

@@ -50,6 +50,7 @@ import * as yup from "yup";
 import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Reset-password",
+  title: "Réinitialisation du mot de passe",
   components: {
     Form,
     Field,

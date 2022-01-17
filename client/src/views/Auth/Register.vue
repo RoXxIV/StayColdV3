@@ -75,6 +75,7 @@ import * as yup from "yup";
 import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Register",
+  title: "Inscription",
   components: {
     Form,
     Field,

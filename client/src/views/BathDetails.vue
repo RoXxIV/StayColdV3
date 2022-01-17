@@ -62,6 +62,7 @@ import PopupModal from "../components/Reusable-components/PopupModal.vue";
 import bathDataServices from "../services/bathDataServices";
 export default {
   name: "Bath-details",
+  title: "Details de la baignade",
   components: { BathCardDetails, PopupModal },
   data() {
     return {

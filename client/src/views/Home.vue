@@ -16,6 +16,7 @@ import RecentBath from "../components/Baths/RecentBath.vue";
 
 export default {
   name: "Home",
+  title: "Acceuil",
   components: { Banner, Introduction, RecentBath },
 };
 </script>

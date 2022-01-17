@@ -9,6 +9,7 @@
 import UsersTable from "../../components/Boards/UsersTable.vue";
 export default {
   name: "Admin-board",
+  title: "Page admin",
   components: { UsersTable },
   data() {
     return {

@@ -22,6 +22,7 @@ import AuthServices from "../../services/auth-services";
 import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Confirm-mail",
+  title: "Comfirmation du mail",
   components: {
     Loading,
   },
