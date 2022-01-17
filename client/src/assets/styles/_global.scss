@@ -51,24 +51,24 @@ html {
     }
 
     button {
-      @include button($black, $gray, $white);
+      @include button($black, $white);
       &:hover {
-        @include buttonHover($white, $gray);
+        @include buttonHover($white);
       }
     }
   }
 }
 /* Classes __________*/
 .btn-blue {
-  @include button($white, $blue, $blue);
+  @include button($white, $blue);
   &:hover {
-    @include buttonHover($blue, $white);
+    @include buttonHover($blue);
   }
 }
 .btn-red {
-  @include button($white, $red, $red);
+  @include button($white, $red);
   &:hover {
-    @include buttonHover($red, $white);
+    @include buttonHover($red);
   }
 }
 .alert {
