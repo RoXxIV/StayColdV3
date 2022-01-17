@@ -4,9 +4,9 @@
       <h1>Toutes les <span>baignades</span></h1>
       <img
         id="illustration"
-        class="fadeInDownBig"
+        class="slideInLeft"
         src="@/assets/images/iceberg.png"
-        alt="personnage qui medite"
+        alt="illlustration iceberg"
       />
     </div>
 
@@ -59,6 +59,9 @@ export default {
     };
   },
   methods: {
+    /**
+     * Recupere la liste de toutes les baignades
+     */
     fetchAllBaths() {
       BathDataServices.getAll()
         .then((response) => {
@@ -76,12 +79,17 @@ export default {
             "Une erreur est survenue pendant la récupération des baignades";
         });
     },
-    //pagination
+    /**
+     * pagination : Page suivante
+     */
     nextPage() {
       this.bathIndexEnd += this.bathPerPage;
       this.bathIndexStart += this.bathPerPage;
       this.pageIndex++;
     },
+    /**
+     * pagination : Page précédente
+     */
     previousPage() {
       this.bathIndexEnd -= this.bathPerPage;
       this.bathIndexStart -= this.bathPerPage;
@@ -95,6 +103,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Section __________*/
 section {
   width: 75%;
   margin: auto;
@@ -108,11 +117,11 @@ section {
         color: $blue;
       }
     }
-
     #illustration {
       max-width: 100px;
     }
   }
+  /* Liste __________*/
   .card-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -120,6 +129,7 @@ section {
     grid-gap: 1rem;
     margin-top: 20px;
   }
+  /* Pagination __________*/
   #pagination {
     display: flex;
     justify-content: center;
@@ -130,36 +140,35 @@ section {
     }
   }
 }
-.fadeInDownBig {
-  -webkit-animation-name: fadeInDownBig;
-  animation-name: fadeInDownBig;
-  -webkit-animation-duration: 0.8s;
-  animation-duration: 0.8s;
+/* Iceberg animation __________*/
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
-@-webkit-keyframes fadeInDownBig {
+@-webkit-keyframes slideInLeft {
   0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -1000px, 0);
-    transform: translate3d(0, -1000px, 0);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
   }
   100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
-@keyframes fadeInDownBig {
+@keyframes slideInLeft {
   0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -1000px, 0);
-    transform: translate3d(0, -1000px, 0);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
   }
   100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 </style>

@@ -23,8 +23,8 @@
     <div id="content-text">
       <img
         src="@/assets/images/shark.png"
-        alt=""
-        class="shark lightSpeedIn"
+        alt="illustration de requin"
+        class="lightSpeedIn"
         :class="{ sharkAnimation: showText }"
       />
       <transition name="fade">
@@ -112,21 +112,23 @@ section {
       padding-top: 0;
     }
   }
-
+  /* content-text + shark __________*/
   #content-text {
     font-size: 1.1em;
     line-height: 1.4em;
+    position: relative;
+    width: 100%;
     img {
       max-width: 250px;
-      margin: auto;
-      &.shark {
-        position: absolute;
-        left: 60%;
-        z-index: -1;
-        @media (max-width: 991.98px) {
-          left: calc(50% - 125px);
-          position: inherit;
-        }
+      position: absolute;
+      left: calc(50% - 125px);
+      z-index: -1;
+      @media (max-width: 991.98px) {
+        left: calc(50% - 125px);
+        position: inherit;
+      }
+      @media (max-width: 667.98px) {
+        left: 0;
       }
     }
     span {
@@ -158,7 +160,7 @@ section {
     display: none;
   }
 }
-
+/*Shark Animation __________*/
 .lightSpeedIn {
   -webkit-animation-name: lightSpeedIn;
   animation-name: lightSpeedIn;
@@ -213,7 +215,7 @@ section {
     opacity: 1;
   }
 }
-
+/* Arrow animation __________*/
 .rotate {
   -moz-transition: all 0.4s linear;
   -webkit-transition: all 0.4s linear;

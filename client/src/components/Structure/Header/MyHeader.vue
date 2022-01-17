@@ -59,6 +59,11 @@
       <div id="icon-burger">
         <IconBurger @click="ToggleBurgerMenu()" id="btn-burger" />
       </div>
+      <!-- Toggle theme light/dark ----------->
+      <span @click="toggleTheme" aria-label="Toggle themes" id="toggle-theme">
+        <span v-if="this.theme == 'darkMode'">🌞</span>
+        <span v-else>🌚</span>
+      </span>
     </header>
     <!-- Mobile menu ----------->
     <transition name="fade">
@@ -71,11 +76,6 @@
         :theme="theme"
       />
     </transition>
-    <!-- Toggle theme light/dark ----------->
-    <span @click="toggleTheme" aria-label="Toggle themes" id="toggle-theme">
-      <span v-if="this.theme == 'darkMode'">🌞</span>
-      <span v-else>🌚</span>
-    </span>
   </div>
 </template>
 
@@ -138,6 +138,7 @@ export default {
 <style lang="scss" scoped>
 /* Header __________*/
 header {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 20px 50px 20px 20px;
@@ -203,6 +204,7 @@ header {
     /* Auth __________*/
     #auth-nav {
       display: flex;
+      margin-right: 20px;
       li {
         margin: 0px 10px;
       }
@@ -214,6 +216,25 @@ header {
           margin-left: 10px;
         }
       }
+      @media (max-width: 991.98px) {
+        margin-right: 0;
+      }
+    }
+  }
+  /* Toggle theme __________*/
+  #toggle-theme {
+    position: absolute;
+    z-index: 10;
+    left: calc(100% - 60px);
+    top: 0;
+    margin-top: 20px;
+    span {
+      font-size: 1.6em;
+      user-select: none;
+      cursor: pointer;
+    }
+    @media (max-width: 667.98px) {
+      display: none;
     }
   }
   /* Burger __________*/
@@ -224,21 +245,7 @@ header {
     }
   }
 }
-/* Toggle theme __________*/
-#toggle-theme {
-  position: absolute;
-  z-index: 10;
-  left: calc(100% - 60px);
-  margin-top: 20px;
-  span {
-    font-size: 1.6em;
-    user-select: none;
-    cursor: pointer;
-  }
-  @media (max-width: 667.98px) {
-    display: none;
-  }
-}
+
 /* Transitions __________*/
 .fade-enter-active {
   transition: opacity 0.5s ease;
