@@ -115,6 +115,7 @@ export default {
 <style lang="scss" scoped>
 h2 {
   text-align: center;
+  margin-top: 0;
   span {
     font-size: 0.8em;
     font-style: italic;
@@ -130,6 +131,7 @@ h2 {
     padding: 5px 0px;
     p {
       font-size: 1.1em;
+      margin: 0;
       span {
         color: $blue;
         @media (max-width: 667.98px) {

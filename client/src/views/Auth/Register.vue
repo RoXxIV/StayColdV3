@@ -56,7 +56,7 @@
           id="illustration"
           class="rubberBand"
           src="@/assets/images/form-register.svg"
-          alt="vague de decoration"
+          alt="Illustration d'une montagne sur fond bleu avec des nuages en arriere plan"
         />
       </div>
     </div>
@@ -75,6 +75,7 @@ import * as yup from "yup";
 import Loading from "../../components/Reusable-components/Loading.vue";
 export default {
   name: "Register",
+  title: "Inscription",
   components: {
     Form,
     Field,

@@ -6,7 +6,7 @@
         <img
           id="illustration"
           src="@/assets/images/login-illustration.png"
-          alt="personnage qui medite"
+          alt="Illustration d'un personnage qui medite en lévitation"
         />
       </div>
       <!-- Form ----------->
@@ -56,6 +56,7 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 export default {
   name: "Login",
+  title: "Connexion",
   components: {
     Form,
     Field,

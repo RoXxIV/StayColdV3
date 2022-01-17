@@ -4,7 +4,7 @@
       <Banner />
     </div>
     <Introduction />
-
+    <div id="landscape"></div>
     <RecentBath />
   </div>
 </template>
@@ -16,6 +16,7 @@ import RecentBath from "../components/Baths/RecentBath.vue";
 
 export default {
   name: "Home",
+  title: "Acceuil",
   components: { Banner, Introduction, RecentBath },
 };
 </script>
@@ -27,9 +28,14 @@ export default {
   justify-content: center;
   align-items: center;
 }
-img {
-  position: fixed;
-  z-index: -4;
-  max-width: 100%;
+#landscape {
+  margin-top: 100px;
+  height: 250px;
+  background-image: url(../assets/images/background-home.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 </style>

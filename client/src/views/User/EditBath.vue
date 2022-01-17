@@ -13,6 +13,7 @@
 import BathForm from "../../components/Baths/BathForm.vue";
 export default {
   name: "Edit-bath",
+  title: "Modifier une baignade",
   components: { BathForm },
   data() {
     return {};

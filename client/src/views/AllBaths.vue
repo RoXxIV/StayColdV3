@@ -6,7 +6,7 @@
         id="illustration"
         class="slideInLeft"
         src="@/assets/images/iceberg.png"
-        alt="illlustration iceberg"
+        alt="illlustration d'un iceberg"
       />
     </div>
 
@@ -46,6 +46,7 @@ import RenderBathData from "../helper/RenderBathData";
 import BathCard from "../components/Baths/BathCard.vue";
 export default {
   name: "All-baths",
+  title: "Toutes les baignades",
   components: { BathCard },
   data() {
     return {
