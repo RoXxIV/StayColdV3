@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/" tag="div" class="card">
+  <router-link :to="`/bath-details/${bath._id}`" tag="div" class="card">
     <div class="card-header">
       <img :src="getImgUrl(bath.weather)" alt="" />
     </div>
