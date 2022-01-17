@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <router-link to="/" tag="div" class="card">
     <div class="card-header">
       <img :src="getImgUrl(bath.weather)" alt="" />
     </div>
@@ -16,7 +16,7 @@
         : {{ bath.timeInWater }} min
       </li>
     </ul>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -86,5 +86,14 @@ __________MEDIA QUERIES__________
     text-align: center;
     margin: 0px;
   }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

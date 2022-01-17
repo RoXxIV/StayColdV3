@@ -1,14 +1,23 @@
 <template>
   <section>
-    <h1>Toutes les <span>baignades</span></h1>
+    <div id="title-all-baths">
+      <h1>Toutes les <span>baignades</span></h1>
+      <img
+        id="illustration"
+        class="fadeInDownBig"
+        src="@/assets/images/iceberg.png"
+        alt="personnage qui medite"
+      />
+    </div>
+
     <!--Liste des baignades-->
     <div class="card-list">
-      <router-link
-        :to="`/public-bath-details/${bath._id}`"
+      <BathCard
         v-for="bath in allBaths.slice(bathIndexStart, bathIndexEnd)"
         :key="bath"
-        ><BathCard :bath="bath" />
-      </router-link>
+        :bath="bath"
+        class="list-item"
+      />
     </div>
     <!--Pagination-->
     <div id="pagination">
@@ -89,9 +98,19 @@ export default {
 section {
   width: 75%;
   margin: auto;
-  h1 {
-    span {
-      color: $blue;
+  #title-all-baths {
+    position: relative;
+    margin: 50px auto 20px auto;
+    text-align: center;
+    h1 {
+      margin-bottom: 10px;
+      span {
+        color: $blue;
+      }
+    }
+
+    #illustration {
+      max-width: 100px;
     }
   }
   .card-list {
@@ -111,13 +130,36 @@ section {
     }
   }
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -1000px, 0);
+    transform: translate3d(0, -1000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -1000px, 0);
+    transform: translate3d(0, -1000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }
 </style>
