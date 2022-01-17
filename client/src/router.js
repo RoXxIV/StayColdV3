@@ -10,6 +10,7 @@ import SetNewPassword from "./views/Auth/SetNewPassword.vue";
 import AddBath from "./views/User/AddBath.vue";
 import EditBath from "./views/User/EditBath.vue";
 import AllBath from "./views/AllBaths.vue";
+import BathDetails from "./views/BathDetails.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
@@ -73,6 +74,12 @@ const routes = [
     path: "/all-baths",
     name: "All-baths",
     component: AllBath,
+  },
+  /** Detail d'une baignade */
+  {
+    path: "/bath-details/:bathId",
+    name: "Bath-details",
+    component: BathDetails,
   },
   /** Page board admin */
   {
