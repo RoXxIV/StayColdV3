@@ -1,36 +1,48 @@
 <template>
   <div>
+    <div id="landscape"></div>
+    <!---Info user-->
     <section id="profile-header">
-      <!---Info user-->
-      <ul>
-        <li>
-          <h1>
-            {{ currentUser.username }}
-          </h1>
-        </li>
-        <!---User role-->
-        <li>
-          <span id="role" class="text-blue">{{
-            userRole !== "USER" ? userRole : ""
-          }}</span>
-        </li>
+      <h1>
+        {{ currentUser.username.toUpperCase() }}
+      </h1>
+      <div id="header-card">
+        <ul>
+          <!---User role-->
+          <li>
+            <span id="role">{{ userRole !== "USER" ? userRole : "" }}</span>
+          </li>
 
-        <li>
-          Totale baignades:
-          {{ userBaths.length }}
-        </li>
-        <li>Temps resté dans l'eau: {{ getTotalTime }}</li>
-        <li>Temperature la plus basse: {{ getLowerTemperature }}</li>
-        <!---Ajouter une baignade-->
-        <li id="new-bath">
-          <router-link to="/add-bath"
-            ><span class="btn-blue">Nouvelle baignade</span></router-link
-          >
-        </li>
-      </ul>
+          <li>
+            Totale baignades:
+            <span class="text-blue">{{ userBaths.length }}</span>
+          </li>
+          <li>
+            Temps resté dans l'eau:
+            <span class="text-blue">{{ getTotalTime }}</span>
+          </li>
+          <li>
+            Temperature la plus basse:
+            <span class="text-blue">{{ getLowerTemperature }}</span>
+          </li>
+          <!---Ajouter une baignade-->
+          <li id="new-bath">
+            <router-link to="/add-bath"
+              ><span class="btn-blue">Nouvelle baignade</span></router-link
+            >
+          </li>
+        </ul>
+        <img
+          id="illustration"
+          class="rubberBand"
+          src="@/assets/images/profil.png"
+          alt="illlustration d'une maison"
+        />
+      </div>
     </section>
+
     <section id="baths-list">
-      <h2>Mes baignades</h2>
+      <h2>Mes <span>baignades</span></h2>
       <!--Liste des baignades-->
       <div class="card-list">
         <BathCard
@@ -41,7 +53,7 @@
         />
       </div>
       <div v-if="lastIndex < userBaths.length">
-        <button @click="displayMoreBaths" id="more" class="btn-blue">
+        <button @click="displayMoreBaths" id="showMore" class="btn-blue">
           Voir plus
         </button>
       </div>
@@ -146,22 +158,35 @@ section {
   width: 75%;
   margin: auto;
   &#profile-header {
-    margin-bottom: 50px;
-    text-align: center;
-    ul {
-      margin: 0;
-      li {
-        padding: 10px 0px;
-        &:last-child {
-          margin-top: 20px;
+    #header-card {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 60%;
+      margin: auto;
+      border: 2px solid var(--light-gray-to-less);
+      ul {
+        li {
+          padding: 10px 0px;
+          &:last-child {
+            padding-top: 20px;
+          }
+          .text-blue {
+            color: $blue;
+          }
         }
-        h1 {
-          margin-bottom: 0;
-        }
+      }
+      #illustration {
+        max-width: 300px;
       }
     }
   }
   &#baths-list {
+    h2 {
+      span {
+        color: $blue;
+      }
+    }
     .card-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -169,6 +194,90 @@ section {
       grid-gap: 1rem;
       margin-top: 20px;
     }
+    #showMore {
+      display: block;
+      margin: 30px auto;
+      text-align: center;
+    }
+  }
+}
+#landscape {
+  height: 150px;
+  margin-top: 10px;
+  background-image: url(../../assets/images/profile-landscape.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 45%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+/* Effet de torsion sur l'illustration __________*/
+.rubberBand {
+  -webkit-animation-name: rubberBand;
+  animation-name: rubberBand;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes rubberBand {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes rubberBand {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 </style>
