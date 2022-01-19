@@ -1,11 +1,10 @@
 <template>
   <div>
-    <div id="landscape"></div>
+    <div id="landscape">
+      <h1>{{ currentUser.username.toUpperCase() }}</h1>
+    </div>
     <!---Info user-->
     <section id="profile-header">
-      <h1>
-        {{ currentUser.username.toUpperCase() }}
-      </h1>
       <div id="header-card">
         <ul>
           <!---User role-->
@@ -161,6 +160,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Banniere decorative __________*/
+#landscape {
+  height: 150px;
+  line-height: 100px;
+  margin-top: 10px;
+  background-image: url(../../assets/images/profile-landscape.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 45%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  h1 {
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    color: $gray;
+  }
+}
 /* Section __________*/
 section {
   width: 75%;
@@ -221,17 +237,6 @@ section {
       }
     }
   }
-}
-/* Banniere decorative __________*/
-#landscape {
-  height: 150px;
-  margin-top: 10px;
-  background-image: url(../../assets/images/profile-landscape.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y: 45%;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
 }
 /* Effet de torsion sur l'illustration __________*/
 .rubberBand {

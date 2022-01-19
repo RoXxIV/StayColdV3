@@ -20,6 +20,8 @@ import {
   faGrinStars,
   faPencilAlt,
   faLevelDownAlt,
+  faCopyright,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -37,7 +39,9 @@ library.add(
   faQuestionCircle,
   faGrinStars,
   faPencilAlt,
-  faLevelDownAlt
+  faLevelDownAlt,
+  faCopyright,
+  faEnvelope
 );
 
 export { FontAwesomeIcon };
