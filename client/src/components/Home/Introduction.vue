@@ -68,6 +68,7 @@ section {
   width: 65%;
   margin: 50px auto;
   display: flex;
+  transition: height 2s;
   /* content-title __________*/
   #content-title {
     min-width: 40%;
@@ -118,6 +119,7 @@ section {
     line-height: 1.4em;
     position: relative;
     width: 100%;
+
     img {
       max-width: 250px;
       position: absolute;
