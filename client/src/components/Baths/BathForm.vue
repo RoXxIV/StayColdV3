@@ -519,16 +519,14 @@ export default {
     @media (max-width: 611.98px) {
       width: 100%;
     }
-    /* Submit __________*/
-    #submit {
-      @media (max-width: 991.98px) {
-        text-align: center;
-        display: inline-block;
-      }
-    }
   }
-  button {
+  /* Submit __________*/
+  #submit {
     display: block;
+    text-align: right;
+    @media (max-width: 991.98px) {
+      text-align: center;
+    }
   }
   @media (max-width: 991.98px) {
     margin: auto;
