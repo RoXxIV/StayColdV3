@@ -111,7 +111,7 @@ export default {
         .deleteOne(id)
         .then((response) => {
           console.log(response);
-          this.$router.push("/all-baths");
+          this.$router.go(-1);
         })
         .catch((error) => {
           console.log(error);

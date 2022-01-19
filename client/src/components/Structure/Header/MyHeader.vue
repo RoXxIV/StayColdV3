@@ -34,7 +34,7 @@
           <li><router-link to="/all-baths">Baignades</router-link></li>
           <!-- Nav user ----------->
           <li v-if="loggedIn" id="profil-link">
-            <router-link to="/">Profil </router-link>
+            <router-link to="/profile">Profil </router-link>
           </li>
         </ul>
         <!-- Nav auth ----------->
@@ -229,7 +229,7 @@ header {
     top: 0;
     margin-top: 20px;
     span {
-      font-size: 1.6em;
+      font-size: 1.4em;
       user-select: none;
       cursor: pointer;
     }

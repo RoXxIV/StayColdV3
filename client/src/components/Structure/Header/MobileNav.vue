@@ -29,7 +29,7 @@
     <!-- Nav user ----------->
     <ul>
       <li v-if="propsLoggedIn" @click="$emit('closeMenu')">
-        <router-link to="/">Profil</router-link>
+        <router-link to="/profile">Profil</router-link>
       </li>
       <li
         v-if="propsLoggedIn"

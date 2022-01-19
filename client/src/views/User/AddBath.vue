@@ -4,8 +4,10 @@
       <h1>Ajouter une <span class="text-blue">baignade</span></h1>
       <img src="../../assets/images/poulpe.png" alt="" class="flash" />
     </div>
-
     <BathForm :editMode="false" />
+    <div id="back-to-profile">
+      <span @click="$router.go(-1)">Retour au profil</span>
+    </div>
   </section>
 </template>
 
@@ -38,6 +40,15 @@ section {
     }
     img {
       max-width: 60px;
+    }
+  }
+  #back-to-profile {
+    margin-top: 30px;
+    span {
+      text-decoration: underline;
+      color: $blue;
+      cursor: pointer;
+      font-size: 1.2em;
     }
   }
   @media (max-width: 991.98px) {

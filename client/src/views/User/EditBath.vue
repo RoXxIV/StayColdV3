@@ -4,8 +4,10 @@
       <h1>Modifier une <span class="text-blue">baignade</span></h1>
       <img src="../../assets/images/poulpe.png" alt="" class="flash" />
     </div>
-
     <BathForm :editMode="true" />
+    <div id="back-to-details">
+      <span @click="$router.go(-1)">Retour</span>
+    </div>
   </section>
 </template>
 
@@ -38,6 +40,15 @@ section {
     }
     img {
       max-width: 60px;
+    }
+  }
+  #back-to-details {
+    margin-top: 30px;
+    span {
+      text-decoration: underline;
+      color: $blue;
+      cursor: pointer;
+      font-size: 1.2em;
     }
   }
   @media (max-width: 991.98px) {

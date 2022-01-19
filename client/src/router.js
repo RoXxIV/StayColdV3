@@ -12,6 +12,7 @@ import EditBath from "./views/User/EditBath.vue";
 import AllBath from "./views/AllBaths.vue";
 import BathDetails from "./views/BathDetails.vue";
 import PageNotFound from "./views/PageNotFound.vue";
+import Profile from "./views/User/Profile.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
 
@@ -80,6 +81,13 @@ const routes = [
     path: "/bath-details/:bathId",
     name: "Bath-details",
     component: BathDetails,
+  },
+  /** Page profile de l'utilisateur */
+  {
+    path: "/profile",
+    name: "Profile",
+    beforeEnter: authGuards.userGuard,
+    component: Profile,
   },
   /** Page board admin */
   {
