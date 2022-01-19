@@ -51,12 +51,19 @@
           :bath="bath"
           class="list-item"
         />
+        <div v-if="userBaths.length === 0">
+          <p>Aucune baignade enregistrée</p>
+        </div>
       </div>
       <div v-if="lastIndex < userBaths.length">
         <button @click="displayMoreBaths" id="showMore" class="btn-blue">
           Voir plus
         </button>
       </div>
+    </section>
+    <section v-if="userBaths.length !== 0" id="statistics">
+      <h2>Mes <span>statistiques</span></h2>
+      <PieCharts :BathChartData="userBaths" />
     </section>
   </div>
 </template>
@@ -65,10 +72,11 @@
 import BathDataServices from "../../services/bathDataServices";
 import RenderBathData from "../../helper/RenderBathData";
 import BathCard from "../../components/Baths/BathCard.vue";
+import PieCharts from "../../components/Charts/PieCharts.vue";
 export default {
   name: "Profile",
   title: "Profil",
-  components: { BathCard },
+  components: { BathCard, PieCharts },
   data() {
     return {
       userRole: "",
@@ -198,6 +206,16 @@ section {
       display: block;
       margin: 30px auto;
       text-align: center;
+    }
+  }
+  &#statistics {
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      margin: 70px auto 30px auto;
+      span {
+        color: $blue;
+      }
     }
   }
 }
