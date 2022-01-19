@@ -86,6 +86,7 @@ const routes = [
   {
     path: "/profile",
     name: "Profile",
+    beforeEnter: authGuards.userGuard,
     component: Profile,
   },
   /** Page board admin */

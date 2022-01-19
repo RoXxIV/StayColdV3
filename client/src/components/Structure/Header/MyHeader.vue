@@ -229,7 +229,7 @@ header {
     top: 0;
     margin-top: 20px;
     span {
-      font-size: 1.6em;
+      font-size: 1.4em;
       user-select: none;
       cursor: pointer;
     }

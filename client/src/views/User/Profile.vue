@@ -165,6 +165,7 @@ export default {
 section {
   width: 75%;
   margin: auto;
+  /* Profile-header __________*/
   &#profile-header {
     #header-card {
       display: flex;
@@ -189,6 +190,7 @@ section {
       }
     }
   }
+  /* Bath-list __________*/
   &#baths-list {
     h2 {
       span {
@@ -208,6 +210,7 @@ section {
       text-align: center;
     }
   }
+  /* Statistique __________*/
   &#statistics {
     h2 {
       text-align: center;
@@ -219,6 +222,7 @@ section {
     }
   }
 }
+/* Banniere decorative __________*/
 #landscape {
   height: 150px;
   margin-top: 10px;
