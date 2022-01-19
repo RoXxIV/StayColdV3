@@ -142,6 +142,7 @@ header {
   display: flex;
   align-items: center;
   padding: 20px 50px 20px 20px;
+  font-family: $roboto;
   font-weight: bold;
   border-bottom: 1px solid var(--dark-to-light);
   @media (max-width: 991.98px) {
