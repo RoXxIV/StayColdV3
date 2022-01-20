@@ -11,7 +11,7 @@ const nodemailer = require("../plugin/nodemailer.config");
  */
 exports.handleFormContact = (req, res, next) => {
   if (req.body) {
-    nodemailer.sendConfirmationEmail(
+    nodemailer.sendContactMail(
       req.body.contact,
       req.body.subject,
       req.body.message

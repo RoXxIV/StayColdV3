@@ -50,7 +50,7 @@
           />Contact</router-link
         >
       </li>
-      <li><router-link to="/">Mentions légales</router-link></li>
+      <li><router-link to="/legal-notices">Mentions légales</router-link></li>
     </ul>
     <!--Reseau-->
     <ul id="social">

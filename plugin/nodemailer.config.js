@@ -82,7 +82,7 @@ module.exports.resetPasswordEmail = (name, email, confirmationCode) => {
  * @param {string} subject
  * @param {string} message
  */
-module.exports.sendConfirmationEmail = (contact, subject, message) => {
+module.exports.sendContactMail = (contact, subject, message) => {
   transport
     .sendMail({
       from: user,
