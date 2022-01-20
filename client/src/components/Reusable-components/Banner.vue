@@ -80,8 +80,8 @@ h1 {
   }
   .cursor {
     display: inline-block;
-    margin-left: 3px;
     width: 3px;
+    margin-left: 3px;
     background-color: var(--dark-to-light);
     animation: cursorBlink 1s infinite;
     &.typing {
