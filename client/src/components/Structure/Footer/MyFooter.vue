@@ -43,7 +43,7 @@
     <!--Mention-->
     <ul id="contact">
       <li>
-        <router-link to="/"
+        <router-link to="/contact-form"
           ><font-awesome-icon
             class="font-awesome-icon"
             :icon="['fa', 'envelope']"

@@ -24,12 +24,12 @@ module.exports = function (app) {
 
   /**
    * Envoie le contenu du formulaire de contact sur mon email personnel
-   * @name get/contact
+   * @name post/contact
    * @function
    * @memberof module:routes/contact
    * @inner
    * @param {string} path - Express path
    * @param {module} controller - controllers/contact.controller.handleFormContact()
    */
-  app.get("/contact", controller.handleFormContact);
+  app.post("/contact", controller.handleFormContact);
 };
