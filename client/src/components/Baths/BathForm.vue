@@ -1,12 +1,7 @@
 <template>
   <div>
     <!----- Form ----->
-    <Form
-      v-if="!submited"
-      @submit="handleForm"
-      :validation-schema="schema"
-      id="form"
-    >
+    <Form v-if="!submited" @submit="handleForm" :validation-schema="schema">
       <!----- Temperature de l'eau ----->
       <div class="formField">
         <label for="waterTemperature"
@@ -230,6 +225,9 @@ export default {
     editMode: Boolean,
   },
   data() {
+    /**
+     * Schema de validation du formulaire
+     */
     const schema = yup.object().shape({
       waterTemperature: yup
         .number()
@@ -311,7 +309,7 @@ export default {
       this.bath.author = this.$store.state.auth.user.id;
       BathDataServices.create(this.bath)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           this.message = response.data.message;
           this.submited = true;
         })
@@ -326,7 +324,7 @@ export default {
     editBath() {
       BathDataServices.update(this.bath.id, this.bath)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           this.message = response.data.message;
           this.submited = true;
           this.redirectionTimerId = setInterval(() => {
@@ -351,7 +349,7 @@ export default {
     getcurrentBath(id) {
       BathDataServices.getOne(id)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           if (response.data.author._id === this.$store.state.auth.user.id) {
             this.bath.id = response.data._id;
             this.bath.author = response.data.author._id;
@@ -400,15 +398,16 @@ export default {
 
 <style lang="scss" scoped>
 /* Form __________*/
-#form {
+form {
   /* FormField __________*/
   .formField {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 30px auto;
-    font-size: 1.2em;
     width: 700px;
+    font-size: 1.2em;
+    /* Label afterdrop __________*/
     label[for="afterdrop"] {
       position: relative;
       sup {
@@ -421,12 +420,12 @@ export default {
       }
       #help-afterdrop-text {
         position: absolute;
-        background: var(--dark-to-light);
+        left: 110%;
         padding: 10px;
+        background: var(--dark-to-light);
         border-radius: 5px;
         color: var(--light-to-dark);
         font-size: 14px;
-        left: 110%;
         opacity: 0;
       }
     }
@@ -439,11 +438,11 @@ export default {
       /* Input __________*/
       input {
         width: 100%;
+        background: var(--light-to-dark);
         border: none;
         border-bottom: 1px solid var(--dark-to-light);
-        background: var(--light-to-dark);
-        color: var(--dark-to-light);
         transition: border-color 0.3s;
+        color: var(--dark-to-light);
         font-size: 16px;
         &:focus {
           border-color: $blue;
@@ -469,11 +468,11 @@ export default {
       /* Select __________*/
       select {
         width: 100%;
+        background: var(--light-to-dark);
         border: none;
         border-bottom: 1px solid var(--dark-to-light);
-        background: var(--light-to-dark);
-        color: var(--dark-to-light);
         transition: border-color 0.3s;
+        color: var(--dark-to-light);
         font-size: 16px;
         &:focus {
           border-color: $blue;
@@ -485,10 +484,10 @@ export default {
       /* Textarea __________*/
       textarea {
         width: 100%;
-        border: 1px solid var(--dark-to-light);
         background: var(--light-to-dark);
-        color: var(--dark-to-light);
+        border: 1px solid var(--dark-to-light);
         transition: border-color 0.3s;
+        color: var(--dark-to-light);
         &:focus {
           border-color: $blue;
         }
@@ -496,8 +495,8 @@ export default {
       /* Erreurs __________*/
       .error-feedback {
         display: block;
-        font-size: 16px;
         margin-top: 10px;
+        font-size: 16px;
         @media (max-width: 991.98px) {
           text-align: center;
         }
@@ -513,8 +512,8 @@ export default {
     /* FormField Responsive __________*/
     @media (max-width: 991.98px) {
       flex-direction: column;
-      margin-bottom: 35px;
       align-content: center;
+      margin-bottom: 35px;
     }
     @media (max-width: 611.98px) {
       width: 100%;

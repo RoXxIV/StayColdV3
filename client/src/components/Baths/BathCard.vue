@@ -1,13 +1,19 @@
 <template>
   <router-link :to="`/bath-details/${bath._id}`" tag="div" class="card">
-    <div class="card-header">
-      <img :src="getImgUrl(bath.weather)" alt="" />
+    <!--Weather-->
+    <div>
+      <img :src="getImgUrl(bath.weather)" alt="icone indiquant la météo" />
     </div>
     <ul>
+      <!--Pseudo-->
       <li class="bath-username">{{ bath.author.username }}</li>
+      <!--Date-->
       <li class="bath-date">{{ bath.createdAt }}</li>
+      <!--Temperature de l'air-->
       <li>Air : {{ bath.temperatureOutside }}&#8451;</li>
+      <!--Temperature de l'eau-->
       <li>Eau :{{ bath.waterTemperature }}&#8451;</li>
+      <!--Temps resté dans l'eau-->
       <li>
         <font-awesome-icon
           class="font-awesome-icon"
@@ -38,6 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Card __________*/
 .card {
   display: flex;
   align-items: center;
@@ -53,8 +60,8 @@ export default {
   img {
     min-width: 80px;
     min-height: 80px;
-    padding: 10px;
     margin-right: 20px;
+    padding: 10px;
   }
   ul {
     li {
@@ -67,24 +74,19 @@ export default {
       }
     }
   }
-}
-
-/* 
-__________MEDIA QUERIES__________ 
-*/
-/* Phones moins de 658px*/
-@media (max-width: 754.98px) {
-  .card {
-    padding: 10px 0px 20px 0px;
+  /* Card Responsive __________*/
+  @media (max-width: 754.98px) {
     flex-direction: column;
-  }
-  .card img {
-    margin: 0;
-    padding: 5px;
-  }
-  .card ul {
-    text-align: center;
-    margin: 0px;
+    padding: 10px 0px 20px 0px;
+    img {
+      margin: 0;
+      padding: 5px;
+    }
+    ul {
+      margin: 0px;
+      border-top: 2px solid var(--dark-to-light);
+      text-align: center;
+    }
   }
 }
 </style>
