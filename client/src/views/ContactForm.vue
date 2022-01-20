@@ -193,6 +193,7 @@ export default {
 section {
   width: 75%;
   margin: auto;
+
   ul {
     display: flex;
     justify-content: center;
@@ -274,9 +275,15 @@ section {
         line-height: 1.6em;
       }
     }
+    @media (max-width: 991.98px) {
+      width: 80%;
+    }
   }
   #failed {
     text-align: center;
+  }
+  @media (max-width: 991.98px) {
+    width: 100%;
   }
 }
 </style>
