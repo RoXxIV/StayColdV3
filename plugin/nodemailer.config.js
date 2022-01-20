@@ -2,6 +2,7 @@
 const nodemailer = require("nodemailer");
 /** @requires module:dotenv */
 const dotenv = require("dotenv");
+const { process_params } = require("express/lib/router");
 
 /**
  * adresse utilisé pour l'envoie de mail
@@ -70,6 +71,26 @@ module.exports.resetPasswordEmail = (name, email, confirmationCode) => {
         <p>Si vous ne l'avez pas demandé, veuillez ignorer cet e-mail et votre mot de passe restera inchangé.</p>
         <p>À bientôt, <br />
         L'équipe StayCold</p>
+        </div>`,
+    })
+    .catch((err) => console.log(err));
+};
+/**
+ * Recupere et redirige le contenu du formulaire de contact sur mon
+ * email personnel
+ * @param {string} contact
+ * @param {string} subject
+ * @param {string} message
+ */
+module.exports.sendConfirmationEmail = (contact, subject, message) => {
+  transport
+    .sendMail({
+      from: user,
+      to: process.env.PERSONAL_MAIL,
+      subject: subject,
+      html: `<div>
+        <h1>Contact : ${contact}</h1>
+        <p>${message}</p>
         </div>`,
     })
     .catch((err) => console.log(err));

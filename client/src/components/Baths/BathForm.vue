@@ -208,7 +208,7 @@
         <button @click="resetForm" class="btn-blue">Nouvelle Baignade</button>
       </div>
     </div>
-    <!----- Si l'envoie a réussi ----->
+    <!----- Si l'envoie a échoué ----->
     <div v-if="failed" id="failed" class="alert">
       <h2>Une erreur est survenue</h2>
     </div>

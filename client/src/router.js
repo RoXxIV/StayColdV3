@@ -13,6 +13,7 @@ import AllBath from "./views/AllBaths.vue";
 import BathDetails from "./views/BathDetails.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 import Profile from "./views/User/Profile.vue";
+import ContactForm from "./views/ContactForm.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
 
@@ -95,6 +96,12 @@ const routes = [
     name: "Admin-Board",
     beforeEnter: authGuards.isAdmin,
     component: AdminBoard,
+  },
+  /** Page Formulaire de contact */
+  {
+    path: "/contact-form",
+    name: "Contact-form",
+    component: ContactForm,
   },
   /** Page 404 */
   {

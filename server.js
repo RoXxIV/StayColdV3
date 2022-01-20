@@ -52,6 +52,8 @@ require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
 /** @requires module:routes/bath */
 require("./routes/bath.routes")(app);
+/** @requires module:routes/contact */
+require("./routes/contact.routes")(app);
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}.`);

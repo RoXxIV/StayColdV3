@@ -22,6 +22,8 @@ import {
   faLevelDownAlt,
   faCopyright,
   faEnvelope,
+  faAt,
+  faHandPointRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -41,7 +43,9 @@ library.add(
   faPencilAlt,
   faLevelDownAlt,
   faCopyright,
-  faEnvelope
+  faEnvelope,
+  faAt,
+  faHandPointRight
 );
 
 export { FontAwesomeIcon };
