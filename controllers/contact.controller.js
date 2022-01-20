@@ -16,9 +16,10 @@ exports.handleFormContact = (req, res, next) => {
       req.body.subject,
       req.body.message
     );
+    res.setHeader("Content-Type", "text/plain");
     res.send({
-      message:
-        "Votre message a bien été envoyé, il sera traitée dans les meilleurs délais",
+      message: `Votre message a bien été envoyé,
+        il sera traitée dans les meilleurs délais`,
     });
   } else {
     res.send({
