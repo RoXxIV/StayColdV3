@@ -125,6 +125,7 @@ export default {
     fetchUsers() {
       UserServices.getAllUsers()
         .then((response) => {
+          // console.log(response.data)
           this.users = response.data;
           /**
            * Recupere le dernier rôle du tableau & Formate les dates
@@ -233,7 +234,7 @@ section {
   width: 75%;
   margin: auto;
   h2 {
-    color: $gray;
+    color: var(--dark-to-light);
   }
   /* ul __________*/
   ul {
@@ -252,12 +253,12 @@ section {
     width: 100%;
     thead {
       th {
+        padding-left: 10px;
         background-color: darken($gray, 6%);
-        color: #fff;
         border: 1px solid darken($gray, 6%);
+        color: #fff;
         text-align: left;
         font-weight: 700;
-        padding-left: 10px;
       }
     }
     tbody {
@@ -281,8 +282,8 @@ section {
   }
   /* modal __________*/
   #delete-comfirmation {
-    text-align: center;
     padding: 30px;
+    text-align: center;
     div {
       display: flex;
       button {
@@ -291,8 +292,8 @@ section {
     }
   }
   #update-comfirmation {
-    text-align: center;
     padding: 50px;
+    text-align: center;
     label {
       margin-right: 10px;
     }
