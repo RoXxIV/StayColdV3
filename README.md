@@ -39,10 +39,11 @@ Vue js version : vue@3.2.26
 - Créer un fichier.env
 
 ```
-MONGO_URI=<Lien de connexion a mongodb>
-SECRET=<chaine de caractères utilisés par jsonwebtoken>
-USER_MAIL=<email>
-USER_MAIL_SECRET=<Mot de passe associé à l'email>
+MONGO_URI=<Lien de connexion a MongoDb mongodb+srv://...>
+SECRET=<chaine de caractères aléatoire utilisés par jsonwebtoken>
+USER_MAIL=<email de configuration nodemail>
+USER_MAIL_SECRET=<Mot de passe associé à l'email de configuration>
+PERSONAL_MAIL=<Email sur lequelle je recois le contenu du formulaire de contact>
 ```
 
 - Dans _server.js_ supprimez les commentaires avant : `// require("./plugin/init-roles")();` afin d'enregistrer les Rôles utilisateurs
