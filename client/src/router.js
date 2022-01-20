@@ -11,9 +11,10 @@ import AddBath from "./views/User/AddBath.vue";
 import EditBath from "./views/User/EditBath.vue";
 import AllBath from "./views/AllBaths.vue";
 import BathDetails from "./views/BathDetails.vue";
-import PageNotFound from "./views/PageNotFound.vue";
 import Profile from "./views/User/Profile.vue";
 import ContactForm from "./views/ContactForm.vue";
+import LegalNotices from "./views/LegalNotices.vue";
+import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
 
@@ -102,6 +103,12 @@ const routes = [
     path: "/contact-form",
     name: "Contact-form",
     component: ContactForm,
+  },
+  /** Page des mentions légales */
+  {
+    path: "/legal-notices",
+    name: "Legal-notices",
+    component: LegalNotices,
   },
   /** Page 404 */
   {
