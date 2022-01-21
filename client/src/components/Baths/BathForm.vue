@@ -461,7 +461,7 @@ form {
         &[type="number"] {
           -moz-appearance: textfield;
         }
-        @media (max-width: 611.98px) {
+        @include media-max(611.98px) {
           padding-left: 30px;
         }
       }
@@ -477,7 +477,7 @@ form {
         &:focus {
           border-color: $blue;
         }
-        @media (max-width: 991.98px) {
+        @include media-max(991.98px) {
           text-align: center;
         }
       }
@@ -497,49 +497,49 @@ form {
         display: block;
         margin-top: 10px;
         font-size: 16px;
-        @media (max-width: 991.98px) {
+        @include media-max(991.98px) {
           text-align: center;
         }
       }
       /* Field Responsive __________*/
-      @media (max-width: 991.98px) {
+      @include media-max(991.98px) {
         margin-top: 10px;
-      }
-      @media (max-width: 611.98px) {
-        width: 100%;
+        @include media-max(611.98px) {
+          width: 100%;
+        }
       }
     }
     /* FormField Responsive __________*/
-    @media (max-width: 991.98px) {
+    @include media-max(991.98px) {
       flex-direction: column;
       align-content: center;
       margin-bottom: 35px;
-    }
-    @media (max-width: 611.98px) {
-      width: 100%;
+      @include media-max(611.98px) {
+        width: 100%;
+      }
     }
   }
   /* Submit __________*/
   #submit {
     display: block;
     text-align: right;
-    @media (max-width: 991.98px) {
+    @include media-max(991.98px) {
       text-align: center;
     }
   }
-  @media (max-width: 991.98px) {
+  @include media-max(991.98px) {
     margin: auto;
     text-align: center;
-  }
-  @media (max-width: 611.98px) {
-    width: 95%;
+    @include media-max(611.98px) {
+      width: 95%;
+    }
   }
 }
 /* Submited __________*/
 #submited {
   text-align: center;
   h2 {
-    margin: 0px auto 50px auto;
+    margin: 30px auto 50px auto;
   }
 }
 #failed {

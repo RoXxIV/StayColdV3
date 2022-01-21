@@ -1,7 +1,7 @@
 <template>
   <section>
     <div>
-      <h1>Modifier une <span class="text-blue">baignade</span></h1>
+      <h1>Modifier une <span>baignade</span></h1>
       <img src="../../assets/images/poulpe.png" alt="" class="flash" />
     </div>
     <BathForm :editMode="true" />
@@ -24,69 +24,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* Section __________*/
-section {
-  width: 75%;
-  margin: auto;
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media (max-width: 611.98px) {
-      flex-direction: column;
-    }
-    h1 {
-      margin: 30px 10px 30px 0;
-    }
-    img {
-      max-width: 60px;
-    }
-  }
-  #back-to-details {
-    margin-top: 30px;
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    margin: 30px 10px 30px 0;
     span {
-      text-decoration: underline;
       color: $blue;
-      font-size: 1.2em;
-      cursor: pointer;
     }
   }
-  @media (max-width: 991.98px) {
-    width: 100%;
+  img {
+    max-width: 60px;
+  }
+  @include media-max(611.98px) {
+    flex-direction: column;
   }
 }
-/* Animation poulpe __________*/
-.flash {
-  -webkit-animation-name: flash;
-  animation-name: flash;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@-webkit-keyframes flash {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-
-  25%,
-  75% {
-    opacity: 0;
-  }
-}
-
-@keyframes flash {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-
-  25%,
-  75% {
-    opacity: 0;
+#back-to-details {
+  margin-top: 30px;
+  span {
+    text-decoration: underline;
+    color: $blue;
+    font-size: 1.2em;
+    cursor: pointer;
   }
 }
 </style>
