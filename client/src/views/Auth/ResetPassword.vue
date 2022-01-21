@@ -1,7 +1,7 @@
 <template>
   <section>
-    <h1>Réinitialisation du mot de passe</h1>
-    <div v-if="!successful" id="form-bloc">
+    <h1>Réinitialisation du <span>mot de passe</span></h1>
+    <div v-if="!successful" id="bloc-form">
       <Form @submit="handleResetPassword" :validation-schema="schema">
         <!-- Password ----------->
         <div>
@@ -19,7 +19,7 @@
           />
         </div>
         <!-- Submit ----------->
-        <div>
+        <div id="submit">
           <button class="btn-blue">Envoyer</button>
         </div>
       </Form>
@@ -147,48 +147,60 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  width: 75%;
-  margin: auto;
-  text-align: center;
-  h1 {
-    margin-top: 50px;
+h1 {
+  margin-top: 50px;
+  span {
+    color: $blue;
+    font-family: $oswald;
   }
-  #form-bloc {
-    form {
-      margin-top: 100px;
-      label {
-        display: block;
-        margin-top: 10px;
-        font-size: 1.3em;
+}
+/* Bloc form __________*/
+#bloc-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Form __________*/
+  form {
+    margin-top: 30px;
+    text-align: center;
+    label {
+      display: block;
+      margin-top: 10px;
+      font-size: 1.3em;
+    }
+    input {
+      width: 280px;
+      margin: 20px 0px 10px 20px;
+      border: none;
+      border-bottom: 2px solid var(--dark-to-light);
+      background: transparent;
+      color: var(--dark-to-light);
+      transition: border-color 0.3s;
+      &:focus {
+        border-color: $blue;
       }
-      input {
-        width: 280px;
-        margin: 20px 0px 10px 20px;
-        border: none;
-        border-bottom: 2px solid var(--dark-to-light);
-        background: transparent;
-        color: var(--dark-to-light);
-        transition: border-color 0.3s;
-        &:focus {
-          border-color: $blue;
-        }
-        @include media-max(611.98px) {
-          margin: 20px 0;
-        }
-      }
-      .error-feedback {
-        display: block;
-        margin-bottom: 20px;
-      }
-      button {
-        margin-top: 20px;
-        margin-bottom: 20px;
+      @include media-max(611.98px) {
+        margin: 20px 0;
       }
     }
+    .error-feedback {
+      display: block;
+      margin-bottom: 20px;
+    }
+    /* Submit __________*/
+    #submit {
+      margin-top: 30px;
+      text-align: center;
+    }
   }
-  #redirect-to-login {
-    margin-top: 50px;
+}
+
+#redirect-to-login {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  button {
+    margin-top: 30px;
   }
 }
 </style>
