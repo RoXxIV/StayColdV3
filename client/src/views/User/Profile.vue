@@ -174,14 +174,14 @@ export default {
 /* Banniere decorative __________*/
 #landscape {
   height: 150px;
-  line-height: 100px;
   margin-top: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
   background-image: url(../../assets/images/profile-landscape.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 45%;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  line-height: 100px;
   h1 {
     font-size: 2.5em;
     letter-spacing: 3px;
@@ -254,9 +254,9 @@ section {
   /* Statistique __________*/
   &#statistics {
     h2 {
+      margin: 70px auto 30px auto;
       text-align: center;
       font-size: 2em;
-      margin: 70px auto 30px auto;
       span {
         color: $blue;
       }

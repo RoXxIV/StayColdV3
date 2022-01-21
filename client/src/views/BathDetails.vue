@@ -148,7 +148,6 @@ export default {
 section {
   width: 75%;
   margin: auto;
-
   h1 {
     margin-bottom: 0px;
     span {
@@ -156,14 +155,14 @@ section {
     }
   }
   #illustration {
+    display: block;
     max-width: 100px;
     margin: 0px auto;
-    display: block;
   }
   #border {
+    padding: 50px 0px;
     border: 2px solid var(--light-gray-to-less);
     border-radius: 5px;
-    padding: 50px 0px;
     #commentary {
       width: 75%;
       margin: auto;
@@ -180,8 +179,8 @@ section {
     }
     /* Editer / Supprimer __________*/
     #action {
-      text-align: center;
       margin-top: 50px;
+      text-align: center;
       span {
         margin: 0px 10px;
       }
