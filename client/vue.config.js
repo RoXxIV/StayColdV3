@@ -13,6 +13,7 @@ module.exports = {
           @import "@/assets/styles/_variables.scss";
           @import "@/assets/styles/_mixin.scss";
           @import "@/assets/styles/_global.scss";
+          @import "@/assets/styles/_animations.scss";
         `,
       },
     },

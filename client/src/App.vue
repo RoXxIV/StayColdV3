@@ -24,23 +24,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-/* Transition routeur view __________*/
+<style lang="scss">
 #app {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  max-width: 100vw;
   main {
     flex: 1 0 auto;
+    section {
+      width: 75%;
+      margin: auto;
+    }
   }
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>
