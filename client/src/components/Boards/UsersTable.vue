@@ -277,7 +277,7 @@ section {
     }
   }
   /* table responsive __________*/
-  @media (max-width: 991.98px) {
+  @include media-max(991.98px) {
     width: 100%;
   }
   /* modal __________*/

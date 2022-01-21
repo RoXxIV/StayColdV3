@@ -152,7 +152,7 @@ section {
         &:focus {
           border-color: $blue;
         }
-        @media (max-width: 611.98px) {
+        @include media-max(611.98px) {
           margin: 20px 0;
         }
       }

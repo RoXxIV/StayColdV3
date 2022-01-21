@@ -105,12 +105,12 @@ ul {
     font-size: 1.1em;
     span {
       color: $blue;
-      @media (max-width: 667.98px) {
+      @include media-max(667.98px) {
         display: block;
         margin: 10px;
       }
     }
-    @media (max-width: 667.98px) {
+    @include media-max(667.98px) {
       padding: 0;
     }
   }

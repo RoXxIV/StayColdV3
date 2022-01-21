@@ -102,7 +102,7 @@ footer {
           display: flex;
           align-items: center;
           font-size: 14px;
-          @media (max-width: 991.98px) {
+          @include media-max(991.98px) {
             margin-right: 0;
           }
           svg {
@@ -117,7 +117,7 @@ footer {
           }
         }
       }
-      @media (max-width: 991.98px) {
+      @include media-max(991.98px) {
         flex-direction: column;
         justify-content: center;
         text-align: center;
@@ -135,7 +135,7 @@ footer {
           margin-right: 10px;
         }
       }
-      @media (max-width: 667.98px) {
+      @include media-max(667.98px) {
         width: 100%;
       }
     }
@@ -149,12 +149,12 @@ footer {
       }
     }
     /* Ul responsive __________*/
-    @media (max-width: 991.98px) {
+    @include media-max(991.98px) {
       flex-direction: column;
       justify-content: center;
       padding: 0;
     }
-    @media (max-width: 667.98px) {
+    @include media-max(667.98px) {
       width: 100%;
       margin: 10px auto;
       &#social {
@@ -168,7 +168,7 @@ footer {
     }
   }
   /* Footer responsive __________*/
-  @media (max-width: 667.98px) {
+  @include media-max(667.98px) {
     flex-direction: column;
   }
 }

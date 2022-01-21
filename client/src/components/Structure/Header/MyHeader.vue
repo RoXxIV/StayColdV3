@@ -145,12 +145,12 @@ header {
   border-bottom: 1px solid var(--dark-to-light);
   font-family: $roboto;
   font-weight: bold;
-  @media (max-width: 991.98px) {
+  @include media-max(991.98px) {
     flex-direction: column;
     justify-content: center;
     text-align: center;
   }
-  @media (max-width: 667.98px) {
+  @include media-max(667.98px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -160,7 +160,7 @@ header {
     align-items: center;
     margin-right: 100px;
     font-size: 24px;
-    @media (max-width: 991.98px) {
+    @include media-max(991.98px) {
       margin-right: 0;
     }
     svg {
@@ -180,10 +180,10 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    @media (max-width: 991.98px) {
+    @include media-max(991.98px) {
       justify-content: space-around;
     }
-    @media (max-width: 667.98px) {
+    @include media-max(667.98px) {
       display: none;
     }
     /* Default __________*/
@@ -217,7 +217,7 @@ header {
           margin-left: 10px;
         }
       }
-      @media (max-width: 991.98px) {
+      @include media-max(991.98px) {
         margin-right: 0;
       }
     }
@@ -234,14 +234,14 @@ header {
       user-select: none;
       cursor: pointer;
     }
-    @media (max-width: 667.98px) {
+    @include media-max(667.98px) {
       display: none;
     }
   }
   /* Burger __________*/
   #icon-burger {
     display: none;
-    @media (max-width: 667.98px) {
+    @include media-max(667.98px) {
       display: block;
     }
   }
