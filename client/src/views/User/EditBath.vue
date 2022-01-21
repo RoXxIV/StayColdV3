@@ -32,6 +32,7 @@ div {
     margin: 30px 10px 30px 0;
     span {
       color: $blue;
+      font-family: $oswald;
     }
   }
   img {

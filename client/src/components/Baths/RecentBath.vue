@@ -72,6 +72,7 @@ export default {
     font-size: 2em;
     span {
       color: $blue;
+      font-family: $oswald;
     }
   }
   /* Card list __________*/

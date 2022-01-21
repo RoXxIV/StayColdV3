@@ -234,6 +234,7 @@ section {
     h2 {
       span {
         color: $blue;
+        font-family: $oswald;
       }
     }
     .card-list {
@@ -257,6 +258,7 @@ section {
       font-size: 2em;
       span {
         color: $blue;
+        font-family: $oswald;
       }
     }
   }

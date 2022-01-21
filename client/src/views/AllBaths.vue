@@ -114,6 +114,7 @@ section {
       margin-bottom: 10px;
       span {
         color: $blue;
+        font-family: $oswald;
       }
     }
     #illustration {

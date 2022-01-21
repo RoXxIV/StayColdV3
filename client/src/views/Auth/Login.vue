@@ -138,6 +138,7 @@ export default {
       span {
         color: $blue;
         display: block;
+        font-family: $oswald;
       }
       @include media-max(611.98px) {
         margin-top: 0;
