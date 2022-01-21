@@ -93,13 +93,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* section __________*/
 section {
   width: 75%;
   margin: auto;
   text-align: center;
   #box {
-    width: auto;
     display: inline-block;
+    width: auto;
     padding: 50px 100px;
   }
 }

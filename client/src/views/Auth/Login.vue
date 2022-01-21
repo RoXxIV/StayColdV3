@@ -114,15 +114,15 @@ section {
   }
   #blocs {
     display: flex;
-    width: 75%;
     justify-content: space-around;
+    width: 75%;
     margin: 150px auto 0px auto;
     @media (max-width: 991.98px) {
+      flex-direction: column;
+      align-items: center;
       width: 100%;
       margin: 30px 0px 0px 0px;
       margin-top: 20px;
-      flex-direction: column;
-      align-items: center;
     }
     /* illustration meditation __________*/
     #illustration {
@@ -166,16 +166,16 @@ section {
       }
       label {
         display: block;
-        font-size: 18px;
         margin-top: 10px;
+        font-size: 18px;
       }
       input {
         margin: 35px 0px 15px 20px;
-        border: none;
-        background: transparent;
-        border-bottom: 2px solid var(--dark-to-light);
-        color: var(--dark-to-light);
         width: 280px;
+        border: none;
+        border-bottom: 2px solid var(--dark-to-light);
+        background: transparent;
+        color: var(--dark-to-light);
         transition: border-color 0.3s;
         &:focus {
           border-color: $blue;
@@ -185,35 +185,36 @@ section {
         }
       }
       .error-feedback {
-        margin-bottom: 20px;
         display: block;
+        margin-bottom: 20px;
       }
       #submit {
-        text-align: center;
         margin-top: 15px;
+        text-align: center;
       }
       #message {
-        text-align: center;
         margin-top: 20px;
+        text-align: center;
       }
     }
     #forgottenPassword {
-      color: $blue;
-      text-decoration: underline;
-      text-align: center;
       margin-top: 30px;
       margin-bottom: 10px;
-    }
-    #Link-to-register {
       color: $blue;
       text-decoration: underline;
       text-align: center;
+    }
+    #Link-to-register {
       display: block;
+      color: $blue;
+      text-decoration: underline;
+      text-align: center;
       &:hover {
         color: #176cf5;
       }
     }
   }
+  /* Section responsive __________*/
   @media (max-width: 991.98px) {
     margin-top: 20px;
   }

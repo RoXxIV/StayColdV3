@@ -81,6 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Footer __________*/
 footer {
   display: flex;
   justify-content: space-between;
@@ -134,6 +135,9 @@ footer {
           margin-right: 10px;
         }
       }
+      @media (max-width: 667.98px) {
+        width: 100%;
+      }
     }
     /* Social __________*/
     &#social {
@@ -144,11 +148,28 @@ footer {
         padding: 0px 10px;
       }
     }
+    /* Ul responsive __________*/
     @media (max-width: 991.98px) {
       flex-direction: column;
       justify-content: center;
       padding: 0;
     }
+    @media (max-width: 667.98px) {
+      width: 100%;
+      margin: 10px auto;
+      &#social {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      &#copyright {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+  }
+  /* Footer responsive __________*/
+  @media (max-width: 667.98px) {
+    flex-direction: column;
   }
 }
 </style>

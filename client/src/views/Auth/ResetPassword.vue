@@ -159,16 +159,16 @@ section {
       margin-top: 100px;
       label {
         display: block;
-        font-size: 1.3em;
         margin-top: 10px;
+        font-size: 1.3em;
       }
       input {
+        width: 280px;
         margin: 20px 0px 10px 20px;
         border: none;
-        background: transparent;
         border-bottom: 2px solid var(--dark-to-light);
+        background: transparent;
         color: var(--dark-to-light);
-        width: 280px;
         transition: border-color 0.3s;
         &:focus {
           border-color: $blue;
@@ -178,8 +178,8 @@ section {
         }
       }
       .error-feedback {
-        margin-bottom: 20px;
         display: block;
+        margin-bottom: 20px;
       }
       button {
         margin-top: 20px;

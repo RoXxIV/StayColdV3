@@ -248,6 +248,9 @@ section {
         color: var(--dark-to-light);
         transition: border-color 0.3s;
         font-size: 16px;
+        @media (max-width: 667.98px) {
+          margin-left: 0;
+        }
       }
       textarea {
         margin: 20px 0px 10px 20px;
@@ -258,6 +261,9 @@ section {
         transition: border-color 0.3s;
         &:focus {
           border-color: $blue;
+        }
+        @media (max-width: 667.98px) {
+          margin-left: 0;
         }
       }
       .error-feedback {
@@ -277,6 +283,9 @@ section {
     }
     @media (max-width: 991.98px) {
       width: 80%;
+    }
+    @media (max-width: 667.98px) {
+      text-align: center;
     }
   }
   #failed {

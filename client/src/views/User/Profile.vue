@@ -1,7 +1,8 @@
 <template>
   <div>
+    <!---Pseudo-->
     <div id="landscape">
-      <h1>{{ currentUser.username.toUpperCase() }}</h1>
+      <h1>{{ currentUser?.username.toUpperCase() }}</h1>
     </div>
     <!---Info user-->
     <section id="profile-header">
@@ -11,7 +12,16 @@
           <li>
             <span id="role">{{ userRole !== "USER" ? userRole : "" }}</span>
           </li>
-
+          <li>
+            Inscrit(e) depuis le:
+            <span class="text-blue">{{
+              currentUser?.createdAt
+                .substring(0, 10)
+                .split("-")
+                .reverse()
+                .join("/")
+            }}</span>
+          </li>
           <li>
             Totale baignades:
             <span class="text-blue">{{ userBaths.length }}</span>
@@ -155,6 +165,7 @@ export default {
         this.currentUser.roles.length - 1
       ].replace(/ROLE_/, "");
     }
+    console.log(this.currentUser);
   },
 };
 </script>
@@ -188,7 +199,7 @@ section {
       justify-content: space-around;
       align-items: center;
       width: 60%;
-      margin: auto;
+      margin: 30px auto 0px auto;
       border: 2px solid var(--light-gray-to-less);
       ul {
         li {
@@ -204,6 +215,20 @@ section {
       #illustration {
         max-width: 300px;
       }
+      @media (max-width: 991.98px) {
+        width: 100%;
+      }
+      @media (max-width: 667.98px) {
+        flex-direction: column-reverse;
+        width: 100%;
+        #illustration {
+          max-width: 150px;
+        }
+      }
+    }
+    @media (max-width: 667.98px) {
+      width: 100%;
+      text-align: center;
     }
   }
   /* Bath-list __________*/
@@ -236,6 +261,9 @@ section {
         color: $blue;
       }
     }
+  }
+  @media (max-width: 991.98px) {
+    width: 90%;
   }
 }
 /* Effet de torsion sur l'illustration __________*/

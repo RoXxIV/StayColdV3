@@ -164,21 +164,18 @@ export default {
 section {
   position: relative;
   width: 100vw;
-  @media (max-width: 991.98px) {
-    flex-direction: column;
-  }
   /* Blocs __________*/
   #blocs {
     display: flex;
-    width: 75%;
     justify-content: space-around;
+    width: 75%;
     margin: 50px auto 0px auto;
     @media (max-width: 991.98px) {
+      flex-direction: column-reverse;
+      align-items: center;
       width: 100%;
       margin: 30px 0px 0px 0px;
       margin-top: 20px;
-      flex-direction: column-reverse;
-      align-items: center;
     }
     /* illustration montagne __________*/
     #illustration {
@@ -194,10 +191,10 @@ section {
     }
     /* Bloc form __________*/
     #bloc-form {
-      width: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 50%;
       margin-top: 50px;
       h1 {
         margin-bottom: 50px;
@@ -221,12 +218,12 @@ section {
           font-size: 18px;
         }
         input {
+          width: 280px;
           margin: 10px 0px 35px 30px;
           border: none;
-          background: transparent;
           border-bottom: 2px solid var(--dark-to-light);
+          background: transparent;
           color: var(--dark-to-light);
-          width: 280px;
           transition: border-color 0.3s;
           &:focus {
             border-color: $blue;
@@ -241,8 +238,8 @@ section {
         }
         /* Erreur de saisis __________*/
         .error-feedback {
-          margin-bottom: 10px;
           display: block;
+          margin-bottom: 10px;
           text-align: center;
         }
       }
@@ -250,15 +247,19 @@ section {
         margin-top: 0;
       }
       #RegisterFailed {
-        text-align: center;
         margin-top: 20px;
+        text-align: center;
       }
     }
   }
   #RegistedSucces {
+    margin-top: 100px;
     font-size: 1.4em;
     text-align: center;
-    margin-top: 100px;
+  }
+  /* Section responsive __________*/
+  @media (max-width: 991.98px) {
+    flex-direction: column;
   }
 }
 /* Effet de torsion sur l'illustration __________*/

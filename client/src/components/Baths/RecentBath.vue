@@ -90,5 +90,8 @@ section {
     margin-top: 50px;
     text-align: center;
   }
+  @media (max-width: 667.98px) {
+    width: 90%;
+  }
 }
 </style>
