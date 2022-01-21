@@ -202,8 +202,8 @@ header {
         margin-right: 30px;
       }
       li:hover {
+        color: $blue;
         transition: all 0.2s ease 0s;
-        opacity: 0.8;
       }
     }
     /* User __________*/
