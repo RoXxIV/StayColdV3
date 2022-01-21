@@ -1,11 +1,11 @@
 <template>
-  <section>
+  <section id="section-introduction">
     <div id="content-title">
       <h2>
         <span>Staycold</span> c’est qui ?<br />
         c’est quoi ?
       </h2>
-      <div>
+      <div id="button-show">
         <span
           @click="
             {
@@ -64,11 +64,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 /* Section __________*/
-section {
+#section-introduction {
   display: flex;
+  justify-content: center;
   width: 65%;
   margin: 50px auto;
-  transition: height 2s;
   /* content-title __________*/
   #content-title {
     min-width: 40%;
@@ -79,14 +79,14 @@ section {
       span {
         color: $blue;
       }
-      @media (max-width: 991.98px) {
+      @include media-max(991.98px) {
         margin: 0;
-      }
-      @media (max-width: 611.98px) {
-        font-size: 1.6em;
+        @include media-max(611.98px) {
+          font-size: 1.6em;
+        }
       }
     }
-    div {
+    #button-show {
       text-align: right;
       span {
         margin-right: 10px;
@@ -96,19 +96,31 @@ section {
       .font-awesome-icon {
         margin-right: 60px;
         font-size: 2.5em;
-        @media (max-width: 991.98px) {
+        /* Arrow animation __________*/
+        .rotate {
+          -moz-transition: all 0.4s linear;
+          -webkit-transition: all 0.4s linear;
+          transition: all 0.4s linear;
+        }
+        .rotate.down {
+          -moz-transform: rotate(-90deg);
+          -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+        }
+        @include media-max(991.98px) {
           rotate: 90deg;
         }
       }
-      @media (max-width: 991.98px) {
+      /* Responsive button-show __________*/
+      @include media-max(991.98px) {
         text-align: left;
-      }
-      @media (max-width: 611.98px) {
-        text-align: right;
+        @include media-max(611.98px) {
+          text-align: right;
+        }
       }
     }
-    /* content-title media-queries __________*/
-    @media (max-width: 991.98px) {
+    /* Responsive content-title __________*/
+    @include media-max(991.98px) {
       padding-top: 0;
     }
   }
@@ -123,11 +135,19 @@ section {
       left: calc(50% - 125px);
       max-width: 250px;
       z-index: -1;
-      @media (max-width: 991.98px) {
-        position: inherit;
+      /* Transition Shark __________*/
+      &.sharkAnimation {
+        opacity: 0.1 !important;
+        @include media-max(991.98px) {
+          display: none;
+        }
       }
-      @media (max-width: 667.98px) {
-        left: 20px;
+      @include media-max(991.98px) {
+        position: inherit;
+        left: 40%;
+        @include media-max(667.98px) {
+          left: 20px;
+        }
       }
     }
     span {
@@ -135,94 +155,13 @@ section {
     }
   }
   /* content-title Section __________*/
-  @media (max-width: 991.98px) {
+  @include media-max(991.98px) {
     flex-direction: column;
     margin-top: 0;
+    @include media-max(611.98px) {
+      width: 100%;
+      padding: 0px 10px;
+    }
   }
-  @media (max-width: 611.98px) {
-    width: 100%;
-    padding: 0px 10px;
-  }
-}
-/* Transition Content-text __________*/
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-/* Transition Shark __________*/
-.sharkAnimation {
-  opacity: 0.1 !important;
-  @media (max-width: 991.98px) {
-    display: none;
-  }
-}
-/*Shark Animation __________*/
-.lightSpeedIn {
-  -webkit-animation-name: lightSpeedIn;
-  animation-name: lightSpeedIn;
-  -webkit-animation-timing-function: ease-out;
-  animation-timing-function: ease-out;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@-webkit-keyframes lightSpeedIn {
-  0% {
-    -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
-    transform: translate3d(100%, 0, 0) skewX(-30deg);
-    opacity: 0;
-  }
-  60% {
-    -webkit-transform: skewX(20deg);
-    transform: skewX(20deg);
-    opacity: 1;
-  }
-  80% {
-    -webkit-transform: skewX(-5deg);
-    transform: skewX(-5deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: none;
-    transform: none;
-    opacity: 1;
-  }
-}
-@keyframes lightSpeedIn {
-  0% {
-    -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
-    transform: translate3d(100%, 0, 0) skewX(-30deg);
-    opacity: 0;
-  }
-  60% {
-    -webkit-transform: skewX(20deg);
-    transform: skewX(20deg);
-    opacity: 1;
-  }
-  80% {
-    -webkit-transform: skewX(-5deg);
-    transform: skewX(-5deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: none;
-    transform: none;
-    opacity: 1;
-  }
-}
-/* Arrow animation __________*/
-.rotate {
-  -moz-transition: all 0.4s linear;
-  -webkit-transition: all 0.4s linear;
-  transition: all 0.4s linear;
-}
-.rotate.down {
-  -moz-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
 }
 </style>

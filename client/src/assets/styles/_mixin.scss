@@ -25,3 +25,12 @@
   background: darken($backgroundColor, 10%);
   transition: all 0.3s ease 0s;
 }
+
+/* Media Queries __________*/
+@mixin media-max($max-width) {
+  @media (max-width: $max-width) {
+    & {
+      @content;
+    }
+  }
+}

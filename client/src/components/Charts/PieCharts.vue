@@ -146,8 +146,14 @@ export default {
 <style lang="scss" scoped>
 #pies-chart-list {
   display: flex;
-  justify-content: space-around;
-  @media (max-width: 991.98px) {
+  justify-content: center;
+  li {
+    margin: 0px 50px;
+    h4 {
+      text-align: center;
+    }
+  }
+  @include media-max(991.98px) {
     flex-direction: column;
   }
 }

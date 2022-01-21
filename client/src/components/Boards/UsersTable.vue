@@ -229,84 +229,79 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* section __________*/
-section {
-  width: 75%;
-  margin: auto;
-  h2 {
-    color: var(--dark-to-light);
-  }
-  /* ul __________*/
-  ul {
-    display: flex;
-    align-items: center;
-    li {
-      margin: 0px 10px;
-      input {
-        padding: 5px 10px;
-        border-color: $light-gray;
-      }
+h2 {
+  color: var(--dark-to-light);
+}
+/* ul __________*/
+ul {
+  display: flex;
+  align-items: center;
+  li {
+    margin: 0px 10px;
+    input {
+      padding: 5px 10px;
+      border-color: $light-gray;
     }
   }
-  /* table __________*/
-  table {
-    width: 100%;
-    thead {
-      th {
-        padding-left: 10px;
-        background-color: darken($gray, 6%);
-        border: 1px solid darken($gray, 6%);
-        color: #fff;
-        text-align: left;
-        font-weight: 700;
-      }
+}
+/* table __________*/
+table {
+  width: 100%;
+  thead {
+    th {
+      padding-left: 10px;
+      background-color: darken($gray, 6%);
+      border: 1px solid darken($gray, 6%);
+      color: #fff;
+      text-align: left;
+      font-weight: 700;
     }
-    tbody {
-      tr:hover {
-        opacity: 0.8;
-      }
-      td {
-        padding-left: 10px;
-        span {
-          cursor: pointer;
-          .font-awesome-icon {
-            margin-right: 10px;
-          }
+  }
+  tbody {
+    tr:hover {
+      opacity: 0.8;
+    }
+    td {
+      padding-left: 10px;
+      span {
+        cursor: pointer;
+        .font-awesome-icon {
+          margin-right: 10px;
         }
       }
     }
   }
-  /* table responsive __________*/
-  @media (max-width: 991.98px) {
-    width: 100%;
-  }
-  /* modal __________*/
-  #delete-comfirmation {
-    padding: 30px;
-    text-align: center;
-    div {
-      display: flex;
-      button {
-        margin: 0px 10px;
-      }
+}
+/* table responsive __________*/
+@include media-max(991.98px) {
+  width: 100%;
+}
+/* modal __________*/
+#delete-comfirmation {
+  padding: 30px;
+  text-align: center;
+  div {
+    display: flex;
+    button {
+      margin: 0px 10px;
     }
   }
-  #update-comfirmation {
-    padding: 50px;
-    text-align: center;
-    label {
-      margin-right: 10px;
-    }
-    select {
-      margin-bottom: 20px;
-      background: white;
-    }
-    div {
-      display: flex;
-      justify-content: center;
-      button {
-        margin: 0px 10px;
-      }
+}
+#update-comfirmation {
+  padding: 50px;
+  text-align: center;
+  label {
+    margin-right: 10px;
+  }
+  select {
+    margin-bottom: 20px;
+    background: white;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 0px 10px;
     }
   }
 }

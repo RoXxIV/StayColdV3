@@ -106,8 +106,6 @@ export default {
 <style lang="scss" scoped>
 /* Section __________*/
 section {
-  width: 75%;
-  margin: auto;
   #title-all-baths {
     position: relative;
     margin: 50px auto 20px auto;
@@ -116,6 +114,7 @@ section {
       margin-bottom: 10px;
       span {
         color: $blue;
+        font-family: $oswald;
       }
     }
     #illustration {
@@ -140,39 +139,8 @@ section {
       margin: auto 10px;
     }
   }
-  @media (max-width: 667.98px) {
+  @include media-max(667.98px) {
     width: 90%;
-  }
-}
-/* Iceberg animation __________*/
-.slideInLeft {
-  -webkit-animation-name: slideInLeft;
-  animation-name: slideInLeft;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@-webkit-keyframes slideInLeft {
-  0% {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-    visibility: visible;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-@keyframes slideInLeft {
-  0% {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-    visibility: visible;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
   }
 }
 </style>

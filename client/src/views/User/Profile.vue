@@ -188,10 +188,8 @@ export default {
     color: $gray;
   }
 }
-/* Section __________*/
+/* Sections __________*/
 section {
-  width: 75%;
-  margin: auto;
   /* Profile-header __________*/
   &#profile-header {
     #header-card {
@@ -215,18 +213,18 @@ section {
       #illustration {
         max-width: 300px;
       }
-      @media (max-width: 991.98px) {
+      @include media-max(991.98px) {
         width: 100%;
-      }
-      @media (max-width: 667.98px) {
-        flex-direction: column-reverse;
-        width: 100%;
-        #illustration {
-          max-width: 150px;
+        @include media-max(667.98px) {
+          flex-direction: column-reverse;
+          width: 100%;
+          #illustration {
+            max-width: 150px;
+          }
         }
       }
     }
-    @media (max-width: 667.98px) {
+    @include media-max(667.98px) {
       width: 100%;
       text-align: center;
     }
@@ -236,6 +234,7 @@ section {
     h2 {
       span {
         color: $blue;
+        font-family: $oswald;
       }
     }
     .card-list {
@@ -259,80 +258,13 @@ section {
       font-size: 2em;
       span {
         color: $blue;
+        font-family: $oswald;
       }
     }
   }
-  @media (max-width: 991.98px) {
+  /* Responsive section __________*/
+  @include media-max(991.98px) {
     width: 90%;
-  }
-}
-/* Effet de torsion sur l'illustration __________*/
-.rubberBand {
-  -webkit-animation-name: rubberBand;
-  animation-name: rubberBand;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@-webkit-keyframes rubberBand {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-}
-@keyframes rubberBand {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
   }
 }
 </style>

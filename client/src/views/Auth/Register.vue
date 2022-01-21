@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="section-register">
     <div id="blocs">
       <div v-if="!successful" id="bloc-form">
         <h1>Formulaire d'<span>Inscription</span></h1>
@@ -61,7 +61,12 @@
       </div>
     </div>
     <!-- Inscription Reussi ----------->
-    <div v-if="message && successful" id="RegistedSucces">
+    <div v-show="message && successful" id="RegistedSucces">
+      <img
+        id="illustration-success"
+        src="@/assets/images/form-register.svg"
+        alt="Illustration d'une montagne sur fond bleu avec des nuages en arriere plan"
+      />
       <span>❄ {{ message }} ❄</span>
       <p>Redirection dans {{ time }}</p>
       <Loading />
@@ -161,7 +166,7 @@ export default {
 
 <style lang="scss" scoped>
 /* section __________*/
-section {
+#section-register {
   position: relative;
   width: 100vw;
   /* Blocs __________*/
@@ -170,23 +175,15 @@ section {
     justify-content: space-around;
     width: 75%;
     margin: 50px auto 0px auto;
-    @media (max-width: 991.98px) {
-      flex-direction: column-reverse;
-      align-items: center;
-      width: 100%;
-      margin: 30px 0px 0px 0px;
-      margin-top: 20px;
-    }
-    /* illustration montagne __________*/
     #illustration {
-      max-width: 700px;
-      @media (max-width: 991.98px) {
+      max-width: 600px;
+      @include media-max(991.98px) {
         max-width: 200px;
         margin: 0;
-      }
-      @media (max-width: 611.98px) {
-        max-width: 100px;
-        margin: 0;
+        @include media-max(611.98px) {
+          max-width: 100px;
+          margin: 0;
+        }
       }
     }
     /* Bloc form __________*/
@@ -198,21 +195,17 @@ section {
       margin-top: 50px;
       h1 {
         margin-bottom: 50px;
-        @media (max-width: 991.98px) {
-          margin-top: 0;
-        }
-        @media (max-width: 611.98px) {
-          margin-top: 0;
-        }
         span {
           display: inline-block;
           color: $blue;
+          font-family: $oswald;
+        }
+        @include media-max(991.98px) {
+          margin-top: 0px;
         }
       }
       /* form __________*/
       form {
-        @media (max-width: 611.98px) {
-        }
         label {
           display: block;
           font-size: 18px;
@@ -228,107 +221,64 @@ section {
           &:focus {
             border-color: $blue;
           }
-          @media (max-width: 611.98px) {
+          @include media-max(611.98px) {
             margin: 20px 0;
           }
         }
         #submit {
-          text-align: center;
           margin-top: 15px;
+          text-align: center;
         }
-        /* Erreur de saisis __________*/
         .error-feedback {
           display: block;
           margin-bottom: 10px;
           text-align: center;
         }
-      }
-      @media (max-width: 991.98px) {
-        margin-top: 0;
+        /* Responsive form __________*/
+        @include media-max(991.98px) {
+          margin-top: 0px;
+        }
       }
       #RegisterFailed {
         margin-top: 20px;
         text-align: center;
       }
+      @include media-max(991.98px) {
+        margin-top: 0;
+      }
+    }
+
+    /* Responsive Blocs __________*/
+    @include media-max(991.98px) {
+      flex-direction: column-reverse;
+      align-items: center;
+      width: 100%;
+      margin: 30px 0px 0px 0px;
+      margin-top: 20px;
     }
   }
+  /* Inscription reussi __________*/
   #RegistedSucces {
-    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 1.4em;
     text-align: center;
-  }
-  /* Section responsive __________*/
-  @media (max-width: 991.98px) {
-    flex-direction: column;
-  }
-}
-/* Effet de torsion sur l'illustration __________*/
-.rubberBand {
-  -webkit-animation-name: rubberBand;
-  animation-name: rubberBand;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@-webkit-keyframes rubberBand {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-}
-@keyframes rubberBand {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
+    #illustration-success {
+      max-width: 400px;
+      @include media-max(991.98px) {
+        max-width: 200px;
+        margin: 0;
+        @include media-max(611.98px) {
+          max-width: 100px;
+          margin: 0;
+        }
+      }
+    }
+    @include media-max(611.98px) {
+      margin-top: 50px;
+      font-size: 1.2em;
+    }
   }
 }
 </style>

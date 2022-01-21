@@ -37,6 +37,12 @@
         <!-- Modal comfirmation de suppression de la baignade ----------->
         <popup-modal ref="popup">
           <div id="delete-comfirmation">
+            <p>Cette action est irréversible</p>
+            <img
+              id="illustration-bin"
+              src="@/assets/images/Deleted.png"
+              alt="illustration d'une poubelle"
+            />
             <p>êtes vous sur ?</p>
             <div>
               <button @click="cancelDelete()" class="btn-blue">Annuler</button>
@@ -144,87 +150,67 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* Section __________*/
-section {
-  width: 75%;
-  margin: auto;
-  h1 {
-    margin-bottom: 0px;
-    span {
-      color: $blue;
-    }
-  }
-  #illustration {
-    display: block;
-    max-width: 100px;
-    margin: 0px auto;
-  }
-  #border {
-    padding: 50px 0px;
-    border: 2px solid var(--light-gray-to-less);
-    border-radius: 5px;
-    #commentary {
-      width: 75%;
-      margin: auto;
-      text-align: center;
-      span {
-        font-size: 1.2em;
-      }
-      p {
-        line-height: 1.3em;
-      }
-      @media (max-width: 667.98px) {
-        width: 90%;
-      }
-    }
-    /* Editer / Supprimer __________*/
-    #action {
-      margin-top: 50px;
-      text-align: center;
-      span {
-        margin: 0px 10px;
-      }
-    }
-    #delete-comfirmation {
-      padding: 30px;
-      text-align: center;
-      button {
-        margin: 0px 10px;
-      }
-    }
-  }
-  /* Return link __________*/
-  #return {
-    margin: 40px 0px;
-    text-align: center;
-    text-decoration: underline;
+h1 {
+  margin-bottom: 0px;
+  span {
     color: $blue;
-    font-weight: bold;
   }
 }
-/* Animation illustration __________*/
-.fadeIn {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+#illustration {
+  display: block;
+  max-width: 100px;
+  margin: 0px auto;
 }
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
+#border {
+  width: 60%;
+  margin: auto;
+  padding: 50px 0px;
+  border: 2px solid var(--light-gray-to-less);
+  border-radius: 5px;
+  #commentary {
+    width: 75%;
+    margin: auto;
+    text-align: center;
+    span {
+      font-size: 1.2em;
+    }
+    p {
+      line-height: 1.3em;
+    }
+    @include media-max(667.98px) {
+      width: 90%;
+    }
   }
-  100% {
-    opacity: 1;
+  /* Editer / Supprimer __________*/
+  #action {
+    margin-top: 50px;
+    text-align: center;
+    span {
+      margin: 0px 10px;
+    }
+  }
+  #delete-comfirmation {
+    padding: 30px;
+    text-align: center;
+    #illustration-bin {
+      max-width: 150px;
+    }
+    button {
+      margin: 0px 10px;
+    }
+  }
+  /* Responsive border __________*/
+  @include media-max(991.98px) {
+    width: 100%;
   }
 }
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+/* Return link __________*/
+#return {
+  margin: 40px 0px;
+  text-align: center;
+  text-decoration: underline;
+  color: $blue;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 </style>

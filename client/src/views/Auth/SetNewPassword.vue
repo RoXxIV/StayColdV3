@@ -1,7 +1,7 @@
 <template>
   <section>
     <div v-if="!successful" id="bloc-form">
-      <h1>Demander un nouveau mot de passe</h1>
+      <h1>Demander un nouveau <span>mot de passe</span></h1>
       <!-- Form ----------->
       <Form @submit="handlePasswordEmail" :validation-schema="schema">
         <div>
@@ -124,55 +124,57 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  width: 75%;
-  margin: auto;
-  #bloc-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h1 {
-      margin: 50px auto;
-    }
-    form {
-      margin-top: 30px;
-      label {
-        display: block;
-        margin-top: 10px;
-        font-size: 1.3em;
-      }
-      input {
-        width: 280px;
-        margin: 20px 0px 10px 20px;
-        border: none;
-        border-bottom: 2px solid var(--dark-to-light);
-        background: transparent;
-        color: var(--dark-to-light);
-        transition: border-color 0.3s;
-        &:focus {
-          border-color: $blue;
-        }
-        @media (max-width: 611.98px) {
-          margin: 20px 0;
-        }
-      }
-      .error-feedback {
-        display: block;
-        margin-bottom: 20px;
-      }
-      #submit {
-        margin-top: 15px;
-        text-align: center;
-      }
+/* Bloc form __________*/
+#bloc-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    margin-top: 50px;
+    span {
+      color: $blue;
+      font-family: $oswald;
     }
   }
-  #error {
+  /* Form __________*/
+  form {
     margin-top: 30px;
+    label {
+      display: block;
+      margin-top: 10px;
+      font-size: 1.3em;
+    }
+    input {
+      width: 280px;
+      margin: 20px 0px 10px 20px;
+      border: none;
+      border-bottom: 2px solid var(--dark-to-light);
+      background: transparent;
+      color: var(--dark-to-light);
+      transition: border-color 0.3s;
+      &:focus {
+        border-color: $blue;
+      }
+      @include media-max(611.98px) {
+        margin: 20px 0;
+      }
+    }
+    .error-feedback {
+      display: block;
+      margin-bottom: 20px;
+    }
+    #submit {
+      margin-top: 15px;
+      text-align: center;
+    }
   }
-  #sentSucces {
-    margin-top: 200px;
-    text-align: center;
-    font-size: 1.4em;
-  }
+}
+#error {
+  margin-top: 30px;
+}
+#sentSucces {
+  margin-top: 200px;
+  text-align: center;
+  font-size: 1.4em;
 }
 </style>

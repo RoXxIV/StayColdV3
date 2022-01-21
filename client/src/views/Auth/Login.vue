@@ -1,51 +1,53 @@
 <template>
-  <section>
-    <div id="blocs">
-      <!-- Illustration meditation ----------->
-      <div>
-        <img
-          id="illustration"
-          src="@/assets/images/login-illustration.png"
-          alt="Illustration d'un personnage qui medite en lévitation"
-        />
-      </div>
-      <!-- Form ----------->
-      <div>
-        <h1>Formulaire de <span>Connexion</span></h1>
-        <Form @submit="handleLogin" :validation-schema="schema">
-          <!-- Username ----------->
-          <div>
-            <label for="username">Nom d'utilisateur</label>
-            <Field name="username" type="text" />
-            <ErrorMessage name="username" class="error-feedback alert" />
+  <section id="login-section">
+    <!-- Illustration meditation ----------->
+    <div>
+      <img
+        id="illustration-meditation"
+        src="@/assets/images/login-illustration.png"
+        alt="Illustration d'un personnage qui medite en lévitation"
+      />
+    </div>
+    <!-- Form ----------->
+    <div id="bloc-form">
+      <h1>Formulaire de <span>Connexion</span></h1>
+      <Form @submit="handleLogin" :validation-schema="schema">
+        <!-- Username ----------->
+        <div>
+          <label for="username">Nom d'utilisateur</label>
+          <Field name="username" type="text" />
+          <ErrorMessage name="username" class="error-feedback alert" />
+        </div>
+        <!-- Password ----------->
+        <div>
+          <label for="password">Mot de passe</label>
+          <Field name="password" type="password" />
+          <ErrorMessage name="password" class="error-feedback alert" />
+        </div>
+        <!-- Submit ----------->
+        <div id="submit">
+          <button class="btn-blue">Connexion</button>
+        </div>
+        <!-- Erreur ----------->
+        <div>
+          <div id="message" v-if="message" role="alert" class="alert">
+            {{ message }}
           </div>
-          <!-- Password ----------->
-          <div>
-            <label for="password">Mot de passe</label>
-            <Field name="password" type="password" />
-            <ErrorMessage name="password" class="error-feedback alert" />
-          </div>
-          <!-- Submit ----------->
-          <div id="submit">
-            <button class="btn-blue">Connexion</button>
-          </div>
-          <!-- Erreur ----------->
-          <div>
-            <div id="message" v-if="message" role="alert" class="alert">
-              {{ message }}
-            </div>
-          </div>
-        </Form>
-        <!-- Mot de pass oublié ----------->
-        <div id="forgottenPassword">
+        </div>
+      </Form>
+      <!-- Mot de pass oublié ----------->
+      <div id="form-links">
+        <p>
           <router-link to="/set-new-password"
             >Mot de passe oublié ?</router-link
           >
-        </div>
+        </p>
         <!-- Lien vers la page de connexion ----------->
-        <router-link to="/register" tag="span" id="Link-to-register"
-          >Créer un compte
-        </router-link>
+        <p>
+          <router-link to="/register" tag="span" id="Link-to-register"
+            >Créer un compte
+          </router-link>
+        </p>
       </div>
     </div>
   </section>
@@ -98,46 +100,17 @@ export default {
 
 <style lang="scss" scoped>
 /* section __________*/
-section {
+#login-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: relative;
-  width: 100vw;
-  /* Illustration vagues __________*/
-  #waves {
-    position: absolute;
-    top: 0;
-    left: 0;
-    @media (max-width: 991.98px) {
-      display: none;
-    }
-  }
-  #blocs {
-    display: flex;
-    justify-content: space-around;
-    width: 75%;
-    margin: 150px auto 0px auto;
-    @media (max-width: 991.98px) {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      margin: 30px 0px 0px 0px;
-      margin-top: 20px;
-    }
-    /* illustration meditation __________*/
-    #illustration {
-      margin-top: 50px;
-      animation: float 6s ease-in-out infinite;
-      @media (max-width: 991.98px) {
-        max-width: 200px;
-        margin: 0;
-      }
-      @media (max-width: 611.98px) {
-        max-width: 100px;
-        margin: 0;
-      }
-    }
-    /* Illustration animations __________*/
+  margin-top: 100px;
+  margin-bottom: 50px;
+  /* Illustration __________*/
+  #illustration-meditation {
+    margin-top: 50px;
+    animation: float 6s ease-in-out infinite;
+    /* Illustration Animation__________*/
     @keyframes float {
       0% {
         transform: translatey(0px);
@@ -149,21 +122,30 @@ section {
         transform: translatey(0px);
       }
     }
-    h1 {
-      margin-bottom: 50px;
-      @media (max-width: 611.98px) {
-        margin-top: 0;
-      }
-      span {
-        display: block;
-        color: $blue;
+    @include media-max(991.98px) {
+      max-width: 200px;
+      margin: 0;
+      @include media-max(611.98px) {
+        max-width: 100px;
+        margin: 0;
       }
     }
-    /* form __________*/
-    form {
-      @media (max-width: 611.98px) {
-        text-align: center;
+  }
+  /* Bloc-form __________*/
+  #bloc-form {
+    h1 {
+      margin-bottom: 50px;
+      span {
+        color: $blue;
+        display: block;
+        font-family: $oswald;
       }
+      @include media-max(611.98px) {
+        margin-top: 0;
+      }
+    }
+    /* Form __________*/
+    form {
       label {
         display: block;
         margin-top: 10px;
@@ -180,13 +162,14 @@ section {
         &:focus {
           border-color: $blue;
         }
-        @media (max-width: 611.98px) {
+        @include media-max(611.98px) {
           margin: 20px 0;
         }
       }
       .error-feedback {
         display: block;
         margin-bottom: 20px;
+        text-align: center;
       }
       #submit {
         margin-top: 15px;
@@ -196,27 +179,27 @@ section {
         margin-top: 20px;
         text-align: center;
       }
+      /* Responsive Form __________*/
+      @include media-max(611.98px) {
+        text-align: center;
+      }
     }
-    #forgottenPassword {
+    #form-links {
       margin-top: 30px;
-      margin-bottom: 10px;
       color: $blue;
       text-decoration: underline;
       text-align: center;
-    }
-    #Link-to-register {
-      display: block;
-      color: $blue;
-      text-decoration: underline;
-      text-align: center;
-      &:hover {
+      p:hover {
         color: #176cf5;
       }
     }
   }
-  /* Section responsive __________*/
-  @media (max-width: 991.98px) {
-    margin-top: 20px;
+  /* Responsive Section __________*/
+  @include media-max(991.98px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
   }
 }
 </style>

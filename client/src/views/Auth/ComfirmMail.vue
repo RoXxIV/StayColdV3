@@ -95,8 +95,6 @@ export default {
 <style lang="scss" scoped>
 /* section __________*/
 section {
-  width: 75%;
-  margin: auto;
   text-align: center;
   #box {
     display: inline-block;
