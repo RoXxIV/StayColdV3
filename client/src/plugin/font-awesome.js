@@ -24,6 +24,8 @@ import {
   faEnvelope,
   faAt,
   faHandPointRight,
+  faMoon,
+  faSun,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -45,7 +47,9 @@ library.add(
   faCopyright,
   faEnvelope,
   faAt,
-  faHandPointRight
+  faHandPointRight,
+  faMoon,
+  faSun
 );
 
 export { FontAwesomeIcon };

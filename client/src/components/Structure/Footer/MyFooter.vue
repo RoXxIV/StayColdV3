@@ -153,17 +153,21 @@ footer {
       flex-direction: column;
       justify-content: center;
       padding: 0;
-    }
-    @include media-max(667.98px) {
-      width: 100%;
-      margin: 10px auto;
       &#social {
         flex-direction: row;
         justify-content: space-around;
       }
-      &#copyright {
-        flex-direction: row;
-        justify-content: space-around;
+      @include media-max(667.98px) {
+        width: 100%;
+        margin: 10px auto;
+        &#social {
+          flex-direction: row;
+          justify-content: space-around;
+        }
+        &#copyright {
+          flex-direction: row;
+          justify-content: space-around;
+        }
       }
     }
   }

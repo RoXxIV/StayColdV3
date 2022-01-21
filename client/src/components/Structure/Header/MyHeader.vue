@@ -61,8 +61,16 @@
       </div>
       <!-- Toggle theme light/dark ----------->
       <span @click="toggleTheme" aria-label="Toggle themes" id="toggle-theme">
+        <!---
         <span v-if="this.theme == 'darkMode'">🌞</span>
         <span v-else>🌚</span>
+        -->
+        <span v-if="this.theme == 'darkMode'"
+          ><font-awesome-icon class="font-awesome-icon" :icon="['fas', 'sun']"
+        /></span>
+        <span v-else
+          ><font-awesome-icon class="font-awesome-icon" :icon="['fas', 'moon']"
+        /></span>
       </span>
     </header>
     <!-- Mobile menu ----------->
@@ -149,10 +157,10 @@ header {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-  }
-  @include media-max(667.98px) {
-    flex-direction: row;
-    justify-content: space-between;
+    @include media-max(667.98px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
   /* Logo __________*/
   #logo {
@@ -182,10 +190,11 @@ header {
     width: 100%;
     @include media-max(991.98px) {
       justify-content: space-around;
+      @include media-max(667.98px) {
+        display: none;
+      }
     }
-    @include media-max(667.98px) {
-      display: none;
-    }
+
     /* Default __________*/
     #default-nav {
       display: flex;
@@ -205,7 +214,6 @@ header {
     /* Auth __________*/
     #auth-nav {
       display: flex;
-      margin-right: 20px;
       li {
         margin: 0px 10px;
       }
@@ -225,17 +233,19 @@ header {
   /* Toggle theme __________*/
   #toggle-theme {
     position: absolute;
-    left: calc(100% - 60px);
-    top: 0;
-    margin-top: 20px;
+    left: calc(100% - 50px);
+    top: 110px;
     z-index: 10;
     span {
       font-size: 1.4em;
       user-select: none;
       cursor: pointer;
     }
-    @include media-max(667.98px) {
-      display: none;
+    @include media-max(991.98px) {
+      top: 160px;
+      @include media-max(667.98px) {
+        display: none;
+      }
     }
   }
   /* Burger __________*/
@@ -245,13 +255,5 @@ header {
       display: block;
     }
   }
-}
-/* Transitions __________*/
-.fade-enter-active {
-  transition: opacity 0.5s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>
