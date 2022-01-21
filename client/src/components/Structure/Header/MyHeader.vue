@@ -33,7 +33,7 @@
           <li><router-link to="/">Acceuil </router-link></li>
           <li><router-link to="/all-baths">Baignades</router-link></li>
           <!-- Nav user ----------->
-          <li v-if="loggedIn" id="profil-link">
+          <li v-if="loggedIn">
             <router-link to="/profile">Profil </router-link>
           </li>
         </ul>
@@ -138,13 +138,13 @@ export default {
 <style lang="scss" scoped>
 /* Header __________*/
 header {
-  position: relative;
   display: flex;
   align-items: center;
+  position: relative;
   padding: 20px 50px 20px 20px;
+  border-bottom: 1px solid var(--dark-to-light);
   font-family: $roboto;
   font-weight: bold;
-  border-bottom: 1px solid var(--dark-to-light);
   @media (max-width: 991.98px) {
     flex-direction: column;
     justify-content: center;
@@ -210,9 +210,9 @@ header {
         margin: 0px 10px;
       }
       #logout {
-        cursor: pointer;
         display: flex;
         align-items: center;
+        cursor: pointer;
         .font-awesome-icon {
           margin-left: 10px;
         }
@@ -225,10 +225,10 @@ header {
   /* Toggle theme __________*/
   #toggle-theme {
     position: absolute;
-    z-index: 10;
     left: calc(100% - 60px);
     top: 0;
     margin-top: 20px;
+    z-index: 10;
     span {
       font-size: 1.4em;
       user-select: none;
@@ -246,7 +246,6 @@ header {
     }
   }
 }
-
 /* Transitions __________*/
 .fade-enter-active {
   transition: opacity 0.5s ease;

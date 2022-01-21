@@ -140,6 +140,7 @@ exports.signin = (req, res) => {
         email: user.email,
         roles: authorities,
         accessToken: token,
+        createdAt: user.createdAt,
       });
     });
 };

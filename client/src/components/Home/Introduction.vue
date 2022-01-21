@@ -65,9 +65,9 @@ export default {
 <style lang="scss" scoped>
 /* Section __________*/
 section {
+  display: flex;
   width: 65%;
   margin: 50px auto;
-  display: flex;
   transition: height 2s;
   /* content-title __________*/
   #content-title {
@@ -94,9 +94,8 @@ section {
         cursor: pointer;
       }
       .font-awesome-icon {
-        font-size: 2.5em;
         margin-right: 60px;
-
+        font-size: 2.5em;
         @media (max-width: 991.98px) {
           rotate: 90deg;
         }
@@ -115,22 +114,20 @@ section {
   }
   /* content-text + shark __________*/
   #content-text {
-    font-size: 1.1em;
-    line-height: 1.4em;
     position: relative;
     width: 100%;
-
+    font-size: 1.1em;
+    line-height: 1.4em;
     img {
-      max-width: 250px;
       position: absolute;
       left: calc(50% - 125px);
+      max-width: 250px;
       z-index: -1;
       @media (max-width: 991.98px) {
-        left: calc(50% - 125px);
         position: inherit;
       }
       @media (max-width: 667.98px) {
-        left: 0;
+        left: 20px;
       }
     }
     span {

@@ -140,6 +140,9 @@ section {
       margin: auto 10px;
     }
   }
+  @media (max-width: 667.98px) {
+    width: 90%;
+  }
 }
 /* Iceberg animation __________*/
 .slideInLeft {

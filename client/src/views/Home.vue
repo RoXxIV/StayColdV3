@@ -23,19 +23,19 @@ export default {
 
 <style lang="scss" scoped>
 #banner-home {
-  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 120px;
 }
 #landscape {
-  margin-top: 100px;
   height: 250px;
+  margin-top: 100px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
   background-image: url(../assets/images/background-home.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 50%;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
 }
 </style>

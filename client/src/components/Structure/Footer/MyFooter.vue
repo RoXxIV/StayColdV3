@@ -81,74 +81,95 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Footer __________*/
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid var(--dark-to-light);
   margin-top: 50px;
   padding: 0px 30px;
+  border-top: 1px solid var(--dark-to-light);
   ul {
     width: 30%;
-  }
-  /* Copyright __________*/
-  #copyright {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    li {
-      padding: 0px 10px;
-      #logo {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        @media (max-width: 991.98px) {
-          margin-right: 0;
-        }
-        svg {
-          margin-right: 10px;
-          .first-path,
-          ellipse {
-            fill: $blue;
+    /* Copyright __________*/
+    &#copyright {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      li {
+        padding: 0px 10px;
+        #logo {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          @media (max-width: 991.98px) {
+            margin-right: 0;
           }
-          .second-path {
-            fill: var(--dark-to-light);
+          svg {
+            margin-right: 10px;
+            .first-path,
+            ellipse {
+              fill: $blue;
+            }
+            .second-path {
+              fill: var(--dark-to-light);
+            }
           }
         }
       }
+      @media (max-width: 991.98px) {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        li {
+          padding: 10px 0px;
+        }
+      }
     }
-    @media (max-width: 991.98px) {
-      flex-direction: column;
-      justify-content: center;
+    /* Contact __________*/
+    &#contact {
       text-align: center;
       li {
         padding: 10px 0px;
+        .font-awesome-icon {
+          margin-right: 10px;
+        }
+      }
+      @media (max-width: 667.98px) {
+        width: 100%;
+      }
+    }
+    /* Social __________*/
+    &#social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      li {
+        padding: 0px 10px;
+      }
+    }
+    /* Ul responsive __________*/
+    @media (max-width: 991.98px) {
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+    }
+    @media (max-width: 667.98px) {
+      width: 100%;
+      margin: 10px auto;
+      &#social {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      &#copyright {
+        flex-direction: row;
+        justify-content: space-around;
       }
     }
   }
-  /* Contact __________*/
-  #contact {
-    text-align: center;
-    li {
-      padding: 10px 0px;
-      .font-awesome-icon {
-        margin-right: 10px;
-      }
-    }
-  }
-  /* Social __________*/
-  #social {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    li {
-      padding: 0px 10px;
-    }
-  }
-  @media (max-width: 991.98px) {
+  /* Footer responsive __________*/
+  @media (max-width: 667.98px) {
     flex-direction: column;
-    justify-content: center;
-    padding: 0;
   }
 }
 </style>

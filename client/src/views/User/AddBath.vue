@@ -47,8 +47,8 @@ section {
     span {
       text-decoration: underline;
       color: $blue;
-      cursor: pointer;
       font-size: 1.2em;
+      cursor: pointer;
     }
   }
   @media (max-width: 991.98px) {

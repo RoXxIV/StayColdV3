@@ -62,8 +62,8 @@ export default {
   ul {
     margin: 0;
     li {
-      background: var(--light-to-dark);
       padding: 15px 0px 15px 15px;
+      background: var(--light-to-dark);
       border-bottom: 1px solid var(--dark-to-light);
     }
     #toggle-theme-mobile {

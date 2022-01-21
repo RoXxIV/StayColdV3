@@ -10,7 +10,7 @@ const API_URL = "/api/bath/";
 /**
  * Limite appliqué au nombre de baignade recente que l'on souhaite récupéré
  */
-const limit = 8;
+const limit = 10;
 /**
  * Service Baignades
  * @class

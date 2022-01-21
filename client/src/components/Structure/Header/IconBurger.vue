@@ -25,10 +25,10 @@ export default {
 
 <style lang="scss">
 .menu {
-  background-color: transparent;
-  border: none;
   display: flex;
   padding: 0;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   user-select: none;
 }

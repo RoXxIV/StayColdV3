@@ -2,14 +2,9 @@
   <section>
     <h2>Baignades <span class="text-blue">récentes</span></h2>
     <div id="cards-list">
-      <BathCard
-        v-for="bath in recentBaths"
-        :key="bath"
-        :bath="bath"
-        id="cards"
-      />
+      <BathCard v-for="bath in recentBaths" :key="bath" :bath="bath" />
     </div>
-    <div id="all-bath-link">
+    <div v-if="!serverError" id="all-bath-link">
       <router-link to="/all-baths" tag="button"
         ><span class="btn-blue">Voir tout</span></router-link
       >
@@ -44,7 +39,7 @@ export default {
       BathDataServices.getRecent()
         .then((response) => {
           this.recentBaths = response.data;
-          console.log(this.recentBaths);
+          // console.log(this.recentBaths);
           /**
            * Permet de changer le format de la météo et des dates
            */
@@ -56,7 +51,7 @@ export default {
         .catch((error) => {
           console.log(error);
           this.errorMessage =
-            "Une erreur est survenue pendant la récupération des baignades!";
+            "Une erreur est survenue pendant la récupération des baignades";
           this.serverError = true;
         });
     },
@@ -68,18 +63,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Section __________*/
 section {
   width: 75%;
-  margin: auto;
-  margin-top: 100px;
+  margin: 100px auto auto auto;
   h2 {
+    margin-bottom: 50px;
     text-align: center;
     font-size: 2em;
-    margin-bottom: 50px;
     span {
       color: $blue;
     }
   }
+  /* Card list __________*/
   #cards-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -91,11 +87,11 @@ section {
     text-align: center;
   }
   #all-bath-link {
-    text-align: center;
     margin-top: 50px;
-    span {
-      display: inline;
-    }
+    text-align: center;
+  }
+  @media (max-width: 667.98px) {
+    width: 90%;
   }
 }
 </style>

@@ -209,9 +209,9 @@ section {
   }
   #bloc-form {
     display: flex;
-    margin: 30px auto;
     justify-content: center;
     width: 700px;
+    margin: 30px auto;
     padding: 50px 30px 50px 30px;
     border: 2px solid var(--light-gray-to-less);
     border-radius: 0.75rem;
@@ -220,14 +220,14 @@ section {
     form {
       label {
         display: block;
-        font-size: 1.3em;
         margin-top: 10px;
+        font-size: 1.3em;
       }
       input {
         margin: 20px 0px 10px 20px;
         border: none;
-        background: transparent;
         border-bottom: 1px solid var(--dark-to-light);
+        background: transparent;
         color: var(--dark-to-light);
         width: 100%;
         transition: border-color 0.3s;
@@ -239,19 +239,22 @@ section {
         }
       }
       select {
+        width: 100%;
         margin: 20px 0px 10px 20px;
         padding-bottom: 10px;
         border: none;
-        width: 100%;
         border-bottom: 1px solid var(--dark-to-light);
         background: var(--light-to-dark);
         color: var(--dark-to-light);
-        transition: border-color 0.3s;
         font-size: 16px;
+        transition: border-color 0.3s;
+        @media (max-width: 667.98px) {
+          margin-left: 0;
+        }
       }
       textarea {
-        margin: 20px 0px 10px 20px;
         width: 100%;
+        margin: 20px 0px 10px 20px;
         border: 1px solid var(--dark-to-light);
         background: var(--light-to-dark);
         color: var(--dark-to-light);
@@ -259,14 +262,17 @@ section {
         &:focus {
           border-color: $blue;
         }
+        @media (max-width: 667.98px) {
+          margin-left: 0;
+        }
       }
       .error-feedback {
-        margin-bottom: 20px;
         display: block;
+        margin-bottom: 20px;
       }
       #submit {
-        text-align: right;
         margin-top: 15px;
+        text-align: right;
       }
     }
     #submited {
@@ -277,6 +283,9 @@ section {
     }
     @media (max-width: 991.98px) {
       width: 80%;
+    }
+    @media (max-width: 667.98px) {
+      text-align: center;
     }
   }
   #failed {
