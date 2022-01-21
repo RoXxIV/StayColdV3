@@ -99,10 +99,10 @@ export default {
       authServices
         .resetPassword(this.code, password)
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           this.successful = true;
           this.successfulMessage = response.data.message;
-          console.log(this.successfulMessage);
+          // console.log(this.successfulMessage);
           this.redirection();
         })
         .catch((error) => {

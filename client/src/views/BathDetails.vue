@@ -55,7 +55,7 @@
       </div>
     </div>
     <div id="return">
-      <router-link to="/all-baths">Retour à la liste des baignades</router-link>
+      <router-link to="/all-baths">Retour à la liste</router-link>
     </div>
   </section>
 </template>
@@ -209,7 +209,6 @@ h1 {
   margin: 40px 0px;
   text-align: center;
   text-decoration: underline;
-  color: $blue;
   font-weight: bold;
   font-size: 1.2em;
 }

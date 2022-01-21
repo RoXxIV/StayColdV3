@@ -140,7 +140,7 @@ export default {
     fetchUserBaths(userId) {
       BathDataServices.getByUserId(userId)
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           this.userBaths = response.data;
           this.userBaths.forEach((data) => {
             data.weather = RenderBathData.displayWeatherAsEmoji(data.weather);
@@ -165,7 +165,7 @@ export default {
         this.currentUser.roles.length - 1
       ].replace(/ROLE_/, "");
     }
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
   },
 };
 </script>
@@ -173,8 +173,9 @@ export default {
 <style lang="scss" scoped>
 /* Banniere decorative __________*/
 #landscape {
+  width: 75%;
   height: 150px;
-  margin-top: 10px;
+  margin: 10px auto 0px auto;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   background-image: url(../../assets/images/profile-landscape.png);

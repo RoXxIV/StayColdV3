@@ -66,7 +66,7 @@ export default {
     fetchAllBaths() {
       BathDataServices.getAll()
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           this.allBaths = response.data;
           this.allBaths.forEach((data) => {
             data.weather = RenderBathData.displayWeatherAsEmoji(data.weather);

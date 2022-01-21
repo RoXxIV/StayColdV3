@@ -10,6 +10,8 @@
     <div id="landscape"></div>
     <!--Baignades recentes-->
     <RecentBath />
+    <!--quelque conseils-->
+    <Advice />
   </div>
 </template>
 
@@ -17,11 +19,11 @@
 import Banner from "../components/Reusable-components/Banner.vue";
 import Introduction from "../components/Home/Introduction.vue";
 import RecentBath from "../components/Baths/RecentBath.vue";
-
+import Advice from "../components/Home/Advices.vue";
 export default {
   name: "Home",
   title: "Acceuil",
-  components: { Banner, Introduction, RecentBath },
+  components: { Banner, Introduction, RecentBath, Advice },
 };
 </script>
 
