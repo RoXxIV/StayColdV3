@@ -190,10 +190,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Section __________*/
 section {
-  width: 75%;
-  margin: auto;
-
+  /* Reseaux __________*/
   ul {
     display: flex;
     justify-content: center;
@@ -207,6 +206,7 @@ section {
       }
     }
   }
+  /* Bloc-form __________*/
   #bloc-form {
     display: flex;
     justify-content: center;
@@ -217,6 +217,7 @@ section {
     border-radius: 0.75rem;
     -webkit-box-shadow: 0 30px 33px -60px #000000;
     box-shadow: 0 30px 33px -60px #000000;
+    /* Form __________*/
     form {
       label {
         display: block;
@@ -234,7 +235,7 @@ section {
         &:focus {
           border-color: $blue;
         }
-        @media (max-width: 611.98px) {
+        @include media-max(611.98px) {
           margin: 20px 0;
         }
       }
@@ -248,7 +249,7 @@ section {
         color: var(--dark-to-light);
         font-size: 16px;
         transition: border-color 0.3s;
-        @media (max-width: 667.98px) {
+        @include media-max(667.98px) {
           margin-left: 0;
         }
       }
@@ -262,7 +263,7 @@ section {
         &:focus {
           border-color: $blue;
         }
-        @media (max-width: 667.98px) {
+        @include media-max(667.98px) {
           margin-left: 0;
         }
       }
@@ -281,17 +282,19 @@ section {
         line-height: 1.6em;
       }
     }
-    @media (max-width: 991.98px) {
+    /* Responsive bloc-form __________*/
+    @include media-max(991.98px) {
       width: 80%;
-    }
-    @media (max-width: 667.98px) {
-      text-align: center;
+      @include media-max(667.98px) {
+        text-align: center;
+      }
     }
   }
   #failed {
     text-align: center;
   }
-  @media (max-width: 991.98px) {
+  /* Responsive section __________*/
+  @include media-max(991.98px) {
     width: 100%;
   }
 }

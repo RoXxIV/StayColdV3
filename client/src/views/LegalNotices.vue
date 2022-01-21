@@ -73,11 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  width: 75%;
-  margin: auto;
-  span {
-    color: $blue;
-  }
+span {
+  color: $blue;
 }
 </style>

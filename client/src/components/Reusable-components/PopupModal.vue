@@ -34,15 +34,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* transitions __________*/
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 /* modal __________*/
 .popup-modal {
   display: flex;
