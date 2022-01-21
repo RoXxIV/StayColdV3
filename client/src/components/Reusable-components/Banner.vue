@@ -77,6 +77,7 @@ h1 {
   text-align: center;
   .text-blue {
     color: $blue;
+    font-family: $oswald;
   }
   .cursor {
     display: inline-block;
