@@ -82,7 +82,7 @@
   }
 }
 
-/* LightSpeedIn [effet de tglissement] __________*/
+/* LightSpeedIn [effet de glissement] __________*/
 // introduction shark
 .lightSpeedIn {
   -webkit-animation-name: lightSpeedIn;
@@ -195,5 +195,38 @@
   25%,
   75% {
     opacity: 0;
+  }
+}
+/* slideIneffect [effet de slide]__________*/
+// all baths - iceberg
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
