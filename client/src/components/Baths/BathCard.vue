@@ -75,7 +75,7 @@ export default {
     }
   }
   /* Card Responsive __________*/
-  @media (max-width: 754.98px) {
+  @include media-max(754.98px) {
     flex-direction: column;
     padding: 10px 0px 20px 0px;
     img {

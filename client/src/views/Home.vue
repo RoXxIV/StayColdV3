@@ -1,10 +1,14 @@
 <template>
   <div>
+    <!--Banner-->
     <div id="banner-home">
       <Banner />
     </div>
+    <!--Introduction-->
     <Introduction />
+    <!--IMG-->
     <div id="landscape"></div>
+    <!--Baignades recentes-->
     <RecentBath />
   </div>
 </template>
@@ -22,12 +26,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Banner home__________*/
 #banner-home {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 120px;
 }
+/* Landscape__________*/
 #landscape {
   height: 250px;
   margin-top: 100px;

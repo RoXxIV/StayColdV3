@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="section-recent-baths">
     <h2>Baignades <span class="text-blue">récentes</span></h2>
     <div id="cards-list">
       <BathCard v-for="bath in recentBaths" :key="bath" :bath="bath" />
@@ -64,9 +64,8 @@ export default {
 
 <style lang="scss" scoped>
 /* Section __________*/
-section {
-  width: 75%;
-  margin: 100px auto auto auto;
+#section-recent-baths {
+  margin-top: 100px;
   h2 {
     margin-bottom: 50px;
     text-align: center;
@@ -90,8 +89,9 @@ section {
     margin-top: 50px;
     text-align: center;
   }
-  @media (max-width: 667.98px) {
+  @include media-max(667.98px) {
     width: 90%;
+    margin-top: 5f0px;
   }
 }
 </style>
