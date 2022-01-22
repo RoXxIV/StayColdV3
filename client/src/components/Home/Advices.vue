@@ -64,8 +64,8 @@
       <li>
         <h3>Faites des immersions brèves</h3>
         <p>
-          Pour bénéficier des bienfaits de l'immersion en eau l'eau froide,
-          quelques minutes peuvent suffire.<br />
+          Pour bénéficier des bienfaits de l'immersion en eau froide, quelques
+          minutes peuvent suffire.<br />
           Bien que vous puissiez augmenter progressivement votre tolérance au
           froid, il n'y a aucune raison thérapeutique de rester dans l'eau
           froide plus longtemps que quelques minutes.

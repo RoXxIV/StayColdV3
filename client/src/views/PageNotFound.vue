@@ -1,6 +1,16 @@
 <template>
-  <section>
-    <p>404 page not found !</p>
+  <section id="section-404">
+    <h1>404</h1>
+    <img
+      id="illustration-404"
+      src="@/assets/images/404.png"
+      alt="Illustration de deux fouines"
+    />
+    <div>
+      <router-link to="/"
+        ><button class="btn-blue">Retour au site</button></router-link
+      >
+    </div>
   </section>
 </template>
 
@@ -11,4 +21,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#section-404 {
+  text-align: center;
+  img {
+    max-width: 500px;
+    margin: 30px auto;
+  }
+}
+</style>
