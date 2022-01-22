@@ -72,6 +72,7 @@
     </section>
     <section v-if="userBaths.length !== 0" id="statistics">
       <h2>Mes <span>statistiques</span></h2>
+      <MultiAxesChart :BathChartData="userBaths" />
       <PieCharts :BathChartData="userBaths" />
     </section>
   </div>
@@ -82,10 +83,11 @@ import BathDataServices from "../../services/bathDataServices";
 import RenderBathData from "../../helper/RenderBathData";
 import BathCard from "../../components/Baths/BathCard.vue";
 import PieCharts from "../../components/Charts/PieCharts.vue";
+import MultiAxesChart from "../../components/Charts/MultiAxesChart.vue";
 export default {
   name: "Profile",
   title: "Profil",
-  components: { BathCard, PieCharts },
+  components: { BathCard, PieCharts, MultiAxesChart },
   data() {
     return {
       userRole: "",
