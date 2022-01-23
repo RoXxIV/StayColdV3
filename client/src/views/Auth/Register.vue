@@ -92,7 +92,7 @@ export default {
       username: yup
         .string()
         .required("Nom d'utilisateur requis")
-        .min(3, "3 caracteres minimum")
+        .min(4, "4 caracteres minimum")
         .max(20, "20 caracteres maximum"),
       email: yup
         .string()
