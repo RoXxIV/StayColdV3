@@ -58,7 +58,7 @@
           v-for="bath in userBaths.slice(0, lastIndex)"
           :key="bath"
           :bath="bath"
-          class="list-item"
+          class="list-item fadeIn"
         />
         <div v-if="userBaths.length === 0">
           <p>Aucune baignade enregistrée</p>
@@ -189,6 +189,7 @@ export default {
     font-size: 2.5em;
     letter-spacing: 3px;
     color: $gray;
+    text-shadow: 2px 2px 2px white;
   }
 }
 /* Sections __________*/

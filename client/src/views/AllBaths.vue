@@ -16,7 +16,7 @@
         v-for="bath in allBaths.slice(bathIndexStart, bathIndexEnd)"
         :key="bath"
         :bath="bath"
-        class="list-item"
+        class="list-item fadeIn"
       />
     </div>
     <!--Pagination-->
