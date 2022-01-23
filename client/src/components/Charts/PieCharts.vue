@@ -13,6 +13,7 @@
           '#f4f6f7',
           '#191919',
         ]"
+        :download="true"
       ></pie-chart>
     </li>
     <!---Afterdrop-->
@@ -28,6 +29,7 @@
           '#f4f6f7',
           '#191919',
         ]"
+        :download="true"
       ></pie-chart>
     </li>
   </ul>

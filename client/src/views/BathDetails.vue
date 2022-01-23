@@ -210,6 +210,6 @@ h1 {
   text-align: center;
   text-decoration: underline;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 </style>

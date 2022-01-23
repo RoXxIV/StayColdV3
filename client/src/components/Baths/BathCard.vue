@@ -61,7 +61,7 @@ export default {
     min-width: 80px;
     min-height: 80px;
     margin-right: 20px;
-    padding: 10px;
+    padding: 0px 10px 0px 20px;
   }
   ul {
     li {
