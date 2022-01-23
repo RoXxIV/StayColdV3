@@ -1,5 +1,7 @@
 <template>
   <section id="section-bath-list">
+    <!--IMG-->
+    <div id="landscape"></div>
     <div id="title-all-baths">
       <h1>Toutes les <span>baignades</span></h1>
       <img
@@ -113,6 +115,17 @@ export default {
 <style lang="scss" scoped>
 /* Section __________*/
 #section-bath-list {
+  /* Landscape__________*/
+  #landscape {
+    height: 90px;
+    margin-top: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-image: url(../assets/images/all-baths-banner.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+  }
   #title-all-baths {
     position: relative;
     margin: 50px auto 20px auto;
