@@ -1,6 +1,6 @@
 <template>
   <div>
-    <line-chart :data="getDatas" />
+    <line-chart :data="getDatas" :download="true" />
   </div>
 </template>
 
@@ -35,7 +35,6 @@ export default {
       return datas;
     },
   },
-  created() {},
 };
 </script>
 

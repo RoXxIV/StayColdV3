@@ -72,7 +72,7 @@
     </section>
     <section v-if="userBaths.length !== 0" id="statistics">
       <h2>Mes <span>statistiques</span></h2>
-      <MultiAxesChart :BathChartData="userBaths" />
+      <MultiAxesChart :BathChartData="userBaths" id="MultiAxesChart" />
       <PieCharts :BathChartData="userBaths" />
     </section>
   </div>
@@ -262,6 +262,11 @@ section {
       span {
         color: $blue;
         font-family: $oswald;
+      }
+    }
+    @include media-max(991.98px) {
+      #MultiAxesChart {
+        width: 100%;
       }
     }
   }

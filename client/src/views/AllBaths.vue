@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="section-bath-list">
     <div id="title-all-baths">
       <h1>Toutes les <span>baignades</span></h1>
       <img
@@ -37,6 +37,12 @@
         Page {{ pageIndex + 1 }}
       </button>
     </div>
+    <aside>
+      <h2>Toutes les baignades en <span>statistiques</span></h2>
+      <div>
+        <ScatterChart :BathChartData="allBaths" id="ScatterChart" />
+      </div>
+    </aside>
   </section>
 </template>
 
@@ -44,10 +50,11 @@
 import BathDataServices from "../services/bathDataServices";
 import RenderBathData from "../helper/RenderBathData";
 import BathCard from "../components/Baths/BathCard.vue";
+import ScatterChart from "../components/Charts/ScatterChart.vue";
 export default {
   name: "All-baths",
   title: "Toutes les baignades",
-  components: { BathCard },
+  components: { BathCard, ScatterChart },
   data() {
     return {
       allBaths: [],
@@ -105,7 +112,7 @@ export default {
 
 <style lang="scss" scoped>
 /* Section __________*/
-section {
+#section-bath-list {
   #title-all-baths {
     position: relative;
     margin: 50px auto 20px auto;
@@ -141,6 +148,20 @@ section {
   }
   @include media-max(667.98px) {
     width: 90%;
+  }
+}
+aside {
+  width: 100%;
+  margin: 50px auto 30px auto;
+  text-align: center;
+  h2 span {
+    color: $blue;
+    font-family: $oswald;
+  }
+  @include media-max(991.98px) {
+    #ScatterChart {
+      width: 100%;
+    }
   }
 }
 </style>
