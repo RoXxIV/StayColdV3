@@ -116,7 +116,7 @@ export default {
         display: flex;
         align-items: center;
         img {
-          max-width: 450px;
+          max-width: 350px;
         }
         @include media-max(991.98px) {
           flex-direction: column;
@@ -135,7 +135,7 @@ export default {
         justify-content: space-around;
         align-items: center;
         img {
-          max-width: 250px;
+          max-width: 150px;
           margin-right: 50px;
         }
         @include media-max(991.98px) {

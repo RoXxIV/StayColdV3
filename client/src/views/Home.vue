@@ -12,6 +12,8 @@
     <RecentBath />
     <!--quelque conseils-->
     <Advice />
+    <!--quelque conseils-->
+    <BreathLink />
   </div>
 </template>
 
@@ -20,10 +22,11 @@ import Banner from "../components/Reusable-components/Banner.vue";
 import Introduction from "../components/Home/Introduction.vue";
 import RecentBath from "../components/Baths/RecentBath.vue";
 import Advice from "../components/Home/Advices.vue";
+import BreathLink from "../components/Reusable-components/BreathLink.vue";
 export default {
   name: "Home",
   title: "Acceuil",
-  components: { Banner, Introduction, RecentBath, Advice },
+  components: { Banner, Introduction, RecentBath, Advice, BreathLink },
 };
 </script>
 

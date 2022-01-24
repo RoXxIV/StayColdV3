@@ -153,6 +153,9 @@ export default {
     span {
       color: $blue;
     }
+    @include media-max(667.98px) {
+      width: 90%;
+    }
   }
   /* content-title Section __________*/
   @include media-max(991.98px) {

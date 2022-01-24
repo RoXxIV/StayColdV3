@@ -1,51 +1,58 @@
 <template>
-  <section id="section-bath-list">
-    <!--IMG-->
-    <div id="landscape"></div>
-    <div id="title-all-baths">
-      <h1>Toutes les <span>baignades</span></h1>
-      <img
-        id="illustration"
-        class="slideInLeft"
-        src="@/assets/images/iceberg.png"
-        alt="illlustration d'un iceberg"
-      />
-    </div>
+  <div>
+    <section id="section-bath-list">
+      <!--IMG-->
+      <div id="landscape"></div>
+      <div id="title-all-baths">
+        <h1>Toutes les <span>baignades</span></h1>
+        <img
+          id="illustration"
+          class="slideInLeft"
+          src="@/assets/images/iceberg.png"
+          alt="illlustration d'un iceberg"
+        />
+      </div>
 
-    <!--Liste des baignades-->
-    <div class="card-list">
-      <BathCard
-        v-for="bath in allBaths.slice(bathIndexStart, bathIndexEnd)"
-        :key="bath"
-        :bath="bath"
-        class="list-item fadeIn"
-      />
+      <!--Liste des baignades-->
+      <div class="card-list">
+        <BathCard
+          v-for="bath in allBaths.slice(bathIndexStart, bathIndexEnd)"
+          :key="bath"
+          :bath="bath"
+          class="list-item fadeIn"
+        />
+      </div>
+      <!--Pagination-->
+      <div id="pagination">
+        <button
+          v-if="bathIndexStart !== 0"
+          @click="previousPage"
+          class="btn-blue"
+        >
+          Page {{ pageIndex - 1 }}
+        </button>
+        <span>Page {{ pageIndex }} </span>
+        <button
+          v-if="bathIndexEnd < allBaths.length"
+          @click="nextPage"
+          class="btn-blue"
+        >
+          Page {{ pageIndex + 1 }}
+        </button>
+      </div>
+    </section>
+    <!--Respiration guidée lien-->
+    <div>
+      <BreathLink />
     </div>
-    <!--Pagination-->
-    <div id="pagination">
-      <button
-        v-if="bathIndexStart !== 0"
-        @click="previousPage"
-        class="btn-blue"
-      >
-        Page {{ pageIndex - 1 }}
-      </button>
-      <span>Page {{ pageIndex }} </span>
-      <button
-        v-if="bathIndexEnd < allBaths.length"
-        @click="nextPage"
-        class="btn-blue"
-      >
-        Page {{ pageIndex + 1 }}
-      </button>
-    </div>
-    <aside>
+    <!--Statistique-->
+    <section id="section-stats">
       <h2>Toutes les baignades en <span>statistiques</span></h2>
       <div>
         <ScatterChart :BathChartData="allBaths" id="ScatterChart" />
       </div>
-    </aside>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -53,10 +60,11 @@ import BathDataServices from "../services/bathDataServices";
 import RenderBathData from "../helper/RenderBathData";
 import BathCard from "../components/Baths/BathCard.vue";
 import ScatterChart from "../components/Charts/ScatterChart.vue";
+import BreathLink from "../components/Reusable-components/BreathLink.vue";
 export default {
   name: "All-baths",
   title: "Toutes les baignades",
-  components: { BathCard, ScatterChart },
+  components: { BathCard, ScatterChart, BreathLink },
   data() {
     return {
       allBaths: [],
@@ -163,7 +171,7 @@ export default {
     width: 90%;
   }
 }
-aside {
+#section-stats {
   width: 100%;
   margin: 50px auto 30px auto;
   text-align: center;

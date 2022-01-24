@@ -84,7 +84,7 @@ export default {
 #section-breathing {
   display: flex;
   flex-direction: column;
-  min-height: 60vh;
+  min-height: 75vh;
   padding: 30px 0px;
   #breathing-header {
     h1 span {
@@ -113,7 +113,9 @@ export default {
       height: 100%;
       width: 100%;
       border-radius: 50%;
-      background-color: #010f1c;
+      background-image: url(../assets/images/camp.png);
+      background-size: cover;
+      background-repeat: no-repeat;
       z-index: -1;
     }
     p {
