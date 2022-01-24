@@ -42,7 +42,7 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
       html: `<div>
         <h1>❄ Bonjour ${name} et bienvenue sur Staycold ! ❄</h1>
         <p>Merci de bien vouloir finaliser l'inscription en cliquant sur le lien ci-dessous</p>
-        <a href=http://localhost:8080/comfirm-mail-redirection/${confirmationCode}>➡ Finaliser l'inscription ⬅</a>
+        <a href=https://demoevan.herokuapp.com/comfirm-mail-redirection/${confirmationCode}>➡ Finaliser l'inscription ⬅</a>
         <p>À bientôt, <br />
         L'équipe StayCold</p>
         </div>`,
@@ -66,7 +66,7 @@ module.exports.resetPasswordEmail = (name, email, confirmationCode) => {
         <h1>❄ Bonjour ${name} ❄</h1>
         <p>Il semble que vous ayez besoin d'un nouveau mot de passe. Cliquez sur le lien ci-dessous pour confirmer votre demande.</p>
         <br />
-        <a href=http://localhost:8080/reset-password/${confirmationCode}>➡ Confirmer votre demande ⬅</a>
+        <a href=https://demoevan.herokuapp.com/reset-password/${confirmationCode}>➡ Confirmer votre demande ⬅</a>
         <br />
         <p>Si vous ne l'avez pas demandé, veuillez ignorer cet e-mail et votre mot de passe restera inchangé.</p>
         <p>À bientôt, <br />
