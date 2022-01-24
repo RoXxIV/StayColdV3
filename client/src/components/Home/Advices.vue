@@ -36,8 +36,11 @@
             sentez capable, promenez-vous pour augmenter votre température
             corporelle.
             <br />
-            Pendant ou après la baignade, le contrôle de la respiration est un
-            element clé pour ne pas subir le froid
+            Pendant ou après la baignade, le contrôle de la
+            <router-link to="/breath"
+              ><span id="breath">respiration</span></router-link
+            >
+            est un element clé pour ne pas subir le froid
           </p>
         </div>
 
@@ -120,6 +123,10 @@ export default {
           img {
             max-width: 250px;
           }
+        }
+        #breath {
+          color: $blue;
+          text-decoration: underline;
         }
       }
       &#eat-something {

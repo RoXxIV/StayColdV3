@@ -14,6 +14,7 @@ import BathDetails from "./views/BathDetails.vue";
 import Profile from "./views/User/Profile.vue";
 import ContactForm from "./views/ContactForm.vue";
 import LegalNotices from "./views/LegalNotices.vue";
+import Breath from "./views/Breath.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 // boards view
 import AdminBoard from "./views/Boards/AdminBoard.vue";
@@ -90,6 +91,12 @@ const routes = [
     name: "Profile",
     beforeEnter: authGuards.userGuard,
     component: Profile,
+  },
+  /** Page profile de l'utilisateur */
+  {
+    path: "/breath",
+    name: "Breath",
+    component: Breath,
   },
   /** Page board admin */
   {
