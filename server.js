@@ -10,6 +10,9 @@ const dotenv = require("dotenv");
 /** @requires module:cors */
 const cors = require("cors");
 
+/** @requires module:connect-history-api-fallback */
+const history = require("connect-history-api-fallback");
+
 const PORT = process.env.PORT || 3000;
 
 const db = require("./models");
@@ -17,6 +20,8 @@ const db = require("./models");
 dotenv.config();
 
 const app = express();
+
+app.use(history());
 
 app.use(cors());
 
@@ -54,6 +59,14 @@ require("./routes/user.routes")(app);
 require("./routes/bath.routes")(app);
 /** @requires module:routes/contact */
 require("./routes/contact.routes")(app);
+
+// Handle production
+if (process.env.NODE_ENV === "production") {
+  // static folder
+  app.use(express.static(__dirname + "/dist/"));
+
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + "/dist/index.html"));
+}
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}.`);
