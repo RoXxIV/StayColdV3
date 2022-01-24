@@ -42,7 +42,7 @@ export default {
      *Si le mail est validé et l'utilisateur confirmé,
      * il recoit une confirmation avant d'etre redirigé vers la page de connexion.
      * En cas d'erreur avec un status 401 ou 403 (utilisateur non trouvé, compte dejà actif),
-     *l'utilisateur est avertit puis redirigé vers la page d'acceuil.
+     *l'utilisateur est avertit puis redirigé vers la page d'Accueil.
      * @param {string} code
      */
     sendComfirmationCode(code) {

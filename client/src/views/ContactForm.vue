@@ -141,7 +141,7 @@ export default {
       time: 3,
       subjects: [
         "Une idée d'amelioration du site",
-        "Signalé un bug",
+        "Signaler un bug",
         "On bosse ensemble ?",
         "Autre",
       ],

@@ -25,7 +25,7 @@ import Advice from "../components/Home/Advices.vue";
 import BreathLink from "../components/Reusable-components/BreathLink.vue";
 export default {
   name: "Home",
-  title: "Acceuil",
+  title: "Accueil",
   components: { Banner, Introduction, RecentBath, Advice, BreathLink },
 };
 </script>

@@ -21,7 +21,7 @@ import AdminBoard from "./views/Boards/AdminBoard.vue";
 
 const routes = [
   {
-    /** Page d'acceuil */
+    /** Page d'Accueil */
     path: "/",
     name: "Home",
     component: Home,

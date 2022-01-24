@@ -105,7 +105,7 @@ export default {
       );
     },
     /**
-     * Redirige l'utilisateur sur la page d'acceuil
+     * Redirige l'utilisateur sur la page d'Accueil
      */
     Redirection() {
       this.redirectionTimerId = setInterval(() => {
