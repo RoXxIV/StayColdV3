@@ -93,7 +93,8 @@ export default {
         .string()
         .required("Nom d'utilisateur requis")
         .min(4, "4 caracteres minimum")
-        .max(20, "20 caracteres maximum"),
+        .max(20, "20 caracteres maximum")
+        .matches(/^\S+$/, "les espaces ne sont pas autorisés"),
       email: yup
         .string()
         .required("Email requis!")
