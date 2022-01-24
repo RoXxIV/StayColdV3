@@ -4,7 +4,9 @@
     <div id="box">
       <div v-if="isComfirmed">
         <h2>{{ message }} 😀</h2>
-        <router-link to="/login">Se connecter</router-link>
+        <router-link to="/login"
+          ><span class="btn-blue">Se connecter</span></router-link
+        >
       </div>
       <!-- Erreur durant la confirmation du mail ----------->
       <div v-else>

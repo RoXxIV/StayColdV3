@@ -30,12 +30,11 @@
       <router-link to="/login"
         ><button class="btn-blue">Se connecter</button></router-link
       >
-
       <p>Redirection dans {{ time }}</p>
       <Loading />
     </div>
     <!-- Erreur ----------->
-    <div v-if="errorMsg && serverError">
+    <div v-if="errorMsg && serverError" id="serverError">
       <span class="alert">{{ errorMsg }}</span>
       <p>Redirection dans {{ time }}</p>
       <Loading />
@@ -199,8 +198,12 @@ h1 {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  text-align: center;
   button {
     margin-top: 30px;
   }
+}
+#serverError {
+  text-align: center;
 }
 </style>
