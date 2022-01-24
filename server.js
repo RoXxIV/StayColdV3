@@ -13,8 +13,6 @@ const cors = require("cors");
 /** @requires module:connect-history-api-fallback */
 const history = require("connect-history-api-fallback");
 
-const PORT = process.env.PORT || 3000;
-
 const db = require("./models");
 
 dotenv.config();
@@ -68,6 +66,7 @@ if (process.env.NODE_ENV === "production") {
   app.get(/.*/, (req, res) => res.sendFile(__dirname + "/dist/index.html"));
 }
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on PORT ${PORT}.`);
+  console.log(`Server is running on port ${PORT}.`);
 });
