@@ -43,3 +43,5 @@ La Documentation des differentes routes de l'API est disponible dans le fichier 
 - yup
 - vue-chartkick
 - vue-fontawesome
+
+### La maquette a été réalisée avec le logiciel figma
