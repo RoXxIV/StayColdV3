@@ -11,7 +11,7 @@
         <span v-else>Theme 🌚</span>
       </li>
       <li @click="$emit('closeMenu')">
-        <router-link to="/">Acceuil</router-link>
+        <router-link to="/">Accueil</router-link>
       </li>
       <li @click="$emit('closeMenu')">
         <router-link to="/all-baths">Baignades</router-link>

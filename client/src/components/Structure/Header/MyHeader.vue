@@ -30,7 +30,7 @@
       <!-- Nav default ----------->
       <nav>
         <ul id="default-nav">
-          <li><router-link to="/">Acceuil </router-link></li>
+          <li><router-link to="/">Accueil </router-link></li>
           <li><router-link to="/all-baths">Baignades</router-link></li>
           <!-- Nav user ----------->
           <li v-if="loggedIn">
@@ -126,7 +126,7 @@ export default {
       localStorage.setItem("theme", this.theme);
     },
     /**
-     * Deconnexion et redirection a l'Acceuil de l'utilisateur
+     * Deconnexion et redirection a l'Accueil de l'utilisateur
      */
     logout() {
       this.$store.dispatch("auth/logout");

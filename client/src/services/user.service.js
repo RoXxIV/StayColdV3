@@ -21,7 +21,7 @@ class UserService {
    * @returns {object}
    */
   deleteOne(id) {
-    return axios.delete(`${API_URL}/${id}`, { headers: authHeader() });
+    return axios.delete(API_URL + id, { headers: authHeader() });
   }
   /**
    * Modifie un utilisateur
@@ -31,7 +31,7 @@ class UserService {
    */
   updateUserRole(id, role) {
     return axios.post(
-      `${API_URL}/update-role/${id}`,
+      `${API_URL}update-role/${id}`,
       { roles: role },
       { headers: authHeader() }
     );

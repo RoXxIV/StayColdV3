@@ -31,5 +31,5 @@ module.exports = function (app) {
    * @param {string} path - Express path
    * @param {module} controller - controllers/contact.controller.handleFormContact()
    */
-  app.post("/contact", controller.handleFormContact);
+  app.post("/api/contact", controller.handleFormContact);
 };

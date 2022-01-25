@@ -90,7 +90,7 @@ export default {
      * - Dans le cas ou le code de comfirmation est incorrect (utilisateur non reconnu)
      * celui-ci est redirigé vers la page 404 par securité.
      * - Si toute autre erreur est renvoyé (erreur serveur) l'utilisateur est imformé puis redirigé
-     * à la page d'acceuil du site.
+     * à la page d'Accueil du site.
      * @param {object} passwords
      */
     handleResetPassword(passwords) {
@@ -134,7 +134,7 @@ export default {
   },
   created() {
     /**
-     * Redirige a l'acceuil si le paramettre url est absent
+     * Redirige a l'Accueil si le paramettre url est absent
      */
     if (!this.$route.params.confirmationCode) return this.$router.push("/");
     this.code = this.$route.params.confirmationCode;
