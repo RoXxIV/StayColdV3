@@ -6,7 +6,7 @@ axios.create({
   },
 });
 
-const API_URL = "http://localhost:5000/contact";
+const API_URL = "/api/contact";
 
 /**
  * Service Contact
